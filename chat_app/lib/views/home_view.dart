@@ -1,0 +1,73 @@
+import 'package:chat_app/custom_widgets/tabbaritems.dart';
+import 'package:chat_app/functions/widget_returning_functions.dart';
+import 'package:flutter/material.dart';
+
+class ChatAppHomepage extends StatefulWidget{
+  const ChatAppHomepage({super.key});
+
+  @override 
+  State<ChatAppHomepage> createState() => _Homepage();
+}
+
+class _Homepage extends State<ChatAppHomepage> with SingleTickerProviderStateMixin{
+
+  late TabController tabController;
+  int index = 0;
+
+  @override 
+  void initState() {
+    tabController = TabController(length: 5, vsync: this);
+    tabController.addListener(() => setState(() => index = tabController.index));
+    super.initState();
+  }
+
+  @override 
+  void dispose(){
+    tabController.dispose();
+    super.dispose();
+  }
+
+  
+  @override 
+  Widget build(BuildContext context) => DefaultTabController(
+    length: 5,
+    child: Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.blueGrey.shade900, foregroundColor: Colors.white60, centerTitle: true,
+        title: const Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text('WhatsApp'), Icon(Icons.wifi), Icon(Icons.sunny),Icon(Icons.search_rounded), 
+            Icon(Icons.photo_camera_outlined), Icon(Icons.more_vert_sharp)
+          ]
+        ),
+
+        bottom: TabBar(
+          indicatorColor: const Color.fromARGB(255, 38, 165, 132), indicatorWeight: 5, 
+          isScrollable: true, tabAlignment: TabAlignment.center, controller: tabController,
+          tabs: const [
+            Padding(
+              padding: EdgeInsets.only(bottom: 10),
+              child: Icon(Icons.people_rounded, color: Colors.white38)
+            ),
+            TabBarItems(text: 'Chats', radius: 9),
+            TabBarItems(text: 'Groups', radius: 9),
+            TabBarItems(text: 'Status', radius: 3),            
+            TabBarItems(text: 'Calls', radius: 0)
+          ]
+        ),
+      ),
+      body: TabBarView(
+        controller: tabController,
+        children: [
+          Container(color: Colors.black.withBlue(20),),
+          Container(color: Colors.black87),
+          Container(color: Colors.black87),
+          Container(color: Colors.black87),
+          Container(color: Colors.black87)
+        ],
+      ),
+      floatingActionButton: UIFloatingActionButtons(index: index) 
+    )
+  );
+}
