@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-class TabBarItems extends StatelessWidget {
+class TabBarItem extends StatelessWidget {
   final String text;
   final double radius;
-  const TabBarItems({required this.text, required this. radius, super.key});
+  const TabBarItem({required this.text, required this. radius, super.key});
 
   @override
   Widget build(BuildContext context) => Builder(

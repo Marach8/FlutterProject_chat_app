@@ -1,4 +1,4 @@
-import 'package:chat_app/chatapphome.dart';
+import 'package:chat_app/views/home_view.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp (const ChatApp());

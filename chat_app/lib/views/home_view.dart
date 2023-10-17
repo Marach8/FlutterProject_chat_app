@@ -1,5 +1,5 @@
-import 'package:chat_app/custom_widgets/tabbaritems.dart';
-import 'package:chat_app/functions/widget_returning_functions.dart';
+import 'package:chat_app/custom_widgets/floatingbutton_widget.dart';
+import 'package:chat_app/custom_widgets/tabbaritem_widget.dart';
 import 'package:flutter/material.dart';
 
 class ChatAppHomepage extends StatefulWidget{
@@ -16,9 +16,9 @@ class _Homepage extends State<ChatAppHomepage> with SingleTickerProviderStateMix
 
   @override 
   void initState() {
+    super.initState();
     tabController = TabController(length: 5, vsync: this);
     tabController.addListener(() => setState(() => index = tabController.index));
-    super.initState();
   }
 
   @override 
@@ -50,10 +50,10 @@ class _Homepage extends State<ChatAppHomepage> with SingleTickerProviderStateMix
               padding: EdgeInsets.only(bottom: 10),
               child: Icon(Icons.people_rounded, color: Colors.white38)
             ),
-            TabBarItems(text: 'Chats', radius: 9),
-            TabBarItems(text: 'Groups', radius: 9),
-            TabBarItems(text: 'Status', radius: 3),            
-            TabBarItems(text: 'Calls', radius: 0)
+            TabBarItem(text: 'Chats', radius: 9),
+            TabBarItem(text: 'Groups', radius: 9),
+            TabBarItem(text: 'Status', radius: 3),            
+            TabBarItem(text: 'Calls', radius: 0)
           ]
         ),
       ),
