@@ -1,3 +1,4 @@
+import 'package:chat_app/functions/get_contacts.dart';
 import 'package:flutter/material.dart';
 
 class CustomFAB extends StatelessWidget{
@@ -37,8 +38,9 @@ class _UIFloatingActionButtonsState extends State<UIFloatingActionButtons> {
       return Stack(
         children: [          
           Positioned(
-            right: 0, bottom: 234, child: _showOtherFABs? CustomFAB(icon: Icons.message_rounded, mini: false, function: (){})
-            : const SizedBox.shrink(),
+            right: 0, bottom: 234, child: _showOtherFABs? CustomFAB(icon: Icons.message_rounded, mini: false, 
+              function: (){getContacts();}
+            ): const SizedBox.shrink(),
           ),
           Positioned(
             right: 0, bottom: 155, child: _showOtherFABs? CustomFAB(icon: Icons.punch_clock_outlined, mini: false, function: (){})
