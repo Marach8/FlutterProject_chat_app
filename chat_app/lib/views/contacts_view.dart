@@ -50,7 +50,6 @@ class _ContactViewState extends State<ContactsView> {
               return ListView.builder(
                 itemCount: listOfContacts.length,
                 itemBuilder: (context, index) {
-                  print(index);
                   final contact = listOfContacts[index];                  
                   return ListTile(
                     leading: const CircleAvatar(radius: 10,),

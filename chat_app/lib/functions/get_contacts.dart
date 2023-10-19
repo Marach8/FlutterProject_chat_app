@@ -5,10 +5,7 @@ class GetContacts{
 
   Future<List<Contact>> getContacts() async{
     if(await Permission.contacts.status.isGranted){
-      print('status is Granted');
       final List<Contact> contacts = await ContactsService.getContacts();
-      //for (var contact in contacts) print(contact.displayName);
-      //print(contacts.length);
       return contacts;
     }
     else {
