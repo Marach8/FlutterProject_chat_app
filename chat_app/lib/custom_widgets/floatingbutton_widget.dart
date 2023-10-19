@@ -1,3 +1,4 @@
+import 'package:chat_app/constants/routes.dart';
 import 'package:chat_app/functions/get_contacts.dart';
 import 'package:flutter/material.dart';
 
@@ -39,7 +40,10 @@ class _UIFloatingActionButtonsState extends State<UIFloatingActionButtons> {
         children: [          
           Positioned(
             right: 0, bottom: 234, child: _showOtherFABs? CustomFAB(icon: Icons.message_rounded, mini: false, 
-              function: (){getContacts();}
+              function: () async{
+                Navigator.of(context).pushNamed(contactsRoute);
+                await GetContacts().getContacts();
+                }
             ): const SizedBox.shrink(),
           ),
           Positioned(
