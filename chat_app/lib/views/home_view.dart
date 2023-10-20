@@ -34,11 +34,13 @@ class _Homepage extends State<ChatAppHomepage> with SingleTickerProviderStateMix
     child: Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.blueGrey.shade900, foregroundColor: Colors.white60, centerTitle: true,
-        title: const Row(
+        title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text('WhatsApp'), Icon(Icons.wifi), Icon(Icons.sunny),Icon(Icons.search_rounded), 
-            Icon(Icons.photo_camera_outlined), Icon(Icons.more_vert_sharp)
+            const Text('WhatsApp'), 
+            index == 1 || index == 2 ? const Icon(Icons.wifi, size: 25): const SizedBox(width: 25), 
+            index == 1 || index == 2 ? const Icon(Icons.sunny, size: 25): const SizedBox(width: 25),
+            const Icon(Icons.search_rounded), const Icon(Icons.photo_camera_outlined), const Icon(Icons.more_vert_sharp)
           ]
         ),
 

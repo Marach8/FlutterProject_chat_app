@@ -3,7 +3,6 @@ import 'package:chat_app/custom_widgets/text_widget.dart';
 import 'package:chat_app/functions/get_contacts.dart';
 import 'package:contacts_service/contacts_service.dart';
 import 'package:flutter/material.dart';
-//import 'package:google_fonts/google_fonts.dart';
 
 class ContactsView extends StatefulWidget {
   const ContactsView({super.key});
@@ -42,73 +41,66 @@ class _ContactViewState extends State<ContactsView> {
           )
         ],        
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Padding(
-            padding: const EdgeInsets.fromLTRB(15, 20, 0, 15),
-            child: Row(
-              children: [
-                const CustomCircleAvatar(radius: 20, color:Color.fromARGB(255, 38, 165, 132),
-                  child: Icon(Icons.people, color: Colors.white)
-                ), const SizedBox(width: 15),
-                CustomTextWidget(color: Colors.blueGrey.shade400, size: 18, fontWeight: FontWeight.w400, text: 'New group')
-              ]
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.fromLTRB(15, 12, 0, 15),
-            child: Row(
-              children: [
-                const CustomCircleAvatar(radius: 20, color:Color.fromARGB(255, 38, 165, 132),
-                  child: Icon(Icons.person_add, color: Colors.white)
-                ), const SizedBox(width: 15),
-                CustomTextWidget(color: Colors.blueGrey.shade400, size: 18, fontWeight: FontWeight.w400, text: 'New contact')
-              ]
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.fromLTRB(15, 10, 0, 15),
-            child: CustomTextWidget(color:Colors.blueGrey.shade400, size:15, fontWeight:FontWeight.w400, text:'Contacts on WhatsApp'),
-          ),
-          Expanded(
-            child: FutureBuilder <List<Contact>>(
-              future: GetContacts().getContacts(),
-              builder: (context, snapshot){
-                if(snapshot.connectionState == ConnectionState.waiting){
-                  return const Center(child: CircularProgressIndicator());
-                } 
-                else {
-                  final List<Contact>? listOfContacts = snapshot.data ; 
-                  if(listOfContacts!.isNotEmpty){                           
-                    return ListView.builder(
-                      itemCount: listOfContacts.length,
-                      itemBuilder: (context, index) {
-                        final contact = listOfContacts[index];                  
-                        return ListTile(
-                          leading: const CircleAvatar(radius: 20,),
-                          title: CustomTextWidget(
-                            color: Colors.white, size:15, fontWeight: FontWeight.w400, text: contact.displayName ?? ''
-                          )
-                          // title: Text(
-                          //   contact.displayName ?? '',
-                          //   style: const TextStyle(
-                          //     fontFamily: 'sans-serrif', color: Colors.white70
-                          //   )
-                          // ),
-                          //subtitle: Text(contact.phones![0].value ?? ''),
-                        );
-                      }
+      body: FutureBuilder <List<Contact>>(
+        future: GetContacts().getContacts(),
+        builder: (context, snapshot){
+          if(snapshot.connectionState == ConnectionState.waiting){
+            return const Center(child: CircularProgressIndicator(color: Color.fromARGB(255, 38, 165, 132)));
+          } 
+          else {
+            final List<Contact>? listOfContacts = snapshot.data ; 
+            if(listOfContacts!.isNotEmpty){                           
+              return ListView.builder(
+                itemCount: listOfContacts.length + 3,
+                itemBuilder: (context, index) {
+                  if (index == 0){
+                    return ListTile(
+                      tileColor: const Color.fromARGB(255, 0, 24, 18),
+                      contentPadding: const EdgeInsets.fromLTRB(10, 10, 0, 5),
+                      leading: const CustomCircleAvatar(radius: 20, color:Color.fromARGB(255, 38, 165, 132),
+                        child: Icon(Icons.people, color: Colors.white)
+                      ),
+                      title: CustomTextWidget(color: Colors.blueGrey.shade400, size: 18, fontWeight: FontWeight.w400, text: 'New group')
                     );
                   }
-                  else {
-                    return const Center(child: Text('Unable to fectch your contacts'));              
+                  else if (index == 1){
+                    return ListTile(
+                      tileColor: const Color.fromARGB(255, 0, 24, 18),
+                      contentPadding: const EdgeInsets.fromLTRB(10, 10, 0, 5),
+                      leading: const CustomCircleAvatar(radius: 20, color:Color.fromARGB(255, 38, 165, 132),
+                        child: Icon(Icons.person_add, color: Colors.white)
+                      ),
+                      title: CustomTextWidget(color: Colors.blueGrey.shade400, size: 18, 
+                        fontWeight: FontWeight.w400, text: 'New contact'
+                      )
+                    );
                   }
+                  else if (index == 2){
+                    return ListTile(
+                      tileColor: const Color.fromARGB(255, 0, 24, 18),
+                      contentPadding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
+                      title: CustomTextWidget(color:Colors.blueGrey.shade400, size:15, 
+                        fontWeight:FontWeight.w400, text:'Contacts on WhatsApp'
+                      ),
+                    );
+                  }
+
+                  final contact = listOfContacts[index - 3];                  
+                  return ListTile(
+                    tileColor: const Color.fromARGB(255, 0, 24, 18),
+                    contentPadding: const EdgeInsets.fromLTRB(10, 10, 0, 5),
+                    leading: const CircleAvatar(radius: 20,),
+                    title: CustomTextWidget(
+                      color: Colors.white70, size:17, fontWeight: FontWeight.w400, text: contact.displayName ?? ''
+                    )                          
+                    //subtitle: Text(contact.phones![0].value ?? ''),
+                  );
                 }
-              }
-            ),
-          ),
-        ],
+              );
+            }
+            else {return const Center(child: Text('Unable to fectch your contacts'));}
+          }
+        }
       )
     );
   }
