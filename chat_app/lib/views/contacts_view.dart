@@ -31,12 +31,25 @@ class _ContactViewState extends State<ContactsView> {
             onPressed: (){}
           ),
           PopupMenuButton(
-            icon: const Icon(Icons.more_vert),
+            icon: const Icon(Icons.more_vert, color: Colors.white60),
+            color: const Color.fromARGB(255, 28, 45, 42),
             itemBuilder:(context) => [
-              const PopupMenuItem(value: 'item 2', child: Text('Invite a friend'),),
-              const PopupMenuItem(value: 'item 2', child: Text('Contacts'),),
-              const PopupMenuItem(value: 'item 2', child: Text('Refresh'),),
-              const PopupMenuItem(value: 'item 2', child: Text('Help'),),
+              const PopupMenuItem(
+                value: 'item 2', 
+                child: CustomTextWidget(color: Colors.white, size: 16, fontWeight: FontWeight.w400, text: 'Invite a friend')
+              ),
+              const PopupMenuItem(
+                value: 'item 2', 
+                child: CustomTextWidget(color: Colors.white, size: 16, fontWeight: FontWeight.w400, text: 'Contacts')
+              ),
+              const PopupMenuItem(
+                value: 'item 2', 
+                child: CustomTextWidget(color: Colors.white, size: 16, fontWeight: FontWeight.w400, text: 'Refresh')
+              ),
+              const PopupMenuItem(
+                value: 'item 2', 
+                child: CustomTextWidget(color: Colors.white, size: 16, fontWeight: FontWeight.w400, text: 'Help')
+              ),              
             ],
           )
         ],        
@@ -55,7 +68,7 @@ class _ContactViewState extends State<ContactsView> {
                 itemBuilder: (context, index) {
                   if (index == 0){
                     return ListTile(
-                      tileColor: const Color.fromARGB(255, 0, 24, 18),
+                      tileColor: const Color.fromARGB(255, 0, 22, 26),
                       contentPadding: const EdgeInsets.fromLTRB(10, 10, 0, 5),
                       leading: const CustomCircleAvatar(radius: 20, color:Color.fromARGB(255, 38, 165, 132),
                         child: Icon(Icons.people, color: Colors.white)
@@ -65,7 +78,7 @@ class _ContactViewState extends State<ContactsView> {
                   }
                   else if (index == 1){
                     return ListTile(
-                      tileColor: const Color.fromARGB(255, 0, 24, 18),
+                      tileColor: const Color.fromARGB(255, 0, 22, 26),
                       contentPadding: const EdgeInsets.fromLTRB(10, 10, 0, 5),
                       leading: const CustomCircleAvatar(radius: 20, color:Color.fromARGB(255, 38, 165, 132),
                         child: Icon(Icons.person_add, color: Colors.white)
@@ -77,7 +90,7 @@ class _ContactViewState extends State<ContactsView> {
                   }
                   else if (index == 2){
                     return ListTile(
-                      tileColor: const Color.fromARGB(255, 0, 24, 18),
+                      tileColor: const Color.fromARGB(255, 0, 22, 26),
                       contentPadding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
                       title: CustomTextWidget(color:Colors.blueGrey.shade400, size:15, 
                         fontWeight:FontWeight.w400, text:'Contacts on WhatsApp'
@@ -87,7 +100,7 @@ class _ContactViewState extends State<ContactsView> {
 
                   final contact = listOfContacts[index - 3];                  
                   return ListTile(
-                    tileColor: const Color.fromARGB(255, 0, 24, 18),
+                    tileColor: const Color.fromARGB(255, 0, 22, 26),
                     contentPadding: const EdgeInsets.fromLTRB(10, 10, 0, 5),
                     leading: const CircleAvatar(radius: 20,),
                     title: CustomTextWidget(

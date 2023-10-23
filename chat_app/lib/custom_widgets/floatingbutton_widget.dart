@@ -58,9 +58,7 @@ class _UIFloatingActionButtonsState extends State<UIFloatingActionButtons> {
             right: 0, bottom: 0,
             child: CustomFAB(
               mini: false, icon: !_showOtherFABs? Icons.add: Icons.close, tag: 'tab4',
-              function: (){
-                setState(() => _showOtherFABs = !_showOtherFABs);
-              }
+              function: (){setState(() => _showOtherFABs = !_showOtherFABs);}
             ),
           ),
         ]
