@@ -1,5 +1,4 @@
 import 'package:chat_app/constants/routes.dart';
-import 'package:chat_app/functions/get_contacts.dart';
 import 'package:flutter/material.dart';
 
 class CustomFAB extends StatelessWidget{
@@ -33,23 +32,37 @@ class _UIFloatingActionButtonsState extends State<UIFloatingActionButtons> {
     if (widget.index == 0) {return const SizedBox.shrink();}
     else if (widget.index == 1 || widget.index == 2){
       return Stack(
-        children: [          
+        children: [
           Positioned(
-            right: 0, bottom: 234, child: _showOtherFABs? CustomFAB(icon: Icons.message_rounded, mini: false, tag: 'tab1',
-              function: () async{
-                Navigator.of(context).pushNamed(contactsRoute);
-              }
-            ): const SizedBox.shrink(),
-          ),
-          Positioned(
-            right: 0, bottom: 155, child: _showOtherFABs? CustomFAB(icon: Icons.punch_clock_outlined, mini: false, tag: 'tab2',
-            function: (){})
-            : const SizedBox.shrink(),
-          ),
-          Positioned(
-            right: 0, bottom: 78, child: _showOtherFABs? CustomFAB(icon: Icons.flag_rounded, mini: false, tag: 'tab3',
-            function: (){})
-            : const SizedBox.shrink(),
+            right: 0, bottom: 78, child: AnimatedSwitcher(
+              duration: const Duration(seconds: 1),
+              transitionBuilder: (child, animation){
+                return RotationTransition(
+                  turns: animation, child: child
+                );
+              },
+              child: _showOtherFABs? Container(
+                height: 215, width:60,
+                child: Stack(
+                  children: [
+                    Positioned(
+                      right: 0, bottom: 155,
+                      child: CustomFAB(icon: Icons.message_rounded, mini: false, tag: 'tab1',
+                        function: () async{Navigator.of(context).pushNamed(contactsRoute);}
+                      )
+                    ),
+                    Positioned(
+                      right: 0, bottom: 78, child: CustomFAB(icon: Icons.punch_clock_outlined, mini: false, tag: 'tab2',
+                      function: (){})
+                    ),
+                    Positioned(
+                      right: 0, bottom: 0, child: CustomFAB(icon: Icons.flag_rounded, mini: false, tag: 'tab3',
+                      function: (){})
+                    ),
+                  ]
+                )
+              ): const SizedBox.shrink(),
+            )
           ),
           Positioned(
             right: 0, bottom: 0,
