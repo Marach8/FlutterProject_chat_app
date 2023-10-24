@@ -38,8 +38,7 @@ class _UIFloatingActionButtonsState extends State<UIFloatingActionButtons> {
             right: 0, bottom: 234, child: _showOtherFABs? CustomFAB(icon: Icons.message_rounded, mini: false, tag: 'tab1',
               function: () async{
                 Navigator.of(context).pushNamed(contactsRoute);
-                await GetContacts().getContacts();
-                }
+              }
             ): const SizedBox.shrink(),
           ),
           Positioned(

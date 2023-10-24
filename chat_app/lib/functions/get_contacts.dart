@@ -4,14 +4,11 @@ import 'package:permission_handler/permission_handler.dart';
 class GetContacts{
 
   Future<List<Contact>> getContacts() async{
-    if(await Permission.contacts.status.isGranted){
-      final List<Contact> contacts = await ContactsService.getContacts();
-      return contacts;
-    }
+    if(await Permission.contacts.status.isGranted) {return await ContactsService.getContacts();}
     else {
       await Permission.contacts.request();
-      final List<Contact> contacts = await ContactsService.getContacts();
-      return contacts;
+      if (await Permission.contacts.status.isGranted){return ContactsService.getContacts();}
+      else {return [];}
     }
   }
 }

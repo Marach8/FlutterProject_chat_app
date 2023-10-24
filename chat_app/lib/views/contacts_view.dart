@@ -77,8 +77,8 @@ class _ContactViewState extends State<ContactsView> {
             return const Center(child: CircularProgressIndicator(color: Color.fromARGB(255, 38, 165, 132)));
           } 
           else {
-            final List<Contact>? listOfContacts = snapshot.data ; 
-            if(listOfContacts!.isNotEmpty){                           
+            final List<Contact> listOfContacts = snapshot.data ?? [] ; 
+            if(listOfContacts.isNotEmpty){                           
               return ListView.builder(
                 itemCount: listOfContacts.length + 3,
                 itemBuilder: (context, index) {
@@ -127,7 +127,13 @@ class _ContactViewState extends State<ContactsView> {
                 }
               );
             }
-            else {return const Center(child: Text('Unable to fectch your contacts'));}
+            else {
+              return Center(
+                child: CustomTextWidget(
+                  color: Colors.blueGrey.shade400, size:17, fontWeight: FontWeight.w400, text: 'Unable to fectch your contacts'
+                )
+              );
+            }
           }
         }
       )
