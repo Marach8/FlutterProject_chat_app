@@ -16,8 +16,6 @@ class CustomFAB extends StatelessWidget{
 }
 
 
-
-
 class UIFloatingActionButtons extends StatefulWidget {
   final int index;
   const UIFloatingActionButtons({required this.index, super.key});
@@ -85,17 +83,3 @@ class _UIFloatingActionButtonsState extends State<UIFloatingActionButtons> {
   );
 }
 
-
-
-// class ChatsAndGroupsExtraFAB extends StatelessWidget {
-//   const ChatsAndGroupsExtraFAB({super.key});
-
-//   @override
-//   Widget build(BuildContext context) => Stack(
-//     children: [
-//       Positioned(right: 0, bottom: 200, child: CustomFAB(icon: Icons.message_rounded, mini: false, function: (){})),
-//       Positioned(right: 5, bottom: 150, child: CustomFAB(icon: Icons.punch_clock_outlined, mini: true, function: (){})),
-//       Positioned(right: 0, bottom: 100, child: CustomFAB(icon: Icons.flag_rounded, mini: false, function: (){})),
-//     ]
-//   );
-// }

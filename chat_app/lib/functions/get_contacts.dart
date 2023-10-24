@@ -10,7 +10,8 @@ class GetContacts{
     }
     else {
       await Permission.contacts.request();
-      return [];
+      final List<Contact> contacts = await ContactsService.getContacts();
+      return contacts;
     }
   }
 }

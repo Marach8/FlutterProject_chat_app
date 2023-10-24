@@ -12,23 +12,39 @@ class ContactsView extends StatefulWidget {
 }
 
 class _ContactViewState extends State<ContactsView> {
+  bool searchContacts = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
         backgroundColor: Colors.blueGrey.shade900, foregroundColor: Colors.white60,
-        title: Column(
+        title: AnimatedSwitcher(
+          duration: const Duration(milliseconds: 1000),
+          child: !searchContacts? Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             CustomTextWidget(color: Colors.blueGrey.shade400, size: 20, fontWeight: FontWeight.w400, text: 'Select contact',),
             const CustomTextWidget(color: Colors.white, size: 14, fontWeight: FontWeight.w400, text: '954 contacts',)
           ]
+          ): const TextField(
+            cursorColor: Color.fromARGB(255, 38, 165, 132),
+            decoration: InputDecoration(
+              hintText: 'Type a name or number...',
+            ),
+          ),
         ),
         actions: [
-          IconButton(
-            icon: const Icon(Icons.search_rounded, color: Colors.white), 
-            onPressed: (){}
+          Builder(
+            builder: (innerContext) {
+              return IconButton(
+                icon: const Icon(Icons.search_rounded, color: Colors.white), 
+                onPressed: (){
+                  setState(() => searchContacts = true);
+                }
+              );
+            }
           ),
           PopupMenuButton(
             icon: const Icon(Icons.more_vert, color: Colors.white60),
@@ -105,7 +121,7 @@ class _ContactViewState extends State<ContactsView> {
                     leading: const CircleAvatar(radius: 20,),
                     title: CustomTextWidget(
                       color: Colors.white70, size:17, fontWeight: FontWeight.w400, text: contact.displayName ?? ''
-                    )                          
+                    )
                     //subtitle: Text(contact.phones![0].value ?? ''),
                   );
                 }
