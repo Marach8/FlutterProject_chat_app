@@ -1,6 +1,7 @@
 import 'package:chat_app/custom_widgets/circle_avatar.dart';
 import 'package:chat_app/custom_widgets/text_widget.dart';
-import 'package:chat_app/functions/get_contacts.dart';
+import 'package:chat_app/functions/contacts_functions.dart';
+import 'package:chat_app/functions/message_functions.dart';
 import 'package:contacts_service/contacts_service.dart';
 import 'package:flutter/material.dart';
 
@@ -20,20 +21,28 @@ class _ContactViewState extends State<ContactsView> {
       backgroundColor: Colors.black,
       appBar: AppBar(
         backgroundColor: Colors.blueGrey.shade900, foregroundColor: Colors.white60,
-        title: AnimatedSwitcher(
-          duration: const Duration(milliseconds: 1000),
-          child: !searchContacts? Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            CustomTextWidget(color: Colors.blueGrey.shade400, size: 20, fontWeight: FontWeight.w400, text: 'Select contact',),
-            const CustomTextWidget(color: Colors.white, size: 14, fontWeight: FontWeight.w400, text: '954 contacts',)
-          ]
-          ): const TextField(
-            cursorColor: Color.fromARGB(255, 38, 165, 132),
-            decoration: InputDecoration(
-              hintText: 'Type a name or number...',
-            ),
-          ),
+        title: Builder(
+          builder: (context) {
+            return Row(
+              children: [
+                AnimatedSwitcher(
+                  duration: const Duration(milliseconds: 1000),
+                  child: !searchContacts? Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      CustomTextWidget(color: Colors.blueGrey.shade400, size: 20, fontWeight: FontWeight.w400, text: 'Select contact',),
+                      const CustomTextWidget(color: Colors.white, size: 14, fontWeight: FontWeight.w400, text: '954 contacts',)
+                    ]
+                  ): const TextField(
+                    cursorColor: Color.fromARGB(255, 38, 165, 132),
+                    decoration: InputDecoration(
+                      hintText: 'Type a name or number...',
+                    ),
+                  ),
+                ),
+              ],
+            );
+          }
         ),
         actions: [
           Builder(
@@ -50,26 +59,29 @@ class _ContactViewState extends State<ContactsView> {
             icon: const Icon(Icons.more_vert, color: Colors.white60),
             color: const Color.fromARGB(255, 28, 45, 42),
             itemBuilder:(context) => [
-              const PopupMenuItem(
-                value: 'item 2', 
-                child: CustomTextWidget(color: Colors.white, size: 16, fontWeight: FontWeight.w400, text: 'Invite a friend')
+              PopupMenuItem(
+                value: 'item1', 
+                onTap: () => listApps(),
+                child: const CustomTextWidget(color: Colors.white, size: 16, fontWeight: FontWeight.w400, text: 'Invite a friend')
               ),
               const PopupMenuItem(
-                value: 'item 2', 
+                value: 'item2', 
                 child: CustomTextWidget(color: Colors.white, size: 16, fontWeight: FontWeight.w400, text: 'Contacts')
               ),
               const PopupMenuItem(
-                value: 'item 2', 
+                value: 'item3', 
                 child: CustomTextWidget(color: Colors.white, size: 16, fontWeight: FontWeight.w400, text: 'Refresh')
               ),
               const PopupMenuItem(
-                value: 'item 2', 
+                value: 'item4', 
                 child: CustomTextWidget(color: Colors.white, size: 16, fontWeight: FontWeight.w400, text: 'Help')
               ),              
             ],
           )
         ],        
       ),
+
+
       body: FutureBuilder <List<Contact>>(
         future: GetContacts().getContacts(),
         builder: (context, snapshot){
