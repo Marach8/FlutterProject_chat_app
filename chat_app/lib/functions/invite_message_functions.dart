@@ -7,7 +7,6 @@ import 'package:url_launcher/url_launcher.dart';
 //   void sendInviteMessage() async{
 //     String message = 'Hello, Come and chat with me on my new whatsApp';
 //     final uri = "sms:?body=${Uri.parse(message)}";
-
 //     if(await canLaunchUrl(uri))
 //   }
 // }
@@ -23,3 +22,21 @@ void listApps() async{
     }
   }
 }
+
+
+Future showModalSheet(BuildContext context) => showModalBottomSheet(
+  context: context, 
+  builder: (context) => Container(
+    color: Colors.yellow, height: 200, width: MediaQuery.of(context).size.width,
+    child: Column(
+      children: [
+        ElevatedButton.icon(
+          onPressed: Navigator.of(context).pop, icon: Icon(Icons.cancel), label: const SizedBox.shrink()
+        ),
+        Row(),
+        const SizedBox(height: 50),
+        Row()
+      ]
+    )
+  )
+);

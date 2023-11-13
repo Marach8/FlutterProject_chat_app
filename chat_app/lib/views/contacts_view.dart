@@ -1,7 +1,7 @@
 import 'package:chat_app/custom_widgets/circle_avatar.dart';
 import 'package:chat_app/custom_widgets/text_widget.dart';
 import 'package:chat_app/functions/contacts_functions.dart';
-import 'package:chat_app/functions/message_functions.dart';
+import 'package:chat_app/functions/invite_message_functions.dart';
 import 'package:contacts_service/contacts_service.dart';
 import 'package:flutter/material.dart';
 
@@ -61,7 +61,7 @@ class _ContactViewState extends State<ContactsView> {
             itemBuilder:(context) => [
               PopupMenuItem(
                 value: 'item1', 
-                onTap: () => listApps(),
+                onTap: () async {listApps(); await showModalSheet(context);},
                 child: const CustomTextWidget(color: Colors.white, size: 16, fontWeight: FontWeight.w400, text: 'Invite a friend')
               ),
               const PopupMenuItem(
