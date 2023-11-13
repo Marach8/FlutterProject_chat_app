@@ -1,3 +1,4 @@
+import 'package:chat_app/custom_widgets/text_widget.dart';
 import 'package:device_apps/device_apps.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -27,11 +28,22 @@ void listApps() async{
 Future showModalSheet(BuildContext context) => showModalBottomSheet(
   context: context, 
   builder: (context) => Container(
-    color: Colors.yellow, height: 200, width: MediaQuery.of(context).size.width,
+    decoration: const BoxDecoration(
+      color: Color.fromARGB(255, 48, 47, 47),
+      borderRadius: BorderRadius.only(topLeft: Radius.circular(20), topRight: Radius.circular(20))
+    ),
+    height: 300, width: MediaQuery.of(context).size.width,
     child: Column(
       children: [
-        ElevatedButton.icon(
-          onPressed: Navigator.of(context).pop, icon: Icon(Icons.cancel), label: const SizedBox.shrink()
+        Padding(
+          padding: const EdgeInsets.fromLTRB(0,10,10,0),
+          child: Align(
+            alignment: Alignment.topRight,
+            child: GestureDetector(
+              onTap: () => Navigator.of(context).pop(),
+              child: const CustomTextWidget(color: Colors.white70, size: 15, fontWeight: FontWeight.w300, text: 'x')
+            ),
+          ),
         ),
         Row(),
         const SizedBox(height: 50),
