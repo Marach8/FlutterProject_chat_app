@@ -17,8 +17,9 @@ void listApps() async{
     includeSystemApps: true, includeAppIcons: true, onlyAppsWithLaunchIntent: true
   );
   for (var item in app){
-    //if(item.packageName.contains('message') || (item.packageName.contains('messaging'))){
+    if(item.packageName.contains('messenger') || (item.packageName.contains('messaging')) 
+    || (item.packageName.contains('instagram')) || (item.packageName.contains('facebook'))){
       print(item.packageName);
-    //}
+    }
   }
 }
