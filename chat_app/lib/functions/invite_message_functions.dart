@@ -12,43 +12,48 @@ import 'package:url_launcher/url_launcher.dart';
 //   }
 // }
 
-void listApps() async{
+ Future<List<Application>> listApps() async{
+  List<Application> launchableApp = [];
   List<Application> app = await DeviceApps.getInstalledApplications(
     includeSystemApps: true, includeAppIcons: true, onlyAppsWithLaunchIntent: true
   );
   for (var item in app){
     if(item.packageName.contains('messenger') || (item.packageName.contains('messaging')) 
-    || (item.packageName.contains('instagram')) || (item.packageName.contains('facebook'))){
-      print(item.packageName);
+    || (item.packageName.contains('instagram'))){
+      launchableApp.add(item);
+      print(item);
     }
   }
+  return launchableApp;
 }
 
 
-Future showModalSheet(BuildContext context) => showModalBottomSheet(
-  context: context, 
-  builder: (context) => Container(
-    decoration: const BoxDecoration(
-      color: Color.fromARGB(255, 48, 47, 47),
-      borderRadius: BorderRadius.only(topLeft: Radius.circular(20), topRight: Radius.circular(20))
-    ),
-    height: 300, width: MediaQuery.of(context).size.width,
-    child: Column(
-      children: [
-        Padding(
-          padding: const EdgeInsets.fromLTRB(0,10,10,0),
-          child: Align(
-            alignment: Alignment.topRight,
-            child: GestureDetector(
-              onTap: () => Navigator.of(context).pop(),
-              child: const CustomTextWidget(color: Colors.white70, size: 15, fontWeight: FontWeight.w300, text: 'x')
+Future displayIcons(BuildContext context) {
+  return showModalBottomSheet(
+    context: context, 
+    builder: (context) => Container(
+      decoration: const BoxDecoration(
+        color: Color.fromARGB(255, 30, 29, 29),
+        borderRadius: BorderRadius.only(topLeft: Radius.circular(20), topRight: Radius.circular(20))
+      ),
+      height: 200, width: MediaQuery.of(context).size.width,
+      child: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.fromLTRB(0,15,15,0),
+            child: Align(
+              alignment: Alignment.topRight,
+              child: GestureDetector(
+                onTap: () => Navigator.of(context).pop(),
+                child: const CustomTextWidget(color: Colors.white70, size: 15, fontWeight: FontWeight.w500, text: 'x')
+              ),
             ),
           ),
-        ),
-        Row(),
-        const SizedBox(height: 50),
-        Row()
-      ]
+          Row(),
+          const SizedBox(height: 50),
+          Row()
+        ]
+      )
     )
-  )
-);
+  );
+}
