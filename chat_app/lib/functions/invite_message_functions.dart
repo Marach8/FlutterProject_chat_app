@@ -15,12 +15,9 @@ import 'package:url_launcher/url_launcher.dart';
     || (item.packageName.contains('instagram'))){
       if (item is ApplicationWithIcon){
         final Uint8List byteData = item.icon;
-        //final Uint8List iconData = byteData.buffer.asUint8List();
         launchableApp.add(byteData);
-        print(item);  
+        //print(item);  
       }
-      //launchableApp.add(item);
-      //print(item);
     }
   }
   return launchableApp;
@@ -32,7 +29,7 @@ Future displayIcons(BuildContext context, List<Uint8List> appsByteData) {
     context: context, 
     builder: (context) => Container(
       decoration: const BoxDecoration(
-        color: Color.fromARGB(255, 30, 29, 29),
+        color: Color.fromARGB(255, 52, 51, 51),
         borderRadius: BorderRadius.only(topLeft: Radius.circular(20), topRight: Radius.circular(20))
       ),
       height: 200, width: MediaQuery.of(context).size.width,
@@ -44,22 +41,38 @@ Future displayIcons(BuildContext context, List<Uint8List> appsByteData) {
               alignment: Alignment.topRight,
               child: GestureDetector(
                 onTap: () => Navigator.of(context).pop(),
-                child: const CustomTextWidget(color: Colors.white70, size: 15, fontWeight: FontWeight.w500, text: 'x')
+                child: const CustomTextWidget(color: Colors.white60, size: 15, fontWeight: FontWeight.w500, text: 'x')
               ),
             ),
+          ),
+          const SizedBox(height:10),
+          Row(
+            children: [
+              CustomTextWidget(
+                color: Colors.white60, size: 20, fontWeight: FontWeight.w300, 
+                text: """
+Let's chat on WhatsApp!
+                """
+              ), const SizedBox(width: 10),
+              SizedBox(
+                width: 70, height:30,
+                child: ElevatedButton(
+                  onPressed:() {},
+                  child: CustomTextWidget(color: Colors.blue, size: 10, fontWeight: FontWeight.w300, text: 'COPY')
+                ),
+              )
+            ]
           ),
           Row(
             children: appsByteData.map((app) {
               return Column(
                 children: [
-                  Image.memory(app, height: 40, width: 20),
+                  Image.memory(app, height: 50, width: 50),
                   //Text(app.appName)
                 ]
               );
             }).toList()
           ),
-          const SizedBox(height: 50),
-          Row()
         ]
       )
     )
