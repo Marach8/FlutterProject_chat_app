@@ -1,34 +1,33 @@
+import 'dart:typed_data';
 import 'package:chat_app/custom_widgets/text_widget.dart';
 import 'package:device_apps/device_apps.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-// class SendInviteMessage {
 
-//   void sendInviteMessage() async{
-//     String message = 'Hello, Come and chat with me on my new whatsApp';
-//     final uri = "sms:?body=${Uri.parse(message)}";
-//     if(await canLaunchUrl(uri))
-//   }
-// }
-
- Future<List<Application>> listApps() async{
-  List<Application> launchableApp = [];
+ Future<List<Uint8List>> listApps() async{
+  List<Uint8List> launchableApp = [];
   List<Application> app = await DeviceApps.getInstalledApplications(
     includeSystemApps: true, includeAppIcons: true, onlyAppsWithLaunchIntent: true
   );
   for (var item in app){
     if(item.packageName.contains('messenger') || (item.packageName.contains('messaging')) 
     || (item.packageName.contains('instagram'))){
-      launchableApp.add(item);
-      print(item);
+      if (item is ApplicationWithIcon){
+        final Uint8List byteData = item.icon;
+        //final Uint8List iconData = byteData.buffer.asUint8List();
+        launchableApp.add(byteData);
+        print(item);  
+      }
+      //launchableApp.add(item);
+      //print(item);
     }
   }
   return launchableApp;
 }
 
 
-Future displayIcons(BuildContext context) {
+Future displayIcons(BuildContext context, List<Uint8List> appsByteData) {
   return showModalBottomSheet(
     context: context, 
     builder: (context) => Container(
@@ -49,7 +48,16 @@ Future displayIcons(BuildContext context) {
               ),
             ),
           ),
-          Row(),
+          Row(
+            children: appsByteData.map((app) {
+              return Column(
+                children: [
+                  Image.memory(app, height: 40, width: 20),
+                  //Text(app.appName)
+                ]
+              );
+            }).toList()
+          ),
           const SizedBox(height: 50),
           Row()
         ]
