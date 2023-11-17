@@ -41,7 +41,7 @@ class _UIFloatingActionButtonsState extends State<UIFloatingActionButtons> {
                   turns: animation, child: child
                 );
               },
-              child: _showOtherFABs? Container(
+              child: _showOtherFABs? SizedBox(
                 height: 215, width:60,
                 child: Stack(
                   children: [
