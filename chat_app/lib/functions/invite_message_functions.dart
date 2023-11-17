@@ -2,11 +2,12 @@ import 'dart:typed_data';
 import 'package:chat_app/custom_widgets/text_widget.dart';
 import 'package:device_apps/device_apps.dart';
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 
- Future<List<Uint8List>> listApps() async{
-  List<Uint8List> launchableApp = [];
+ Future<List<ApplicationWithIcon>> listApps() async{
+  List<ApplicationWithIcon> launchableApp = [];
   List<Application> app = await DeviceApps.getInstalledApplications(
     includeSystemApps: true, includeAppIcons: true, onlyAppsWithLaunchIntent: true
   );
@@ -14,8 +15,8 @@ import 'package:url_launcher/url_launcher.dart';
     if(item.packageName.contains('messenger') || (item.packageName.contains('messaging')) 
     || (item.packageName.contains('instagram'))){
       if (item is ApplicationWithIcon){
-        final Uint8List byteData = item.icon;
-        launchableApp.add(byteData);
+        //final Uint8List byteData = item.icon;
+        launchableApp.add(item);
         //print(item);  
       }
     }
@@ -24,7 +25,7 @@ import 'package:url_launcher/url_launcher.dart';
 }
 
 
-Future displayIcons(BuildContext context, List<Uint8List> appsByteData) {
+Future displayIcons(BuildContext context, List<ApplicationWithIcon> appsByteData) {
   return showModalBottomSheet(
     context: context, 
     builder: (context) => Container(
@@ -48,7 +49,7 @@ Future displayIcons(BuildContext context, List<Uint8List> appsByteData) {
           const SizedBox(height:10),
           Row(
             children: [
-              CustomTextWidget(
+              const CustomTextWidget(
                 color: Colors.white60, size: 20, fontWeight: FontWeight.w300, 
                 text: """
 Let's chat on WhatsApp!
@@ -58,17 +59,20 @@ Let's chat on WhatsApp!
                 width: 70, height:30,
                 child: ElevatedButton(
                   onPressed:() {},
-                  child: CustomTextWidget(color: Colors.blue, size: 10, fontWeight: FontWeight.w300, text: 'COPY')
+                  child: const CustomTextWidget(color: Colors.blue, size: 8, fontWeight: FontWeight.w500, text: 'COPY')
                 ),
               )
             ]
           ),
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: appsByteData.map((app) {
+              final Uint8List byteData = app.icon;
               return Column(
                 children: [
-                  Image.memory(app, height: 50, width: 50),
-                  //Text(app.appName)
+                  Image.memory(byteData, height: 50, width: 50),
+                  const Gap(5),
+                  CustomTextWidget(color: Colors.white, size: 10, fontWeight: FontWeight.w500, text: app.appName)
                 ]
               );
             }).toList()
