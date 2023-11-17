@@ -1,4 +1,5 @@
 import 'dart:typed_data';
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:chat_app/custom_widgets/text_widget.dart';
 import 'package:device_apps/device_apps.dart';
 import 'package:flutter/material.dart';
@@ -33,37 +34,52 @@ Future displayIcons(BuildContext context, List<ApplicationWithIcon> appsByteData
         color: Color.fromARGB(255, 52, 51, 51),
         borderRadius: BorderRadius.only(topLeft: Radius.circular(20), topRight: Radius.circular(20))
       ),
-      height: 200, width: MediaQuery.of(context).size.width,
+      height: 230, width: MediaQuery.of(context).size.width,
       child: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.fromLTRB(0,15,15,0),
+            padding: const EdgeInsets.fromLTRB(0,15,20,0),
             child: Align(
               alignment: Alignment.topRight,
               child: GestureDetector(
                 onTap: () => Navigator.of(context).pop(),
-                child: const CustomTextWidget(color: Colors.white60, size: 15, fontWeight: FontWeight.w500, text: 'x')
+                child: const CustomTextWidget(color: Colors.white60, size: 17, fontWeight: FontWeight.w500, text: 'x')
               ),
             ),
           ),
           const SizedBox(height:10),
           Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const CustomTextWidget(
-                color: Colors.white60, size: 20, fontWeight: FontWeight.w300, 
-                text: """
-Let's chat on WhatsApp!
-                """
-              ), const SizedBox(width: 10),
-              SizedBox(
-                width: 70, height:30,
-                child: ElevatedButton(
-                  onPressed:() {},
-                  child: const CustomTextWidget(color: Colors.blue, size: 8, fontWeight: FontWeight.w500, text: 'COPY')
+              const SizedBox(
+                width: 250, height: 40,
+                child: AutoSizeText(
+                  """Let's chat on WhatsApp! It's a fast, simple and secure app we can use to message amd call each other for free. 
+                  Get it at https://uplinks.co/premium/dl-gb-wa-pro""",
+                  overflow: TextOverflow.ellipsis, maxLines: 2, minFontSize: 15,
+                  style: TextStyle(
+                    fontWeight: FontWeight.w400, color: Colors.white, 
+                  ),
                 ),
+              ), const Gap(10),
+              GestureDetector(
+                onTap:() {},
+                child: Container(
+                  height: 25, width: 55, 
+                  decoration: const BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(25)),
+                    color: Colors.white
+                  ),
+                  child: const Center(
+                    child: CustomTextWidget(
+                      color: Colors.blue, size: 12, fontWeight: FontWeight.w600, text: 'COPY'
+                    ),
+                  ),
+                )
               )
             ]
           ),
+          const Gap(50),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: appsByteData.map((app) {
@@ -72,7 +88,7 @@ Let's chat on WhatsApp!
                 children: [
                   Image.memory(byteData, height: 50, width: 50),
                   const Gap(5),
-                  CustomTextWidget(color: Colors.white, size: 10, fontWeight: FontWeight.w500, text: app.appName)
+                  CustomTextWidget(color: Colors.white, size: 11, fontWeight: FontWeight.w400, text: app.appName)
                 ]
               );
             }).toList()
