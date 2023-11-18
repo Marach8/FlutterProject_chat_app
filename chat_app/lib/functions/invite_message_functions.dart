@@ -68,12 +68,12 @@ Future displayIcons(BuildContext context, List<ApplicationWithIcon> applications
                   Navigator.of(context).pop();
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(
-                      content: Container(
-                        height: 20, width: 50,
-                        child: Center(child: Text('Copied!'))
-                      ),
-                      duration: Duration(seconds: 1),
-                      elevation: 100
+                      behavior: SnackBarBehavior.floating,
+                      margin: EdgeInsets.all(50),
+                      //width: MediaQuery.of(context).size.width*0.5,
+                      content: Text('Copied!'),
+                      duration: Duration(seconds: 5),
+                      //elevation: 500
                     )
                   ).closed;
                 },
