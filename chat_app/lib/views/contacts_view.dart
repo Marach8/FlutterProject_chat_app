@@ -1,6 +1,6 @@
 import 'package:chat_app/custom_widgets/circle_avatar.dart';
 import 'package:chat_app/custom_widgets/text_widget.dart';
-import 'package:chat_app/functions/contacts_functions.dart';
+import 'package:chat_app/functions/contacts_function.dart';
 import 'package:chat_app/functions/invite_message_functions.dart';
 import 'package:contacts_service/contacts_service.dart';
 import 'package:flutter/material.dart';
@@ -56,6 +56,7 @@ class _ContactViewState extends State<ContactsView> {
             }
           ),
           PopupMenuButton(
+            offset: const Offset(0, 50),
             icon: const Icon(Icons.more_vert, color: Colors.white60),
             color: const Color.fromARGB(255, 28, 45, 42),
             itemBuilder:(context) => [
@@ -66,8 +67,11 @@ class _ContactViewState extends State<ContactsView> {
                 },
                 child: const CustomTextWidget(color: Colors.white, size: 16, fontWeight: FontWeight.w400, text: 'Invite a friend')
               ),
-              const PopupMenuItem(
-                value: 'item2', 
+              PopupMenuItem(
+                value: 'item2',
+                onTap: () async{
+                  await launchContactsApp();
+                },
                 child: CustomTextWidget(color: Colors.white, size: 16, fontWeight: FontWeight.w400, text: 'Contacts')
               ),
               const PopupMenuItem(
@@ -85,7 +89,7 @@ class _ContactViewState extends State<ContactsView> {
 
 
       body: FutureBuilder <List<Contact>>(
-        future: GetContacts().getContacts(),
+        future: getContacts(),
         builder: (context, snapshot){
           if(snapshot.connectionState == ConnectionState.waiting){
             return const Center(child: CircularProgressIndicator(color: Color.fromARGB(255, 38, 165, 132)));
