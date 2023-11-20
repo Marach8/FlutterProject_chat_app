@@ -8,14 +8,18 @@ class CustomListTile extends StatelessWidget{
 
   @override
   Widget build(BuildContext context){
-    return ListTile(
-      dense: true,
-      title: CustomTextWidget(color: Colors.white, size: 16, fontWeight: FontWeight.w400, text: title),
-      leading: Icon(leadingIcon, color:const Color.fromARGB(255, 38, 165, 132), size: 25), 
-      trailing: Icon(trailingIcon, size: 15, color: Colors.white38),
-      tileColor: Colors.blueGrey.shade900,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-      contentPadding: const EdgeInsets.fromLTRB(35, 0, 30, 0)        
+    return Material(
+      color: const Color.fromARGB(255, 15, 25, 25),
+      child: ListTile(
+        title: CustomTextWidget(color: Colors.white, size: 16, fontWeight: FontWeight.w400, text: title),
+        leading: Icon(leadingIcon, color:const Color.fromARGB(255, 38, 165, 132), size: 25), 
+        trailing: Icon(trailingIcon, size: 15, color: Colors.white38),
+        tileColor: Colors.blueGrey.shade900, //dense: true,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+        contentPadding: const EdgeInsets.fromLTRB(35, 0, 30, 0),
+        //enabled: true, enableFeedback: true, //splashColor: Colors.white,
+        onTap: (){},
+      ),
     );
   }
 }
@@ -42,5 +46,7 @@ class CustomDivider extends StatelessWidget{
   const CustomDivider({super.key});
 
   @override
-  Widget build(BuildContext context){return const Divider(color: Colors.white10, indent: 75, endIndent: 30);}
+  Widget build(BuildContext context){
+    return const Divider(color: Colors.white10, indent: 75, endIndent: 30, height:1,);
+  }
 }

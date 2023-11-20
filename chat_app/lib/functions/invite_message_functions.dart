@@ -1,6 +1,6 @@
 import 'dart:typed_data';
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:chat_app/constants/routes.dart';
+import 'package:chat_app/constants/custom_text.dart';
 import 'package:chat_app/custom_widgets/text_widget.dart';
 import 'package:clipboard/clipboard.dart';
 import 'package:device_apps/device_apps.dart';

@@ -22,6 +22,7 @@ class SettingsView extends StatelessWidget{
         ),
         body: ListView(
           children: [
+            const Gap(10),
             CustomContainer(
               color: Colors.blueGrey.shade900,
               children: const [
