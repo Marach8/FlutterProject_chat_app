@@ -72,7 +72,7 @@ class _ContactViewState extends State<ContactsView> {
                 onTap: () async{
                   await launchContactsApp();
                 },
-                child: CustomTextWidget(color: Colors.white, size: 16, fontWeight: FontWeight.w400, text: 'Contacts')
+                child: const CustomTextWidget(color: Colors.white, size: 16, fontWeight: FontWeight.w400, text: 'Contacts')
               ),
               const PopupMenuItem(
                 value: 'item3', 

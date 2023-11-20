@@ -57,7 +57,7 @@ class _UIFloatingActionButtonsState extends State<UIFloatingActionButtons> {
                     ),
                     Positioned(
                       right: 0, bottom: 0, child: CustomFAB(icon: Icons.flag_rounded, mini: false, tag: 'tab3',
-                      function: (){})
+                      function: (){Navigator.of(context).pushNamed(settingsRoute);})
                     ),
                   ]
                 )
