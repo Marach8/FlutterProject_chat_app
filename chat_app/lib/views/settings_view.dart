@@ -1,3 +1,5 @@
+import 'package:chat_app/constants/colors.dart';
+import 'package:chat_app/constants/routes.dart';
 import 'package:chat_app/custom_widgets/listTile_widget.dart';
 import 'package:chat_app/custom_widgets/text_widget.dart';
 import 'package:flutter/material.dart';
@@ -12,28 +14,29 @@ class SettingsView extends StatelessWidget{
   Widget build(BuildContext context){
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: const SystemUiOverlayStyle(
-        systemNavigationBarColor: Color.fromARGB(255, 15, 25, 25),
+        systemNavigationBarColor: customBackgroundColor
       ),
       child: Scaffold(
-        backgroundColor: const Color.fromARGB(255, 15, 25, 25),
+        backgroundColor: customBackgroundColor,
         appBar: AppBar(
-          title: const CustomTextWidget(color: Colors.white70, size: 20, fontWeight: FontWeight.w400, text: 'Settings'),
-          backgroundColor: const Color.fromARGB(255, 15, 25, 26), foregroundColor: Colors.white70,
+          title: const CustomTextWidget (size: 20, fontWeight: FontWeight.w400, text: 'Settings'),
+          backgroundColor: customBackgroundColor, foregroundColor: customWhite70Color
         ),
         body: ListView(
           children: [
             const Gap(10),
             CustomContainer(
-              color: Colors.blueGrey.shade900,
-              children: const [
+              color: customForegroundColor,
+              children: [
                 CustomListTile(
                   leadingIcon: Icons.lock_sharp, title: 'Privacy And Security', trailingIcon: Icons.arrow_forward_ios_sharp,
+                  onTap: () => Navigator.of(context).pushNamed(privacySecurityRoute)
               ),
               ]
             ),
             const Gap(10),
             CustomContainer(
-              color: Colors.blueGrey.shade900,
+              color: customForegroundColor,
               children: const [
                 CustomListTile(leadingIcon: Icons.photo, title: 'GBStickers', trailingIcon: Icons.arrow_forward_ios_sharp,),
                 CustomDivider(),
@@ -44,7 +47,7 @@ class SettingsView extends StatelessWidget{
             ),
             const Gap(10),
             CustomContainer(
-              color: Colors.blueGrey.shade900,
+              color: customForegroundColor,
               children: const [
                 CustomListTile(leadingIcon: Icons.brush_outlined, title: 'Themes', trailingIcon: Icons.arrow_forward_ios_sharp,),
                 CustomDivider(),
@@ -59,7 +62,7 @@ class SettingsView extends StatelessWidget{
             ),
             const Gap(10),
             CustomContainer(
-              color: Colors.blueGrey.shade900,
+              color: customForegroundColor,
               children: const [
                 CustomListTile(leadingIcon: Icons.share_sharp, title: 'Share GBWhatsApp Pro', trailingIcon: Icons.arrow_forward_ios_sharp,),
               ]

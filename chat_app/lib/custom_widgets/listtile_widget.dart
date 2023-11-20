@@ -2,9 +2,9 @@ import 'package:chat_app/custom_widgets/text_widget.dart';
 import 'package:flutter/material.dart';
 
 class CustomListTile extends StatelessWidget{
-  final String title;
+  final String title; final VoidCallback? onTap;
   final IconData? leadingIcon, trailingIcon;
-  const CustomListTile({required this.leadingIcon, required this.title, this.trailingIcon, super.key});
+  const CustomListTile({required this.leadingIcon, required this.title, this.trailingIcon, this.onTap, super.key});
 
   @override
   Widget build(BuildContext context){
@@ -18,7 +18,7 @@ class CustomListTile extends StatelessWidget{
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         contentPadding: const EdgeInsets.fromLTRB(35, 0, 30, 0),
         enabled: true, enableFeedback: true,
-        onTap: (){},
+        onTap: onTap
       ),
     );
   }
