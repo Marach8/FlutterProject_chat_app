@@ -17,7 +17,7 @@ class CustomListTile extends StatelessWidget{
         tileColor: Colors.blueGrey.shade900, //dense: true,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         contentPadding: const EdgeInsets.fromLTRB(35, 0, 30, 0),
-        //enabled: true, enableFeedback: true, //splashColor: Colors.white,
+        enabled: true, enableFeedback: true,
         onTap: (){},
       ),
     );
