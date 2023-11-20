@@ -3,6 +3,7 @@ import 'package:chat_app/views/contacts_view.dart';
 import 'package:chat_app/views/home_view.dart';
 import 'package:chat_app/views/settings_view.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 void main() => runApp (const ChatApp());
 
