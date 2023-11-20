@@ -26,7 +26,7 @@ class SettingsView extends StatelessWidget{
           children: [
             const Gap(10),
             CustomContainer(
-              color: customForegroundColor,
+              //color: customForegroundColor,
               children: [
                 CustomListTile(
                   leadingIcon: Icons.lock_sharp, title: 'Privacy And Security', trailingIcon: Icons.arrow_forward_ios_sharp,
@@ -35,9 +35,9 @@ class SettingsView extends StatelessWidget{
               ]
             ),
             const Gap(10),
-            CustomContainer(
-              color: customForegroundColor,
-              children: const [
+            const CustomContainer(
+              //color: customForegroundColor,
+              children: [
                 CustomListTile(leadingIcon: Icons.photo, title: 'GBStickers', trailingIcon: Icons.arrow_forward_ios_sharp,),
                 CustomDivider(),
                 CustomListTile(leadingIcon: Icons.update_sharp, title: 'Updates', trailingIcon: Icons.arrow_forward_ios_sharp,),
@@ -46,9 +46,9 @@ class SettingsView extends StatelessWidget{
               ]
             ),
             const Gap(10),
-            CustomContainer(
-              color: customForegroundColor,
-              children: const [
+            const CustomContainer(
+              //color: customForegroundColor,
+              children: [
                 CustomListTile(leadingIcon: Icons.brush_outlined, title: 'Themes', trailingIcon: Icons.arrow_forward_ios_sharp,),
                 CustomDivider(),
                 CustomListTile(leadingIcon: Icons.tune_sharp, title: 'Universal', trailingIcon: Icons.arrow_forward_ios_sharp,),
@@ -61,9 +61,9 @@ class SettingsView extends StatelessWidget{
               ]
             ),
             const Gap(10),
-            CustomContainer(
-              color: customForegroundColor,
-              children: const [
+            const CustomContainer(
+              //color: customForegroundColor,
+              children: [
                 CustomListTile(leadingIcon: Icons.share_sharp, title: 'Share GBWhatsApp Pro', trailingIcon: Icons.arrow_forward_ios_sharp,),
               ]
             )

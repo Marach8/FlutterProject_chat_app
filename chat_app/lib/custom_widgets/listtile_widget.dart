@@ -1,3 +1,4 @@
+import 'package:chat_app/constants/colors.dart';
 import 'package:chat_app/custom_widgets/text_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -9,10 +10,10 @@ class CustomListTile extends StatelessWidget{
   @override
   Widget build(BuildContext context){
     return Material(
-      color: const Color.fromARGB(255, 15, 25, 25),
+      color: customBackgroundColor,
       child: ListTile(
         title: CustomTextWidget(color: Colors.white, size: 16, fontWeight: FontWeight.w400, text: title),
-        leading: Icon(leadingIcon, color:const Color.fromARGB(255, 38, 165, 132), size: 25), 
+        leading: Icon(leadingIcon, color:customGreenColor, size: 25), 
         trailing: Icon(trailingIcon, size: 15, color: Colors.white38),
         tileColor: Colors.blueGrey.shade900, //dense: true,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
@@ -26,14 +27,14 @@ class CustomListTile extends StatelessWidget{
 
 
 class CustomContainer extends StatelessWidget{
-  final List<Widget> children; final Color? color;
-  const CustomContainer({required this.children, this.color, super.key});
+  final List<Widget> children; //final Color? color;
+  const CustomContainer({required this.children, super.key});
 
   @override
   Widget build(BuildContext context){
     return Container(
       decoration: BoxDecoration(
-        color: color,
+        color: customForegroundColor,
         borderRadius: const BorderRadius.all(Radius.circular(20))
       ),
       child: Column(children: children,)
