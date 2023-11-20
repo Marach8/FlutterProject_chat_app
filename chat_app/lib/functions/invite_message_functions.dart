@@ -1,5 +1,6 @@
 import 'dart:typed_data';
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:chat_app/constants/routes.dart';
 import 'package:chat_app/custom_widgets/text_widget.dart';
 import 'package:clipboard/clipboard.dart';
 import 'package:device_apps/device_apps.dart';
@@ -25,9 +26,6 @@ import 'package:gap/gap.dart';
 
 
 Future displayIcons(BuildContext context, List<ApplicationWithIcon> applications) {
-  String inviteText = """Let's chat on WhatsApp! It's a fast, simple and secure app we can use to message amd call each other for free. 
-  Get it at https://uplinks.co/premium/dl-gb-wa-pro""";
-
   return showModalBottomSheet(
     context: context, 
     builder: (context) => Container(
@@ -52,12 +50,12 @@ Future displayIcons(BuildContext context, List<ApplicationWithIcon> applications
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SizedBox(
+              const SizedBox(
                 width: 250, height: 40,
                 child: AutoSizeText(
                   inviteText,
                   overflow: TextOverflow.ellipsis, maxLines: 2, minFontSize: 15,
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontWeight: FontWeight.w400, color: Colors.white, 
                   ),
                 ),
