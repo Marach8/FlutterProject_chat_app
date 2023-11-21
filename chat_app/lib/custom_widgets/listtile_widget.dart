@@ -6,7 +6,7 @@ class CustomListTileWithoutSubtitle extends StatelessWidget{
   final String title; final VoidCallback? onTap;
   final IconData? leadingIcon;
   const CustomListTileWithoutSubtitle({
-    required this.leadingIcon, required this.title, this.onTap, super.key
+    this.leadingIcon, required this.title, this.onTap, super.key
   });
 
   @override

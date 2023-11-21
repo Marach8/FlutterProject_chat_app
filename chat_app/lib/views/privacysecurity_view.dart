@@ -138,6 +138,34 @@ class PASView extends State<PrivacyAndSecurityView>{
               ),
             ]
           ),
+
+          Gap(10),
+
+          CustomContainer(
+            children: [
+              Gap(15),
+              Padding(
+                padding: EdgeInsets.only(left:30),
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: CustomTextWidget(size: 15, fontWeight: FontWeight.w600, text: 'SECURITY', color: customWhiteColor)
+                ),
+              ),
+              CustomDivider(indent: 30),
+              CustomListTileWithSubtitle(
+                title: 'Change Password', subtitle: 'Default Password is: 0000, Change it to yours!'
+              ),
+              CustomDivider(indent: 30),
+              CustomListTileWithoutSubtitle(title: 'Change Pattern'),
+              CustomDivider(indent: 30),
+              CustomListTileWithoutSubtitle(title: 'Recovery Question'),
+              CustomDivider(indent: 30),
+              CustomListTileWithoutSubtitle(title: 'Change Change Lock/pattern Wallpaper,'),
+              CustomDivider(indent: 30),
+              CustomListTileWithSwitch(title: 'Make Pattern Invisible', subtitle: ''),
+              CustomListTileWithSwitch(title: 'Disable pattern vibration', subtitle: '')
+            ]
+          )
         ]
       )
     )
