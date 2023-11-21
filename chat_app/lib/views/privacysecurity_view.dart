@@ -1,5 +1,6 @@
 import 'package:chat_app/constants/colors.dart';
 import 'package:chat_app/custom_widgets/container_widget.dart';
+import 'package:chat_app/custom_widgets/divider_widget.dart';
 import 'package:chat_app/custom_widgets/listtile_widget.dart';
 import 'package:chat_app/custom_widgets/text_widget.dart';
 import 'package:flutter/material.dart';
@@ -25,6 +26,7 @@ class PASView extends State<PrivacyAndSecurityView>{
         title: const CustomTextWidget(size: 20, fontWeight: FontWeight.w400, text: 'Privacy And Security'),
         backgroundColor: customBackgroundColor, foregroundColor: customWhite70Color,
       ),
+
       body: ListView(
         children: const [
           Gap(10),
@@ -47,9 +49,93 @@ class PASView extends State<PrivacyAndSecurityView>{
                 ),
               ),
               Gap(5),
-              CustomListTileWithSubtitle( 
+              CustomListTileWithSwitch( 
                 title: 'Freeze Last Seen', subtitle: 'Please restart WhatsApp for changes to take effect.'
-              )
+              ),
+              Gap(25),
+              Padding(
+                padding: EdgeInsets.only(left: 40),
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: CustomTextWidget(size: 13, fontWeight: FontWeight.w600, color: customGreenColor, text: 'Status')
+                ),
+              ),
+              Gap(5),
+              CustomListTileWithSubtitle( 
+                title: 'Contacts', subtitle: 'Change privacy settings.'
+              ),
+              Gap(5),
+              CustomDivider(indent: 40),
+              Gap(5),
+              CustomListTileWithSubtitle( 
+                title: 'Groups', subtitle: 'Change privacy settings.'
+              ),
+              Gap(5),
+              CustomDivider(indent: 40),
+              Gap(5),
+              CustomListTileWithSubtitle( 
+                title: 'Broadcasts', subtitle: 'Change privacy settings.'
+              ),
+              Gap(5),
+              CustomDivider(indent: 40),
+              Gap(5),
+              CustomListTileWithSubtitle( 
+                title: 'Custom Privacy', subtitle: 'View all'
+              ),
+              Gap(20),
+              Padding(
+                padding: EdgeInsets.only(left: 40),
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: CustomTextWidget(size: 13, fontWeight: FontWeight.w600, color: customGreenColor, text: 'Calls')
+                ),
+              ),
+              Gap(5),
+              CustomListTileWithSubtitle( 
+                title: 'Who can call me?', subtitle: 'Everyone'
+              ),
+              Gap(20),
+              Padding(
+                padding: EdgeInsets.only(left: 40),
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: CustomTextWidget(size: 13, fontWeight: FontWeight.w600, color: customGreenColor, text: 'Chats')
+                ),
+              ),
+              Gap(10),
+              CustomListTileWithSwitch( 
+                title: 'Disable Forwarded', subtitle: 'Allows you to re-send messages without Forwarding tag'
+              ),
+              Gap(5),
+              CustomDivider(indent: 40),
+              Gap(5),
+              CustomListTileWithSwitch( 
+                title: 'Anti-Delete Messages', subtitle: 'Other people cannot delete messages for you'
+              ),
+              Gap(5),
+              CustomDivider(indent: 40),
+              Gap(5),
+              CustomListTileWithSwitch( 
+                title: 'Show Blue Ticks after reply', subtitle: 'Contact will only see blue ticks after you reply'
+              ),
+              Gap(20),
+              Padding(
+                padding: EdgeInsets.only(left: 40),
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: CustomTextWidget(size: 13, fontWeight: FontWeight.w600, color: customGreenColor, text: 'Status')
+                ),
+              ),
+              Gap(10),
+              CustomListTileWithSwitch( 
+                title: 'Hide View Status', subtitle: "Don't tell contact that you have viewed their status"
+              ),
+              Gap(5),
+              CustomDivider(indent: 40),
+              Gap(5),
+              CustomListTileWithSwitch( 
+                title: 'Anti-Delete Status', subtitle: 'Deleted statuses/stories will not be deleted for you.'
+              ),
             ]
           ),
         ]

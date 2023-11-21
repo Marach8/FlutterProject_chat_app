@@ -24,6 +24,7 @@ class SettingsView extends StatelessWidget{
           title: const CustomTextWidget (size: 20, fontWeight: FontWeight.w400, text: 'Settings'),
           backgroundColor: customBackgroundColor, foregroundColor: customWhite70Color
         ),
+
         body: ListView(
           children: [
             const Gap(10),
@@ -31,7 +32,7 @@ class SettingsView extends StatelessWidget{
               //color: customForegroundColor,
               children: [
                 CustomListTileWithoutSubtitle(
-                  leadingIcon: Icons.lock_sharp, title: 'Privacy And Security', trailingIcon: Icons.arrow_forward_ios_sharp,
+                  leadingIcon: Icons.lock_sharp, title: 'Privacy And Security',
                   onTap: () => Navigator.of(context).pushNamed(privacySecurityRoute)
               ),
               ]
@@ -40,33 +41,33 @@ class SettingsView extends StatelessWidget{
             const CustomContainer(
               //color: customForegroundColor,
               children: [
-                CustomListTileWithoutSubtitle(leadingIcon: Icons.photo, title: 'GBStickers', trailingIcon: Icons.arrow_forward_ios_sharp,),
-                CustomDivider(),
-                CustomListTileWithoutSubtitle(leadingIcon: Icons.update_sharp, title: 'Updates', trailingIcon: Icons.arrow_forward_ios_sharp,),
-                CustomDivider(),
-                CustomListTileWithoutSubtitle(leadingIcon: Icons.info_sharp, title: 'About', trailingIcon: Icons.arrow_forward_ios_sharp,),
+                CustomListTileWithoutSubtitle(leadingIcon: Icons.photo, title: 'GBStickers',), 
+                CustomDivider(indent: 75),
+                CustomListTileWithoutSubtitle(leadingIcon: Icons.update_sharp, title: 'Updates',),
+                CustomDivider(indent: 75),
+                CustomListTileWithoutSubtitle(leadingIcon: Icons.info_sharp, title: 'About',),
               ]
             ),
             const Gap(10),
             const CustomContainer(
               //color: customForegroundColor,
               children: [
-                CustomListTileWithoutSubtitle(leadingIcon: Icons.brush_outlined, title: 'Themes', trailingIcon: Icons.arrow_forward_ios_sharp,),
-                CustomDivider(),
-                CustomListTileWithoutSubtitle(leadingIcon: Icons.tune_sharp, title: 'Universal', trailingIcon: Icons.arrow_forward_ios_sharp,),
-                CustomDivider(),
-                CustomListTileWithoutSubtitle(leadingIcon: Icons.home_sharp, title: 'Home Screen', trailingIcon: Icons.arrow_forward_ios_sharp,),
-                CustomDivider(),
-                CustomListTileWithoutSubtitle(leadingIcon: Icons.message_rounded, title: 'Chat Screen', trailingIcon: Icons.arrow_forward_ios_sharp,),
-                CustomDivider(),
-                CustomListTileWithoutSubtitle(leadingIcon: Icons.gif_box_outlined, title: 'Widget', trailingIcon: Icons.arrow_forward_ios_sharp,),
+                CustomListTileWithoutSubtitle(leadingIcon: Icons.brush_outlined, title: 'Themes',),
+                CustomDivider(indent: 75),
+                CustomListTileWithoutSubtitle(leadingIcon: Icons.tune_sharp, title: 'Universal',),
+                CustomDivider(indent: 75),
+                CustomListTileWithoutSubtitle(leadingIcon: Icons.home_sharp, title: 'Home Screen',),
+                CustomDivider(indent: 75),
+                CustomListTileWithoutSubtitle(leadingIcon: Icons.message_rounded, title: 'Chat Screen',),
+                CustomDivider(indent: 75),
+                CustomListTileWithoutSubtitle(leadingIcon: Icons.gif_box_outlined, title: 'Widget',),
               ]
             ),
             const Gap(10),
             const CustomContainer(
               //color: customForegroundColor,
               children: [
-                CustomListTileWithoutSubtitle(leadingIcon: Icons.share_sharp, title: 'Share GBWhatsApp Pro', trailingIcon: Icons.arrow_forward_ios_sharp,),
+                CustomListTileWithoutSubtitle(leadingIcon: Icons.share_sharp, title: 'Share GBWhatsApp Pro',),
               ]
             )
           ]
