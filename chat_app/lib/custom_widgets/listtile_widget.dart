@@ -2,10 +2,12 @@ import 'package:chat_app/constants/colors.dart';
 import 'package:chat_app/custom_widgets/text_widget.dart';
 import 'package:flutter/material.dart';
 
-class CustomListTile extends StatelessWidget{
+class CustomListTileWithoutSubtitle extends StatelessWidget{
   final String title; final VoidCallback? onTap;
   final IconData? leadingIcon, trailingIcon;
-  const CustomListTile({required this.leadingIcon, required this.title, this.trailingIcon, this.onTap, super.key});
+  const CustomListTileWithoutSubtitle({
+    required this.leadingIcon, required this.title, this.trailingIcon, this.onTap, super.key
+  });
 
   @override
   Widget build(BuildContext context){
@@ -26,28 +28,62 @@ class CustomListTile extends StatelessWidget{
 }
 
 
-class CustomContainer extends StatelessWidget{
-  final List<Widget> children; //final Color? color;
-  const CustomContainer({required this.children, super.key});
+class CustomListTileWithSubtitle extends StatelessWidget{
+  final String title, subtitle; final VoidCallback? onTap;
+  final IconData? leadingIcon, trailingIcon;
+  const CustomListTileWithSubtitle({
+    this.leadingIcon, required this.title, required this.subtitle, this.trailingIcon, this.onTap, super.key
+  });
 
   @override
   Widget build(BuildContext context){
-    return Container(
-      decoration: BoxDecoration(
-        color: customForegroundColor,
-        borderRadius: const BorderRadius.all(Radius.circular(20))
+    return Material(
+      color: customForegroundColor,
+      child: ListTile(
+        title: CustomTextWidget(color: Colors.white, size: 16, fontWeight: FontWeight.w400, text: title),
+        subtitle: CustomTextWidget(color: customWhite54Color, size: 13, fontWeight: FontWeight.w400, text: subtitle),
+        leading: Icon(leadingIcon, color:customGreenColor, size: 25), 
+        trailing: Icon(trailingIcon, size: 15, color: Colors.white38),
+        tileColor: Colors.blueGrey.shade900, //dense: true,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+        contentPadding: const EdgeInsets.fromLTRB(0, 0, 50, 0),
+        enabled: true, enableFeedback: true,
+        onTap: onTap
       ),
-      child: Column(children: children,)
     );
   }
 }
 
 
-class CustomDivider extends StatelessWidget{
-  const CustomDivider({super.key});
+
+class CustomListTileWithSwitch extends StatefulWidget{
+  final String title; final String subtitle; 
+  const CustomListTileWithSwitch({
+    required this.title, required this.subtitle, super.key
+  });
+
+  @override
+  State<CustomListTileWithSwitch> createState() => _CustomListTileWithSwitchState();
+}
+
+class _CustomListTileWithSwitchState extends State<CustomListTileWithSwitch> {
+
+  bool _isSwitched = false;
+  bool get isSwitched => _isSwitched;
 
   @override
   Widget build(BuildContext context){
-    return const Divider(color: Colors.white10, indent: 75, endIndent: 30, height:1,);
+    return Material(
+      color: customForegroundColor,
+      child: SwitchListTile.adaptive(
+        title: CustomTextWidget(color: Colors.white, size: 16, fontWeight: FontWeight.w400, text: widget.title),
+        subtitle: CustomTextWidget(color: customWhite54Color, size: 13, fontWeight: FontWeight.w400, text: widget.subtitle),
+        tileColor: Colors.blueGrey.shade900, //dense: true,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+        contentPadding: const EdgeInsets.fromLTRB(0, 0, 50, 0),
+        value: _isSwitched,
+        onChanged: (parameter) => setState(() => _isSwitched = parameter),
+      ),
+    );
   }
 }

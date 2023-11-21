@@ -1,4 +1,5 @@
 import 'package:chat_app/constants/colors.dart';
+import 'package:chat_app/custom_widgets/container_widget.dart';
 import 'package:chat_app/custom_widgets/listtile_widget.dart';
 import 'package:chat_app/custom_widgets/text_widget.dart';
 import 'package:flutter/material.dart';
@@ -26,7 +27,7 @@ class PASView extends State<PrivacyAndSecurityView>{
       ),
       body: ListView(
         children: const [
-          Gap(5),
+          Gap(10),
           CustomContainer(
             children: [
               Gap(15),
@@ -38,8 +39,17 @@ class PASView extends State<PrivacyAndSecurityView>{
                 ),
               ),
               Gap(20),
-              CustomTextWidget(size: 13, fontWeight: FontWeight.w600, color: customGreenColor, text: 'Hide Online Status'),
-              
+              Padding(
+                padding: EdgeInsets.only(left: 40),
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: CustomTextWidget(size: 13, fontWeight: FontWeight.w600, color: customGreenColor, text: 'Hide Online Status')
+                ),
+              ),
+              Gap(5),
+              CustomListTileWithSubtitle( 
+                title: 'Freeze Last Seen', subtitle: 'Please restart WhatsApp for changes to take effect.'
+              )
             ]
           ),
         ]
