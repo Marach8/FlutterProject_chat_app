@@ -32,13 +32,14 @@ class _AboutViewState extends State<ThemesView> {
             children: [
               CustomListTileWithSubtitle(
                 title: 'Download Themes', subtitle: 'Get themes from Themes Online',
-                topBorderRadius: 20, bottomBorderRadius: 0,
+                topBorderRadius: 20, bottomBorderRadius: 0, sizeOfSubtitle: 12,
                 onTap: (){}
               ),
               const CustomDivider(indent: 40),
               CustomListTileWithSubtitle(
                 title: 'Load Theme', subtitle: 'Load themes stored on sdcard',
-                topBorderRadius: 0, bottomBorderRadius: 20, onTap: (){}
+                topBorderRadius: 0, bottomBorderRadius: 20, sizeOfSubtitle: 12,
+                onTap: (){}
               ),
             ]
           ),
@@ -49,13 +50,14 @@ class _AboutViewState extends State<ThemesView> {
             children: [
               CustomListTileWithSubtitle(
                 title: 'Save Theme', subtitle: 'Save your current settings in (/Download/GBThemes)',
-                topBorderRadius: 20, bottomBorderRadius: 0,
+                topBorderRadius: 20, bottomBorderRadius: 0, sizeOfSubtitle: 12,
                 onTap: (){}
               ),
               const CustomDivider(indent: 40),
               CustomListTileWithSubtitle(
                 title: 'Restore Theme', subtitle: 'Load Theme stored in (/Download/GBThemes)',
-                topBorderRadius: 0, bottomBorderRadius: 20, onTap: (){}
+                topBorderRadius: 0, bottomBorderRadius: 20, sizeOfSubtitle: 12,
+                onTap: (){}
               ),
             ]
           ),
@@ -66,13 +68,14 @@ class _AboutViewState extends State<ThemesView> {
             children: [
               CustomListTileWithSubtitle(
                 title: 'Reset Preferences', subtitle: 'Sets back WhatsApp default settings',
-                topBorderRadius: 20, bottomBorderRadius: 0,
+                topBorderRadius: 20, bottomBorderRadius: 0,sizeOfSubtitle: 12,
                 onTap: (){}
               ),
               const CustomDivider(indent: 40),
               CustomListTileWithSubtitle(
                 title: 'Delete all saved/installed themes', subtitle: 'Clear all themes in (/Download/GBThemes) Even your...',
-                topBorderRadius: 0, bottomBorderRadius: 20, onTap: (){}
+                topBorderRadius: 0, bottomBorderRadius: 20, sizeOfSubtitle: 12,
+                onTap: (){}
               ),
             ]
           ),

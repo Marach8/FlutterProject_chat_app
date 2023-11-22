@@ -20,7 +20,7 @@ class CustomListTileWithoutSubtitle extends StatelessWidget{
         title: CustomTextWidget(color: Colors.white, size: 16, fontWeight: FontWeight.w400, text: title),
         leading: FaIcon(leadingIcon, color: customGreenColor, size: iconSize,), 
         trailing: Icon(trailingIcon, size: 15, color: Colors.white38),
-        tileColor: Colors.blueGrey.shade900,
+        tileColor: customForegroundColor,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.vertical(top: Radius.circular(topBorderRadius), bottom: Radius.circular(bottomBorderRadius))
         ),
@@ -33,12 +33,15 @@ class CustomListTileWithoutSubtitle extends StatelessWidget{
 }
 
 
+
+
 class CustomListTileWithSubtitle extends StatelessWidget{
   final String title, subtitle; final VoidCallback? onTap;
-  final Widget? leading, trailing; final double topBorderRadius, bottomBorderRadius;
+  final Widget? leading, trailing;
+  final double topBorderRadius, bottomBorderRadius, sizeOfSubtitle;
   const CustomListTileWithSubtitle({
     this.leading, required this.title, required this.subtitle, required this.topBorderRadius,
-    required this.bottomBorderRadius, this.trailing, this.onTap, super.key
+    required this.bottomBorderRadius, this.trailing, this.onTap, required this.sizeOfSubtitle, super.key
   });
 
   @override
@@ -48,7 +51,7 @@ class CustomListTileWithSubtitle extends StatelessWidget{
       animationDuration: const Duration(milliseconds: 100),
       child: ListTile(
         title: CustomTextWidget(color: Colors.white, size: 16, fontWeight: FontWeight.w400, text: title),
-        subtitle: CustomTextWidget(color: customWhite54Color, size: 12, fontWeight: FontWeight.w400, text: subtitle),
+        subtitle: CustomTextWidget(color: customWhite54Color, size: sizeOfSubtitle, fontWeight: FontWeight.w400, text: subtitle),
         trailing: trailing, tileColor: Colors.blueGrey.shade900, 
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.vertical(top: Radius.circular(topBorderRadius), bottom: Radius.circular(bottomBorderRadius))
@@ -60,6 +63,8 @@ class CustomListTileWithSubtitle extends StatelessWidget{
     );
   }
 }
+
+
 
 
 

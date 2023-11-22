@@ -72,7 +72,7 @@ class SettingsView extends StatelessWidget{
                 CustomListTileWithoutSubtitle(
                   leadingIcon: FontAwesomeIcons.sliders, trailingIcon: Icons.arrow_forward_ios_sharp, title: 'Universal',
                   topBorderRadius: 0, bottomBorderRadius: 0, iconSize: 18,
-                  onTap: (){},
+                  onTap: () => pushNamedNavigation(context, universalSettingsRoute),
                 ),
                 const CustomDivider(indent: 75),
                 CustomListTileWithoutSubtitle(

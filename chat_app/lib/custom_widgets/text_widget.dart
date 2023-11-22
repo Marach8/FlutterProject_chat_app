@@ -15,7 +15,7 @@ class CustomTextWidget extends StatelessWidget{
     return Text(
       text, 
       style: GoogleFonts.getFont(
-        'Roboto',
+        'Gothic A1',
         fontSize: size, fontWeight: fontWeight, color: color,
       )
     );
