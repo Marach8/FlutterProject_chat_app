@@ -1,5 +1,5 @@
 import 'package:chat_app/constants/colors.dart';
-import 'package:chat_app/constants/custom_text.dart';
+import 'package:chat_app/constants/text_links.dart';
 import 'package:chat_app/constants/routes.dart';
 import 'package:chat_app/custom_widgets/container_widget.dart';
 import 'package:chat_app/custom_widgets/divider_widget.dart';

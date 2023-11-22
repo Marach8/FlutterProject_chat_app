@@ -27,11 +27,11 @@ class _UpdatesState extends State<Updates> {
       body: ListView(
         children: const [
           Gap(10),
-          CustomListTileWithoutSubtitle(leadingIcon: Icons.refresh, title: 'Check For Updates'),
+          CustomListTileWithoutSubtitle(leadingIcon: Icons.refresh_rounded, title: 'Check For Updates'),
           CustomDivider(),
-          CustomListTileWithoutSubtitle(title: 'WhatsApp Changelog'),
+          CustomListTileWithoutSubtitle(leadingIcon: Icons.history, title: 'WhatsApp Changelog'),
           Gap(12),
-          CustomListTileWithoutSubtitle(title: 'Update From Web'),
+          CustomListTileWithoutSubtitle(leadingIcon: Icons.arrow_circle_down, title: 'Update From Web'),
           Gap(15),
           Center(
             child: CustomTextWidget(color: customWhiteColor, size: 16, fontWeight: FontWeight.w400, text: 'GBWhatsApp Pro v17.55')
