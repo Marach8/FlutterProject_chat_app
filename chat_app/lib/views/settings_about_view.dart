@@ -40,7 +40,7 @@ class _AboutViewState extends State<AboutView> {
               ),
               CustomListTileWithoutSubtitle(
                 title: 'GBWhatsApp Pro v17.55', leadingIcon: FontAwesomeIcons.whatsapp,
-                topBorderRadius: 0, bottomBorderRadius: 0, onTap: (){}
+                topBorderRadius: 0, bottomBorderRadius: 0, iconSize: 20, onTap: (){}
               ),
               const CustomDivider(indent: 60),
               CustomListTileWithoutSubtitle(

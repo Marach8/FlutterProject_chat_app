@@ -8,6 +8,7 @@ import 'package:chat_app/custom_widgets/text_widget.dart';
 import 'package:chat_app/functions/navigate_screen_function.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:gap/gap.dart';
 
 
@@ -32,8 +33,8 @@ class SettingsView extends StatelessWidget{
               //color: customForegroundColor,
               children: [
                 CustomListTileWithoutSubtitle(
-                  leadingIcon: Icons.lock_sharp, trailingIcon: Icons.arrow_forward_ios_sharp, title: 'Privacy And Security',
-                  topBorderRadius: 20, bottomBorderRadius: 20,
+                  leadingIcon: FontAwesomeIcons.lock, trailingIcon: Icons.arrow_forward_ios_sharp, title: 'Privacy And Security',
+                  topBorderRadius: 20, bottomBorderRadius: 20, iconSize: 18,
                   onTap: () => pushNamedNavigation(context, privacySecuritySettingsRoute)
               ),
               ]
@@ -43,20 +44,20 @@ class SettingsView extends StatelessWidget{
               //color: customForegroundColor,
               children: [
                 CustomListTileWithoutSubtitle(
-                  leadingIcon: Icons.photo, trailingIcon: Icons.arrow_forward_ios_sharp, title: 'GBStickers',
-                  topBorderRadius: 20, bottomBorderRadius: 0,
+                  leadingIcon: FontAwesomeIcons.faceLaughBeam, trailingIcon: Icons.arrow_forward_ios_sharp, title: 'GBStickers',
+                  topBorderRadius: 20, bottomBorderRadius: 0, iconSize: 18,
                   onTap: () async => await urlLauncher(gBStickersUrl)
                 ), 
                 const CustomDivider(indent: 75),
                 CustomListTileWithoutSubtitle(
-                  leadingIcon: Icons.refresh_rounded, trailingIcon: Icons.arrow_forward_ios_sharp, title: 'Updates',
-                  topBorderRadius: 0, bottomBorderRadius: 0,
+                  leadingIcon: FontAwesomeIcons.rotate, trailingIcon: Icons.arrow_forward_ios_sharp, title: 'Updates',
+                  topBorderRadius: 0, bottomBorderRadius: 0, iconSize: 18,
                   onTap: () => pushNamedNavigation(context, updatesSettingsRoute)
                 ),
                 const CustomDivider(indent: 75),
                 CustomListTileWithoutSubtitle(
-                  leadingIcon: Icons.info_sharp, trailingIcon: Icons.arrow_forward_ios_sharp, title: 'About',
-                  topBorderRadius: 0, bottomBorderRadius: 20,
+                  leadingIcon: FontAwesomeIcons.circleInfo, trailingIcon: Icons.arrow_forward_ios_sharp, title: 'About',
+                  topBorderRadius: 0, bottomBorderRadius: 20, iconSize: 18,
                   onTap: () => pushNamedNavigation(context, aboutSettingsRoute)
                 ),
               ]
@@ -66,30 +67,33 @@ class SettingsView extends StatelessWidget{
               //color: customForegroundColor,
               children: [
                 CustomListTileWithoutSubtitle(
-                  leadingIcon: Icons.brush_outlined, trailingIcon: Icons.arrow_forward_ios_sharp, title: 'Themes',
-                  topBorderRadius: 20, bottomBorderRadius: 0,
+                  leadingIcon: FontAwesomeIcons.brush, trailingIcon: Icons.arrow_forward_ios_sharp, title: 'Themes',
+                  topBorderRadius: 20, bottomBorderRadius: 0, iconSize: 18,
                   onTap: (){}
                 ),
-                CustomDivider(indent: 75),
+                const CustomDivider(indent: 75),
                 CustomListTileWithoutSubtitle(
-                  leadingIcon: Icons.tune_sharp, trailingIcon: Icons.arrow_forward_ios_sharp, title: 'Universal',
-                  topBorderRadius: 0, bottomBorderRadius: 0,
+                  leadingIcon: FontAwesomeIcons.sliders, trailingIcon: Icons.arrow_forward_ios_sharp, title: 'Universal',
+                  topBorderRadius: 0, bottomBorderRadius: 0, iconSize: 18,
+                  onTap: (){},
                 ),
-                CustomDivider(indent: 75),
+                const CustomDivider(indent: 75),
                 CustomListTileWithoutSubtitle(
-                  leadingIcon: Icons.home_sharp, trailingIcon: Icons.arrow_forward_ios_sharp, title: 'Home Screen',
-                  topBorderRadius: 0, bottomBorderRadius: 0,
-
+                  leadingIcon: FontAwesomeIcons.houseChimney, trailingIcon: Icons.arrow_forward_ios_sharp, title: 'Home Screen',
+                  topBorderRadius: 0, bottomBorderRadius: 0, iconSize: 18,
+                  onTap: (){}
                 ),
-                CustomDivider(indent: 75),
+                const CustomDivider(indent: 75),
                 CustomListTileWithoutSubtitle(
-                  leadingIcon: Icons.message_rounded, trailingIcon: Icons.arrow_forward_ios_sharp, title: 'Chat Screen',
-                  topBorderRadius: 0, bottomBorderRadius: 0,
+                  leadingIcon: FontAwesomeIcons.solidMessage, trailingIcon: Icons.arrow_forward_ios_sharp, title: 'Chat Screen',
+                  topBorderRadius: 0, bottomBorderRadius: 0, iconSize: 18,
+                  onTap: (){}
                 ),
-                CustomDivider(indent: 75),
+                const CustomDivider(indent: 75),
                 CustomListTileWithoutSubtitle(
-                  leadingIcon: Icons.gif_box_outlined, trailingIcon: Icons.arrow_forward_ios_sharp, title: 'Widget',
-                  topBorderRadius: 0, bottomBorderRadius: 20,
+                  leadingIcon: FontAwesomeIcons.cube, trailingIcon: Icons.arrow_forward_ios_sharp, title: 'Widget',
+                  topBorderRadius: 0, bottomBorderRadius: 20, iconSize: 18,
+                  onTap: (){}
                 ),
               ]
             ),
@@ -98,8 +102,8 @@ class SettingsView extends StatelessWidget{
               //color: customForegroundColor,
               children: [
                 CustomListTileWithoutSubtitle(
-                  leadingIcon: Icons.share_sharp, trailingIcon: Icons.arrow_forward_ios_sharp, title: 'Share GBWhatsApp Pro',
-                  topBorderRadius: 20, bottomBorderRadius: 20,
+                  leadingIcon: FontAwesomeIcons.shareNodes, trailingIcon: Icons.arrow_forward_ios_sharp, title: 'Share GBWhatsApp Pro',
+                  topBorderRadius: 20, bottomBorderRadius: 20, iconSize: 18,
                 ),
               ]
             )

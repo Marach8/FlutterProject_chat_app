@@ -4,10 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class CustomListTileWithoutSubtitle extends StatelessWidget{
-  final String title; final void Function()? onTap;
+  final String title; final void Function()? onTap; final double? iconSize;
   final IconData? leadingIcon, trailingIcon; final double topBorderRadius, bottomBorderRadius;
   const CustomListTileWithoutSubtitle({
-    this.leadingIcon, this.trailingIcon, required this.title, 
+    this.leadingIcon, this.trailingIcon, required this.title, this.iconSize,
     required this.topBorderRadius, required this.bottomBorderRadius, this.onTap, super.key
   });
 
@@ -18,7 +18,7 @@ class CustomListTileWithoutSubtitle extends StatelessWidget{
       color: customBackgroundColor,
       child: ListTile(
         title: CustomTextWidget(color: Colors.white, size: 16, fontWeight: FontWeight.w400, text: title),
-        leading: FaIcon(leadingIcon, color:customGreenColor, size: 25,), 
+        leading: FaIcon(leadingIcon, color:customGreenColor, size: iconSize,), 
         trailing: Icon(trailingIcon, size: 15, color: Colors.white38),
         tileColor: Colors.blueGrey.shade900,
         shape: RoundedRectangleBorder(
