@@ -17,9 +17,7 @@ class PrivacyAndSecurityView extends StatefulWidget{
 class PASView extends State<PrivacyAndSecurityView>{
   @override
   Widget build(BuildContext context) => AnnotatedRegion<SystemUiOverlayStyle>(
-    value: const SystemUiOverlayStyle(
-      systemNavigationBarColor: customBackgroundColor
-    ),
+    value: const SystemUiOverlayStyle(systemNavigationBarColor: customBackgroundColor),
     child: Scaffold(
       backgroundColor: customBackgroundColor,
       appBar: AppBar(

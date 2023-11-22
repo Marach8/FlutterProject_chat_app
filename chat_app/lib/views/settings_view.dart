@@ -24,7 +24,7 @@ class SettingsView extends StatelessWidget{
         backgroundColor: customBackgroundColor,
         appBar: AppBar(
           title: const CustomTextWidget (size: 20, fontWeight: FontWeight.w400, text: 'Settings'),
-          backgroundColor: customBackgroundColor, foregroundColor: customWhite70Color
+          backgroundColor: customBackgroundColor, foregroundColor: customWhiteColor
         ),
 
         body: ListView(
@@ -34,8 +34,8 @@ class SettingsView extends StatelessWidget{
               //color: customForegroundColor,
               children: [
                 CustomListTileWithoutSubtitle(
-                  leadingIcon: Icons.lock_sharp, title: 'Privacy And Security',
-                  onTap: () => pushNamedNavigation(context, privacySecurityRoute)
+                  leadingIcon: Icons.lock_sharp, trailingIcon: Icons.arrow_forward_ios_sharp, title: 'Privacy And Security',
+                  onTap: () => pushNamedNavigation(context, privacySecuritySettingsRoute)
               ),
               ]
             ),
@@ -44,35 +44,53 @@ class SettingsView extends StatelessWidget{
               //color: customForegroundColor,
               children: [
                 CustomListTileWithoutSubtitle(
-                  leadingIcon: Icons.photo, title: 'GBStickers',
+                  leadingIcon: Icons.photo, trailingIcon: Icons.arrow_forward_ios_sharp, title: 'GBStickers',
                   onTap: () async => await urlLauncher(gBStickersUrl)
                 ), 
-                CustomDivider(indent: 75),
-                CustomListTileWithoutSubtitle(leadingIcon: Icons.update_sharp, title: 'Updates',),
-                CustomDivider(indent: 75),
-                CustomListTileWithoutSubtitle(leadingIcon: Icons.info_sharp, title: 'About',),
+                const CustomDivider(indent: 75),
+                CustomListTileWithoutSubtitle(
+                  leadingIcon: Icons.refresh_rounded, trailingIcon: Icons.arrow_forward_ios_sharp, title: 'Updates',
+                  onTap: () => pushNamedNavigation(context, updatesSettingsRoute)
+                ),
+                const CustomDivider(indent: 75),
+                CustomListTileWithoutSubtitle(
+                  leadingIcon: Icons.info_sharp, trailingIcon: Icons.arrow_forward_ios_sharp, title: 'About',
+                  onTap: (){}
+                ),
               ]
             ),
             const Gap(10),
             const CustomContainer(
               //color: customForegroundColor,
               children: [
-                CustomListTileWithoutSubtitle(leadingIcon: Icons.brush_outlined, title: 'Themes',),
+                CustomListTileWithoutSubtitle(
+                  leadingIcon: Icons.brush_outlined, trailingIcon: Icons.arrow_forward_ios_sharp, title: 'Themes',
+                ),
                 CustomDivider(indent: 75),
-                CustomListTileWithoutSubtitle(leadingIcon: Icons.tune_sharp, title: 'Universal',),
+                CustomListTileWithoutSubtitle(
+                  leadingIcon: Icons.tune_sharp, trailingIcon: Icons.arrow_forward_ios_sharp, title: 'Universal',
+                ),
                 CustomDivider(indent: 75),
-                CustomListTileWithoutSubtitle(leadingIcon: Icons.home_sharp, title: 'Home Screen',),
+                CustomListTileWithoutSubtitle(
+                  leadingIcon: Icons.home_sharp, trailingIcon: Icons.arrow_forward_ios_sharp, title: 'Home Screen',
+                ),
                 CustomDivider(indent: 75),
-                CustomListTileWithoutSubtitle(leadingIcon: Icons.message_rounded, title: 'Chat Screen',),
+                CustomListTileWithoutSubtitle(
+                  leadingIcon: Icons.message_rounded, trailingIcon: Icons.arrow_forward_ios_sharp, title: 'Chat Screen',
+                ),
                 CustomDivider(indent: 75),
-                CustomListTileWithoutSubtitle(leadingIcon: Icons.gif_box_outlined, title: 'Widget',),
+                CustomListTileWithoutSubtitle(
+                  leadingIcon: Icons.gif_box_outlined, trailingIcon: Icons.arrow_forward_ios_sharp, title: 'Widget',
+                ),
               ]
             ),
             const Gap(10),
             const CustomContainer(
               //color: customForegroundColor,
               children: [
-                CustomListTileWithoutSubtitle(leadingIcon: Icons.share_sharp, title: 'Share GBWhatsApp Pro',),
+                CustomListTileWithoutSubtitle(
+                  leadingIcon: Icons.share_sharp, trailingIcon: Icons.arrow_forward_ios_sharp, title: 'Share GBWhatsApp Pro',
+                ),
               ]
             )
           ]

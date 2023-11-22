@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 
 class CustomListTileWithoutSubtitle extends StatelessWidget{
   final String title; final VoidCallback? onTap;
-  final IconData? leadingIcon;
+  final IconData? leadingIcon, trailingIcon;
   const CustomListTileWithoutSubtitle({
-    this.leadingIcon, required this.title, this.onTap, super.key
+    this.leadingIcon, this.trailingIcon, required this.title, this.onTap, super.key
   });
 
   @override
@@ -16,7 +16,7 @@ class CustomListTileWithoutSubtitle extends StatelessWidget{
       child: ListTile(
         title: CustomTextWidget(color: Colors.white, size: 16, fontWeight: FontWeight.w400, text: title),
         leading: Icon(leadingIcon, color:customGreenColor, size: 25), 
-        trailing: const Icon(Icons.arrow_forward_ios_sharp, size: 15, color: Colors.white38),
+        trailing: Icon(trailingIcon, size: 15, color: Colors.white38),
         tileColor: Colors.blueGrey.shade900, //dense: true,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         contentPadding: const EdgeInsets.fromLTRB(35, 0, 30, 0),
