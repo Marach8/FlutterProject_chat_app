@@ -3,22 +3,26 @@ import 'package:chat_app/custom_widgets/text_widget.dart';
 import 'package:flutter/material.dart';
 
 class CustomListTileWithoutSubtitle extends StatelessWidget{
-  final String title; final VoidCallback? onTap;
-  final IconData? leadingIcon, trailingIcon;
+  final String title; final void Function()? onTap;
+  final IconData? leadingIcon, trailingIcon; final double topBorderRadius, bottomBorderRadius;
   const CustomListTileWithoutSubtitle({
-    this.leadingIcon, this.trailingIcon, required this.title, this.onTap, super.key
+    this.leadingIcon, this.trailingIcon, required this.title, 
+    required this.topBorderRadius, required this.bottomBorderRadius, this.onTap, super.key
   });
 
   @override
   Widget build(BuildContext context){
     return Material(
+      //animationDuration: const Duration(milliseconds: 10),
       color: customBackgroundColor,
       child: ListTile(
         title: CustomTextWidget(color: Colors.white, size: 16, fontWeight: FontWeight.w400, text: title),
-        leading: Icon(leadingIcon, color:customGreenColor, size: 25), 
+        leading: Icon(leadingIcon, color:customGreenColor, size: 25,), 
         trailing: Icon(trailingIcon, size: 15, color: Colors.white38),
         tileColor: Colors.blueGrey.shade900, //dense: true,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(top: Radius.circular(topBorderRadius), bottom: Radius.circular(bottomBorderRadius))
+        ),
         contentPadding: const EdgeInsets.fromLTRB(35, 0, 30, 0),
         enabled: true, enableFeedback: true,
         onTap: onTap, splashColor: customWhite70Color,
@@ -43,7 +47,7 @@ class CustomListTileWithSubtitle extends StatelessWidget{
       child: ListTile(
         title: CustomTextWidget(color: Colors.white, size: 16, fontWeight: FontWeight.w400, text: title),
         subtitle: CustomTextWidget(color: customWhite54Color, size: 13, fontWeight: FontWeight.w400, text: subtitle),
-        trailing: trailing, tileColor: Colors.blueGrey.shade900, //dense: true,
+        trailing: trailing, tileColor: Colors.blueGrey.shade900, 
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         contentPadding: const EdgeInsets.fromLTRB(40, 0, 0, 0),
         enabled: true, enableFeedback: true, dense: true,

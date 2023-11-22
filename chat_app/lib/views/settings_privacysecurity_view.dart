@@ -154,11 +154,20 @@ class PASView extends State<PrivacyAndSecurityView>{
                 title: 'Change Password', subtitle: 'Default Password is: 0000, Change it to yours!'
               ),
               CustomDivider(indent: 30),
-              CustomListTileWithoutSubtitle(title: 'Change Pattern'),
+              CustomListTileWithoutSubtitle(
+                title: 'Change Pattern',
+                topBorderRadius: 0, bottomBorderRadius: 0,
+              ),
               CustomDivider(indent: 30),
-              CustomListTileWithoutSubtitle(title: 'Recovery Question'),
+              CustomListTileWithoutSubtitle(
+                title: 'Recovery Question',
+                topBorderRadius: 20, bottomBorderRadius: 0,
+              ),
               CustomDivider(indent: 30),
-              CustomListTileWithoutSubtitle(title: 'Change Change Lock/pattern Wallpaper,'),
+              CustomListTileWithoutSubtitle(
+                title: 'Change Change Lock/pattern Wallpaper,',
+                topBorderRadius: 0, bottomBorderRadius: 0,
+              ),
               CustomDivider(indent: 30),
               CustomListTileWithSwitch(title: 'Make Pattern Invisible', subtitle: ''),
               CustomListTileWithSwitch(title: 'Disable pattern vibration', subtitle: '')
