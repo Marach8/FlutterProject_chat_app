@@ -1,6 +1,7 @@
 import 'package:chat_app/constants/colors.dart';
 import 'package:chat_app/custom_widgets/text_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class CustomListTileWithoutSubtitle extends StatelessWidget{
   final String title; final void Function()? onTap;
@@ -17,9 +18,9 @@ class CustomListTileWithoutSubtitle extends StatelessWidget{
       color: customBackgroundColor,
       child: ListTile(
         title: CustomTextWidget(color: Colors.white, size: 16, fontWeight: FontWeight.w400, text: title),
-        leading: Icon(leadingIcon, color:customGreenColor, size: 25,), 
+        leading: FaIcon(leadingIcon, color:customGreenColor, size: 25,), 
         trailing: Icon(trailingIcon, size: 15, color: Colors.white38),
-        tileColor: Colors.blueGrey.shade900, //dense: true,
+        tileColor: Colors.blueGrey.shade900,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.vertical(top: Radius.circular(topBorderRadius), bottom: Radius.circular(bottomBorderRadius))
         ),

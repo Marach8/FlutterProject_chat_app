@@ -5,6 +5,7 @@ import 'package:chat_app/custom_widgets/listtile_widget.dart';
 import 'package:chat_app/custom_widgets/text_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:gap/gap.dart';
 
 class AboutView extends StatefulWidget {
@@ -31,24 +32,24 @@ class _AboutViewState extends State<AboutView> {
           CustomContainer(
             children: [
               const Padding(
-                padding: EdgeInsets.only(left:30, top: 15, bottom: 20),
+                padding: EdgeInsets.only(left:30, top: 15, bottom: 5),
                 child: Align(
                   alignment: Alignment.centerLeft,
-                  child: CustomTextWidget(size: 15, fontWeight: FontWeight.w700, text: 'ABOUT', color: customWhiteColor)
+                  child: CustomTextWidget(size: 16, fontWeight: FontWeight.w700, text: 'ABOUT', color: customWhiteColor)
                 ),
               ),
               CustomListTileWithoutSubtitle(
-                title: 'GBWhatsApp Pro v17.55', leadingIcon: Icons.chat,
+                title: 'GBWhatsApp Pro v17.55', leadingIcon: FontAwesomeIcons.whatsapp,
                 topBorderRadius: 0, bottomBorderRadius: 0, onTap: (){}
               ),
-              const CustomDivider(indent: 50),
+              const CustomDivider(indent: 60),
               CustomListTileWithoutSubtitle(
-                title: 'By AlexMods.com', leadingIcon: Icons.computer_rounded,
+                title: 'By AlexMods.com', leadingIcon: FontAwesomeIcons.personCircleQuestion,
                 topBorderRadius: 0, bottomBorderRadius: 0, onTap: (){}
               ),
-              const CustomDivider(indent: 50),
+              const CustomDivider(indent: 60),
               CustomListTileWithoutSubtitle(
-                title: 'FAQs', leadingIcon: Icons.help_rounded,
+                title: 'FAQs', leadingIcon: FontAwesomeIcons.circleQuestion,
                 topBorderRadius: 0, bottomBorderRadius: 20, onTap: (){}
               ),
             ]
@@ -59,31 +60,31 @@ class _AboutViewState extends State<AboutView> {
           CustomContainer(
             children: [
               const Padding(
-                padding: EdgeInsets.only(left:30, top: 15, bottom: 20),
+                padding: EdgeInsets.only(left:30, top: 15, bottom: 5),
                 child: Align(
                   alignment: Alignment.centerLeft,
                   child: CustomTextWidget(
-                    size: 15, fontWeight: FontWeight.w700, text: 'FOLLOW ME TO STAY UPDATED', color: customWhiteColor
+                    size: 16, fontWeight: FontWeight.w700, text: 'FOLLOW ME TO STAY UPDATED', color: customWhiteColor
                   )
                 ),
               ),
               CustomListTileWithoutSubtitle(
-                title: 'Twitter', leadingIcon: Icons.chat,
+                title: 'Twitter', leadingIcon: FontAwesomeIcons.squareTwitter,
                 topBorderRadius: 0, bottomBorderRadius: 0, onTap: (){}
               ),
-              const CustomDivider(indent: 50),
+              const CustomDivider(indent: 60),
               CustomListTileWithoutSubtitle(
-                title: 'Telegram', leadingIcon: Icons.computer_rounded,
+                title: 'Telegram', leadingIcon: FontAwesomeIcons.telegram,
                 topBorderRadius: 0, bottomBorderRadius: 0, onTap: (){}
               ),
-              const CustomDivider(indent: 50),
+              const CustomDivider(indent: 60),
               CustomListTileWithoutSubtitle(
-                title: 'Facebook', leadingIcon: Icons.help_rounded,
+                title: 'Facebook', leadingIcon: FontAwesomeIcons.squareFacebook,
                 topBorderRadius: 0, bottomBorderRadius: 0, onTap: (){}
               ),
-              const CustomDivider(indent: 50),
+              const CustomDivider(indent: 60),
               CustomListTileWithoutSubtitle(
-                title: 'VKontakte', leadingIcon: Icons.help_rounded,
+                title: 'VKontakte', leadingIcon: FontAwesomeIcons.vk,
                 topBorderRadius: 0, bottomBorderRadius: 20, onTap: (){}
               ),
             ],
