@@ -1,9 +1,11 @@
 import 'package:chat_app/constants/colors.dart';
+import 'package:chat_app/constants/custom_text.dart';
 import 'package:chat_app/constants/routes.dart';
 import 'package:chat_app/custom_widgets/container_widget.dart';
 import 'package:chat_app/custom_widgets/divider_widget.dart';
 import 'package:chat_app/custom_widgets/listTile_widget.dart';
 import 'package:chat_app/custom_widgets/text_widget.dart';
+import 'package:chat_app/functions/navigate_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:gap/gap.dart';
@@ -33,15 +35,18 @@ class SettingsView extends StatelessWidget{
               children: [
                 CustomListTileWithoutSubtitle(
                   leadingIcon: Icons.lock_sharp, title: 'Privacy And Security',
-                  onTap: () => Navigator.of(context).pushNamed(privacySecurityRoute)
+                  onTap: () => pushNamedNavigation(context, privacySecurityRoute)
               ),
               ]
             ),
             const Gap(10),
-            const CustomContainer(
+            CustomContainer(
               //color: customForegroundColor,
               children: [
-                CustomListTileWithoutSubtitle(leadingIcon: Icons.photo, title: 'GBStickers',), 
+                CustomListTileWithoutSubtitle(
+                  leadingIcon: Icons.photo, title: 'GBStickers',
+                  onTap: () async => await urlLauncher(gBStickersUrl)
+                ), 
                 CustomDivider(indent: 75),
                 CustomListTileWithoutSubtitle(leadingIcon: Icons.update_sharp, title: 'Updates',),
                 CustomDivider(indent: 75),
