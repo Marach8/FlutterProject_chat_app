@@ -3,9 +3,9 @@ import 'package:chat_app/constants/text_links.dart';
 import 'package:chat_app/constants/routes.dart';
 import 'package:chat_app/custom_widgets/container_widget.dart';
 import 'package:chat_app/custom_widgets/divider_widget.dart';
-import 'package:chat_app/custom_widgets/listTile_widget.dart';
+import 'package:chat_app/custom_widgets/listtile_widget.dart';
 import 'package:chat_app/custom_widgets/text_widget.dart';
-import 'package:chat_app/functions/navigate_screen.dart';
+import 'package:chat_app/functions/navigate_screen_function.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:gap/gap.dart';
@@ -57,7 +57,7 @@ class SettingsView extends StatelessWidget{
                 CustomListTileWithoutSubtitle(
                   leadingIcon: Icons.info_sharp, trailingIcon: Icons.arrow_forward_ios_sharp, title: 'About',
                   topBorderRadius: 0, bottomBorderRadius: 20,
-                  onTap: (){}
+                  onTap: () => pushNamedNavigation(context, aboutSettingsRoute)
                 ),
               ]
             ),

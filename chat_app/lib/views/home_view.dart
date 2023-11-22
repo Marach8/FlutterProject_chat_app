@@ -1,5 +1,5 @@
-import 'package:chat_app/custom_widgets/floatingbutton_widget.dart';
-import 'package:chat_app/custom_widgets/tabbaritem_widget.dart';
+import 'package:chat_app/custom_widgets/floating_button_widget.dart';
+import 'package:chat_app/custom_widgets/tabbar_item_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 

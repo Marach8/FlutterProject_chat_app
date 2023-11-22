@@ -1,20 +1,20 @@
 import 'package:chat_app/constants/colors.dart';
 import 'package:chat_app/custom_widgets/container_widget.dart';
 import 'package:chat_app/custom_widgets/divider_widget.dart';
-import 'package:chat_app/custom_widgets/listTile_widget.dart';
+import 'package:chat_app/custom_widgets/listtile_widget.dart';
 import 'package:chat_app/custom_widgets/text_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:gap/gap.dart';
 
-class Updates extends StatefulWidget{
-  const Updates({super.key});
+class UpdatesView extends StatefulWidget{
+  const UpdatesView({super.key});
 
   @override
-  State<Updates> createState() => _UpdatesState();
+  State<UpdatesView> createState() => _UpdatesState();
 }
 
-class _UpdatesState extends State<Updates> {
+class _UpdatesState extends State<UpdatesView> {
   @override
   Widget build(BuildContext context) => AnnotatedRegion<SystemUiOverlayStyle>(
     value: const SystemUiOverlayStyle(systemNavigationBarColor: customBackgroundColor),

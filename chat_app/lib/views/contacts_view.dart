@@ -1,4 +1,4 @@
-import 'package:chat_app/custom_widgets/circle_avatar.dart';
+import 'package:chat_app/custom_widgets/circle_avatar_widget.dart';
 import 'package:chat_app/custom_widgets/text_widget.dart';
 import 'package:chat_app/functions/contacts_function.dart';
 import 'package:chat_app/functions/invite_message_functions.dart';
