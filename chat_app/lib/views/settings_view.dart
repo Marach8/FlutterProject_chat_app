@@ -30,7 +30,6 @@ class SettingsView extends StatelessWidget{
           children: [
             const Gap(10),
             CustomContainer(
-              //color: customForegroundColor,
               children: [
                 CustomListTileWithoutSubtitle(
                   leadingIcon: FontAwesomeIcons.lock, trailingIcon: Icons.arrow_forward_ios_sharp, title: 'Privacy And Security',
@@ -41,7 +40,6 @@ class SettingsView extends StatelessWidget{
             ),
             const Gap(10),
             CustomContainer(
-              //color: customForegroundColor,
               children: [
                 CustomListTileWithoutSubtitle(
                   leadingIcon: FontAwesomeIcons.faceLaughBeam, trailingIcon: Icons.arrow_forward_ios_sharp, title: 'GBStickers',
@@ -64,12 +62,11 @@ class SettingsView extends StatelessWidget{
             ),
             const Gap(10),
             CustomContainer(
-              //color: customForegroundColor,
               children: [
                 CustomListTileWithoutSubtitle(
                   leadingIcon: FontAwesomeIcons.brush, trailingIcon: Icons.arrow_forward_ios_sharp, title: 'Themes',
                   topBorderRadius: 20, bottomBorderRadius: 0, iconSize: 18,
-                  onTap: (){}
+                  onTap: () => pushNamedNavigation(context, themesSettingsRoute),
                 ),
                 const CustomDivider(indent: 75),
                 CustomListTileWithoutSubtitle(
@@ -99,7 +96,6 @@ class SettingsView extends StatelessWidget{
             ),
             const Gap(10),
             const CustomContainer(
-              //color: customForegroundColor,
               children: [
                 CustomListTileWithoutSubtitle(
                   leadingIcon: FontAwesomeIcons.shareNodes, trailingIcon: Icons.arrow_forward_ios_sharp, title: 'Share GBWhatsApp Pro',

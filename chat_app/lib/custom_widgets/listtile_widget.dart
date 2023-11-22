@@ -18,7 +18,7 @@ class CustomListTileWithoutSubtitle extends StatelessWidget{
       color: customBackgroundColor,
       child: ListTile(
         title: CustomTextWidget(color: Colors.white, size: 16, fontWeight: FontWeight.w400, text: title),
-        leading: FaIcon(leadingIcon, color:customGreenColor, size: iconSize,), 
+        leading: FaIcon(leadingIcon, color: customGreenColor, size: iconSize,), 
         trailing: Icon(trailingIcon, size: 15, color: Colors.white38),
         tileColor: Colors.blueGrey.shade900,
         shape: RoundedRectangleBorder(
@@ -35,23 +35,26 @@ class CustomListTileWithoutSubtitle extends StatelessWidget{
 
 class CustomListTileWithSubtitle extends StatelessWidget{
   final String title, subtitle; final VoidCallback? onTap;
-  final Widget? leading, trailing;
+  final Widget? leading, trailing; final double topBorderRadius, bottomBorderRadius;
   const CustomListTileWithSubtitle({
-    this.leading, required this.title, required this.subtitle, this.trailing, this.onTap, super.key
+    this.leading, required this.title, required this.subtitle, required this.topBorderRadius,
+    required this.bottomBorderRadius, this.trailing, this.onTap, super.key
   });
 
   @override
   Widget build(BuildContext context){
     return Material(
-      color: customForegroundColor,
+      color: customBackgroundColor,
       animationDuration: const Duration(milliseconds: 100),
       child: ListTile(
         title: CustomTextWidget(color: Colors.white, size: 16, fontWeight: FontWeight.w400, text: title),
-        subtitle: CustomTextWidget(color: customWhite54Color, size: 13, fontWeight: FontWeight.w400, text: subtitle),
+        subtitle: CustomTextWidget(color: customWhite54Color, size: 12, fontWeight: FontWeight.w400, text: subtitle),
         trailing: trailing, tileColor: Colors.blueGrey.shade900, 
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(top: Radius.circular(topBorderRadius), bottom: Radius.circular(bottomBorderRadius))
+        ),
         contentPadding: const EdgeInsets.fromLTRB(40, 0, 0, 0),
-        enabled: true, enableFeedback: true, dense: true,
+        enabled: true, enableFeedback: true, //dense: true,
         onTap: onTap
       ),
     );

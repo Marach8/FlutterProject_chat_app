@@ -60,25 +60,29 @@ class PASView extends State<PrivacyAndSecurityView>{
               ),
               Gap(5),
               CustomListTileWithSubtitle( 
-                title: 'Contacts', subtitle: 'Change privacy settings.'
+                title: 'Contacts', subtitle: 'Change privacy settings.',
+                topBorderRadius: 0, bottomBorderRadius: 0,
               ),
               Gap(5),
               CustomDivider(indent: 40),
               Gap(5),
               CustomListTileWithSubtitle( 
-                title: 'Groups', subtitle: 'Change privacy settings.'
+                title: 'Groups', subtitle: 'Change privacy settings.',
+                topBorderRadius: 0, bottomBorderRadius: 0,
               ),
               Gap(5),
               CustomDivider(indent: 40),
               Gap(5),
               CustomListTileWithSubtitle( 
-                title: 'Broadcasts', subtitle: 'Change privacy settings.'
+                title: 'Broadcasts', subtitle: 'Change privacy settings.',
+                topBorderRadius: 0, bottomBorderRadius: 0,
               ),
               Gap(5),
               CustomDivider(indent: 40),
               Gap(5),
               CustomListTileWithSubtitle( 
-                title: 'Custom Privacy', subtitle: 'View all'
+                title: 'Custom Privacy', subtitle: 'View all',
+                topBorderRadius: 0, bottomBorderRadius: 0,
               ),
               Gap(20),
               Padding(
@@ -90,7 +94,8 @@ class PASView extends State<PrivacyAndSecurityView>{
               ),
               Gap(5),
               CustomListTileWithSubtitle( 
-                title: 'Who can call me?', subtitle: 'Everyone'
+                title: 'Who can call me?', subtitle: 'Everyone',
+                topBorderRadius: 0, bottomBorderRadius: 0,
               ),
               Gap(20),
               Padding(
@@ -151,7 +156,8 @@ class PASView extends State<PrivacyAndSecurityView>{
               ),
               CustomDivider(indent: 30),
               CustomListTileWithSubtitle(
-                title: 'Change Password', subtitle: 'Default Password is: 0000, Change it to yours!'
+                title: 'Change Password', subtitle: 'Default Password is: 0000, Change it to yours!',
+                topBorderRadius: 0, bottomBorderRadius: 0,
               ),
               CustomDivider(indent: 30),
               CustomListTileWithoutSubtitle(
