@@ -32,7 +32,7 @@ class _UpdatesState extends State<UpdatesView> {
             children: [
               CustomListTileWithoutSubtitle(
                 leadingIcon: Icons.refresh_rounded, title: 'Check For Updates',
-                topBorderRadius: 20, bottomBorderRadius: 0,
+                topBorderRadius: 20, bottomBorderRadius: 0, 
               ),
               CustomDivider(indent: 30),
               CustomListTileWithoutSubtitle(

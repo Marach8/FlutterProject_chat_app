@@ -5,9 +5,10 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class CustomListTileWithoutSubtitle extends StatelessWidget{
   final String title; final void Function()? onTap; final double? iconSize;
-  final IconData? leadingIcon, trailingIcon; final double topBorderRadius, bottomBorderRadius;
+  final IconData? leadingIcon, trailingIcon; final Color? trailingIconColor;
+  final double topBorderRadius, bottomBorderRadius;
   const CustomListTileWithoutSubtitle({
-    this.leadingIcon, this.trailingIcon, required this.title, this.iconSize,
+    this.leadingIcon, this.trailingIcon, required this.title, this.iconSize, this.trailingIconColor,
     required this.topBorderRadius, required this.bottomBorderRadius, this.onTap, super.key
   });
 
@@ -19,7 +20,7 @@ class CustomListTileWithoutSubtitle extends StatelessWidget{
       child: ListTile(
         title: CustomTextWidget(color: Colors.white, size: 16, fontWeight: FontWeight.w400, text: title),
         leading: FaIcon(leadingIcon, color: customGreenColor, size: iconSize,), 
-        trailing: Icon(trailingIcon, size: 15, color: Colors.white38),
+        trailing: Icon(trailingIcon, size: 15, color: trailingIconColor),
         tileColor: customForegroundColor,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.vertical(top: Radius.circular(topBorderRadius), bottom: Radius.circular(bottomBorderRadius))
@@ -70,8 +71,10 @@ class CustomListTileWithSubtitle extends StatelessWidget{
 
 class CustomListTileWithSwitch extends StatefulWidget{
   final String title; final String subtitle; 
+  final double topBorderRadius, bottomBorderRadius, sizeOfSubtitle;
   const CustomListTileWithSwitch({
-    required this.title, required this.subtitle, super.key
+    required this.title, required this.subtitle, required this.topBorderRadius, 
+    required this.bottomBorderRadius, required this.sizeOfSubtitle, super.key
   });
 
   @override
@@ -86,12 +89,16 @@ class _CustomListTileWithSwitchState extends State<CustomListTileWithSwitch> {
   @override
   Widget build(BuildContext context){
     return Material(
-      color: customForegroundColor,
+      color: customBackgroundColor,
       child: SwitchListTile(
         title: CustomTextWidget(color: customWhiteColor, size: 16, fontWeight: FontWeight.w400, text: widget.title),
-        subtitle: CustomTextWidget(color: customWhite54Color, size: 13, fontWeight: FontWeight.w400, text: widget.subtitle),
+        subtitle: CustomTextWidget(color: customWhite54Color, size: widget.sizeOfSubtitle, fontWeight: FontWeight.w400, text: widget.subtitle),
         tileColor: Colors.blueGrey.shade900, dense: true,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(
+            top: Radius.circular(widget.topBorderRadius), 
+            bottom: Radius.circular(widget.bottomBorderRadius))
+        ),
         contentPadding: const EdgeInsets.fromLTRB(40, 0, 10, 0),
         value: _isSwitched, 
         onChanged: (parameter) => setState(() => _isSwitched = parameter),

@@ -48,7 +48,8 @@ class PASView extends State<PrivacyAndSecurityView>{
               ),
               Gap(5),
               CustomListTileWithSwitch( 
-                title: 'Freeze Last Seen', subtitle: 'Please restart WhatsApp for changes to take effect.'
+                title: 'Freeze Last Seen', subtitle: 'Please restart WhatsApp for changes to take effect.',
+                topBorderRadius: 0, bottomBorderRadius: 0, sizeOfSubtitle: 13,
               ),
               Gap(25),
               Padding(
@@ -107,19 +108,22 @@ class PASView extends State<PrivacyAndSecurityView>{
               ),
               Gap(10),
               CustomListTileWithSwitch( 
-                title: 'Disable Forwarded', subtitle: 'Allows you to re-send messages without Forwarding tag'
+                title: 'Disable Forwarded', subtitle: 'Allows you to re-send messages without Forwarding tag',
+                topBorderRadius: 0, bottomBorderRadius: 0, sizeOfSubtitle: 13,
               ),
               Gap(5),
               CustomDivider(indent: 40),
               Gap(5),
               CustomListTileWithSwitch( 
-                title: 'Anti-Delete Messages', subtitle: 'Other people cannot delete messages for you'
+                title: 'Anti-Delete Messages', subtitle: 'Other people cannot delete messages for you',
+                topBorderRadius: 0, bottomBorderRadius: 0, sizeOfSubtitle: 13,
               ),
               Gap(5),
               CustomDivider(indent: 40),
               Gap(5),
               CustomListTileWithSwitch( 
-                title: 'Show Blue Ticks after reply', subtitle: 'Contact will only see blue ticks after you reply'
+                title: 'Show Blue Ticks after reply', subtitle: 'Contact will only see blue ticks after you reply',
+                topBorderRadius: 0, bottomBorderRadius: 0, sizeOfSubtitle: 13,
               ),
               Gap(20),
               Padding(
@@ -131,13 +135,15 @@ class PASView extends State<PrivacyAndSecurityView>{
               ),
               Gap(10),
               CustomListTileWithSwitch( 
-                title: 'Hide View Status', subtitle: "Don't tell contact that you have viewed their status"
+                title: 'Hide View Status', subtitle: "Don't tell contact that you have viewed their status",
+                topBorderRadius: 0, bottomBorderRadius: 0, sizeOfSubtitle: 13,
               ),
               Gap(5),
               CustomDivider(indent: 40),
               Gap(5),
               CustomListTileWithSwitch( 
-                title: 'Anti-Delete Status', subtitle: 'Deleted statuses/stories will not be deleted for you.'
+                title: 'Anti-Delete Status', subtitle: 'Deleted statuses/stories will not be deleted for you.',
+                topBorderRadius: 0, bottomBorderRadius: 0, sizeOfSubtitle: 13,
               ),
             ]
           ),
@@ -175,8 +181,14 @@ class PASView extends State<PrivacyAndSecurityView>{
                 topBorderRadius: 0, bottomBorderRadius: 0,
               ),
               CustomDivider(indent: 30),
-              CustomListTileWithSwitch(title: 'Make Pattern Invisible', subtitle: ''),
-              CustomListTileWithSwitch(title: 'Disable pattern vibration', subtitle: '')
+              CustomListTileWithSwitch(
+                title: 'Make Pattern Invisible', subtitle: '',
+                topBorderRadius: 0, bottomBorderRadius: 0, sizeOfSubtitle: 13,
+              ),
+              CustomListTileWithSwitch(
+                title: 'Disable pattern vibration', subtitle: '',
+                topBorderRadius: 0, bottomBorderRadius: 0, sizeOfSubtitle: 13,
+              )
             ]
           )
         ]

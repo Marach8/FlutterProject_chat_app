@@ -34,7 +34,8 @@ class _UIFloatingActionButtonsState extends State<UIFloatingActionButtons> {
       return Stack(
         children: [
           Positioned(
-            right: 0, bottom: 78, child: AnimatedSwitcher(
+            right: 0, bottom: 78, 
+            child: AnimatedSwitcher(
               duration: const Duration(seconds: 1),
               transitionBuilder: (child, animation){
                 return RotationTransition(
