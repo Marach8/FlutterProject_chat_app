@@ -2,6 +2,7 @@ import 'package:chat_app/constants/routes.dart';
 import 'package:chat_app/views/contacts_view.dart';
 import 'package:chat_app/views/home_view.dart';
 import 'package:chat_app/views/settings_about_view.dart';
+import 'package:chat_app/views/settings_chatscreen_view.dart';
 import 'package:chat_app/views/settings_homescreen_view.dart';
 import 'package:chat_app/views/settings_privacysecurity_view.dart';
 import 'package:chat_app/views/settings_themes_view.dart';
@@ -32,7 +33,8 @@ class ChatApp extends StatelessWidget{
       aboutSettingsRoute: (context) => const AboutView(),
       themesSettingsRoute: (context) => const ThemesView(),
       universalSettingsRoute: (context) => const UniversalView(),
-      homescreenSettingsRoute: (context) => const HomeScreenView()
+      homescreenSettingsRoute: (context) => const HomeScreenView(),
+      chatscreenSettingsRoute: (context) => const ChatScreenView(),
     }
   );
 }

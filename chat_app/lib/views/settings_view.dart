@@ -84,7 +84,7 @@ class SettingsView extends StatelessWidget{
                 CustomListTileWithoutSubtitle(
                   leadingIcon: FontAwesomeIcons.solidMessage, trailingIcon: Icons.arrow_forward_ios_sharp, title: 'Chat Screen',
                   topBorderRadius: 0, bottomBorderRadius: 0, iconSize: 18, trailingIconColor: customWhite30Color,
-                  onTap: (){}
+                  onTap: () => pushNamedNavigation(context, chatscreenSettingsRoute)
                 ),
                 const CustomDivider(indent: 75),
                 CustomListTileWithoutSubtitle(

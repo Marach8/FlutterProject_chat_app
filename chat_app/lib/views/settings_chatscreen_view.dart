@@ -9,8 +9,8 @@ import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:gap/gap.dart';
 
-class HomeScreenView extends StatelessWidget {
-  const HomeScreenView({super.key});
+class ChatScreenView extends StatelessWidget {
+  const ChatScreenView({super.key});
 
   @override
   Widget build(BuildContext context) => AnnotatedRegion<SystemUiOverlayStyle>(
@@ -18,7 +18,7 @@ class HomeScreenView extends StatelessWidget {
     child: Scaffold(
       backgroundColor: customBackgroundColor,
       appBar: AppBar(
-        title: const CustomTextWidget(size: 20, fontWeight: FontWeight.w400, text: 'Home Screen'),
+        title: const CustomTextWidget(size: 20, fontWeight: FontWeight.w400, text: 'Chat Screen'),
         backgroundColor: customBackgroundColor, foregroundColor: customWhite70Color,
       ),
 
@@ -28,27 +28,27 @@ class HomeScreenView extends StatelessWidget {
           CustomContainer(
             children: [
               CustomListTileWithoutSubtitle(
-                title: 'Header', leadingIcon: FontAwesomeIcons.heading, trailingIcon: Icons.arrow_forward_ios_sharp,
+                title: 'Action Bar', leadingIcon: FontAwesomeIcons.heading, trailingIcon: Icons.arrow_forward_ios_sharp,
                 topBorderRadius: 20, bottomBorderRadius: 0, trailingIconColor: customBlackColor,
                 onTap: (){}
               ),
               const CustomDivider(indent: 20),
               CustomListTileWithoutSubtitle(
-                title: 'Rows', leadingIcon: FontAwesomeIcons.bars,
+                title: 'Bubble And Ticks', leadingIcon: FontAwesomeIcons.solidSquareCheck,
                 topBorderRadius: 0, bottomBorderRadius: 0, trailingIcon: Icons.arrow_forward_ios_sharp,
                 trailingIconColor: customBlackColor,
                 onTap: (){}
               ),
               const CustomDivider(indent: 20),
               CustomListTileWithoutSubtitle(
-                title: 'Floating Action Button', leadingIcon: FontAwesomeIcons.circlePlus,
+                title: 'Conversation Entry Style', leadingIcon: FontAwesomeIcons.solidComments,
                 topBorderRadius: 0, bottomBorderRadius: 0, trailingIcon: Icons.arrow_forward_ios_sharp,
                 trailingIconColor: customBlackColor,
                 onTap: (){}
               ),
               const CustomDivider(indent: 20),
               CustomListTileWithoutSubtitle(
-                title: 'Status', leadingIcon: FontAwesomeIcons.solidCircleUser,
+                title: 'More Options', leadingIcon: FontAwesomeIcons.gear,
                 topBorderRadius: 0, bottomBorderRadius: 20, trailingIcon: Icons.arrow_forward_ios_sharp,
                 trailingIconColor: customBlackColor,
                 onTap: (){}
@@ -70,52 +70,39 @@ class HomeScreenView extends StatelessWidget {
               ),
               Gap(10),
               CustomListTileWithSwitch( 
-                title: 'Confirm before sending a Status', subtitle: '',
+                title: 'Group Admin Indicator', subtitle: '',
                 topBorderRadius: 0, bottomBorderRadius: 0, sizeOfSubtitle: sizeOfSubtitleOne,
               ),
               CustomListTileWithSwitch( 
-                title: 'Viewed Story Toast', subtitle: 'Know immediately when anyone views your status by Toast message.',
+                title: 'Confirm before sending a Sticker', subtitle: 'Confirm before sending a sticker',
+                topBorderRadius: 0, bottomBorderRadius: 0, sizeOfSubtitle: sizeOfSubtitleOne,
+              ),
+              Gap(10),
+              CustomListTileWithSwitch( 
+                title: 'New Attachment Picker UI', subtitle: '',
                 topBorderRadius: 0, bottomBorderRadius: 0, sizeOfSubtitle: sizeOfSubtitleOne,
               ),
               Gap(5),
               CustomListTileWithSwitch( 
-                title: 'Hide Chats Divider', subtitle: 'Removes grey line between chats in Main Screen',
+                title: 'Hide date and name', subtitle: 'Hide the date and name when copying 2 messages or more',
                 topBorderRadius: 0, bottomBorderRadius: 0, sizeOfSubtitle: sizeOfSubtitleOne,
               ),
               Gap(5),
-              CustomListTileWithSwitch( 
-                title: 'Disable Contact Online Toast', subtitle: 'Its Enabled by default! Turn on if you dont want Online Toast',
-                topBorderRadius: 0, bottomBorderRadius: 0, sizeOfSubtitle: sizeOfSubtitleOne,
-              ),
-              Gap(5),
-              CustomListTileWithSubtitle( 
-                title: 'Ringtone Contact Toast', subtitle: 'Ringtone to play when contact goes online',
-                topBorderRadius: 0, bottomBorderRadius: 0, sizeOfSubtitle: sizeOfSubtitleOne,
-              ),
-              CustomListTileWithSubtitle( 
-                title: 'Contact Online Toast Location', subtitle: 'Top',
-                topBorderRadius: 0, bottomBorderRadius: 0, sizeOfSubtitle: sizeOfSubtitleOne,
-              ),
               Padding(
                 padding: EdgeInsets.only(left: 35, top: 10),
                 child: Align(
                   alignment: Alignment.centerLeft,
-                  child: CustomTextWidget(size: 14, fontWeight: fontWeightTwo, color: customGreenColor, text: 'Forward Settings')
+                  child: CustomTextWidget(size: 14, fontWeight: fontWeightTwo, color: customGreenColor, text: 'Voice Notes/Audio Mods')
                 ),
               ),
               Gap(5),
               CustomListTileWithSwitch( 
-                title: 'Frequently contacted', subtitle: 'Hide Frequently contacted from Forward section',
+                title: 'Enable Proximity Sensor', subtitle: 'Enabled by default, disable to turn it off.',
                 topBorderRadius: 0, bottomBorderRadius: 0, sizeOfSubtitle: sizeOfSubtitleOne,
               ),
               Gap(5),
               CustomListTileWithSwitch( 
-                title: 'Other contacts', subtitle: 'Hide Other contacts from Forward section',
-                topBorderRadius: 0, bottomBorderRadius: 0, sizeOfSubtitle: sizeOfSubtitleOne,
-              ),
-              Gap(5),
-              CustomListTileWithSwitch( 
-                title: 'Recent chats', subtitle: 'Hide Recent chats from Forward section',
+                title: 'Disable Output Switching', subtitle: 'Prevernts speaker/earpiece switching while playing',
                 topBorderRadius: 0, bottomBorderRadius: 20, sizeOfSubtitle: sizeOfSubtitleOne,
               ),
             ]
