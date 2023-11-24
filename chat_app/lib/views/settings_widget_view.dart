@@ -1,5 +1,4 @@
 import 'package:chat_app/constants/colors.dart';
-import 'package:chat_app/constants/sizes_of_widgets.dart';
 import 'package:chat_app/custom_widgets/container_widget.dart';
 import 'package:chat_app/custom_widgets/divider_widget.dart';
 import 'package:chat_app/custom_widgets/listtile_widget.dart';
@@ -54,27 +53,29 @@ class _AboutViewState extends State<WidgetsView> {
               ]
             )
           ),
+
           const Gap(5),
+
           CustomContainer(
             children: [
               CustomListTileWithoutSubtitle(
-                title: 'Background', trailingIcon: Icons.arrow_forward_ios_sharp,
+                title: 'Background', trailingIcon: FontAwesomeIcons.radio,
                 topBorderRadius: 20, bottomBorderRadius: 0, trailingIconColor: customBlackColor,
-                padding: const EdgeInsets.all(0),
+                padding: const EdgeInsets.fromLTRB(0, 0,30, 0),
                 onTap: (){}
               ),
               const CustomDivider(indent: 20),
               CustomListTileWithoutSubtitle(
                 title: 'Contact Name and Color',
-                topBorderRadius: 0, bottomBorderRadius: 0, trailingIcon: Icons.arrow_forward_ios_sharp,
-                trailingIconColor: customBlackColor, padding: const EdgeInsets.all(0),
+                topBorderRadius: 0, bottomBorderRadius: 0, trailingIcon: FontAwesomeIcons.circleDot,
+                trailingIconColor: customBlackColor, padding: const EdgeInsets.fromLTRB(0, 0, 30, 0),
                 onTap: (){}
               ),
               const CustomDivider(indent: 20),
               CustomListTileWithoutSubtitle(
                 title: 'Contact Status Text Color',
-                topBorderRadius: 0, bottomBorderRadius: 20, trailingIcon: Icons.arrow_forward_ios_sharp,
-                trailingIconColor: customBlackColor, padding: const EdgeInsets.all(0),
+                topBorderRadius: 0, bottomBorderRadius: 20, trailingIcon: FontAwesomeIcons.circleDot,
+                trailingIconColor: customBlackColor, padding: const EdgeInsets.fromLTRB(0, 0, 30, 0),
                 onTap: (){}
               ),
             ]
