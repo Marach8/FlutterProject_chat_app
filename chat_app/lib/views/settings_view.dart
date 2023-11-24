@@ -90,16 +90,17 @@ class SettingsView extends StatelessWidget{
                 CustomListTileWithoutSubtitle(
                   leadingIcon: FontAwesomeIcons.cube, trailingIcon: Icons.arrow_forward_ios_sharp, title: 'Widget',
                   topBorderRadius: 0, bottomBorderRadius: 20, iconSize: 18, trailingIconColor: customWhite30Color,
-                  onTap: (){}
+                  onTap: () => pushNamedNavigation(context, widgetsSettingsRoute)
                 ),
               ]
             ),
             const Gap(10),
-            const CustomContainer(
+            CustomContainer(
               children: [
                 CustomListTileWithoutSubtitle(
                   leadingIcon: FontAwesomeIcons.shareNodes, trailingIcon: Icons.arrow_forward_ios_sharp, title: 'Share GBWhatsApp Pro',
                   topBorderRadius: 20, bottomBorderRadius: 20, iconSize: 18, trailingIconColor: customWhite30Color,
+                  onTap: (){}
                 ),
               ]
             )

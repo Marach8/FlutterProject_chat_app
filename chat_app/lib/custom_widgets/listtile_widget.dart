@@ -8,9 +8,10 @@ class CustomListTileWithoutSubtitle extends StatelessWidget{
   final String title; final void Function()? onTap; final double? iconSize;
   final IconData? leadingIcon, trailingIcon; final Color? trailingIconColor;
   final double topBorderRadius, bottomBorderRadius;
+  final EdgeInsetsGeometry? padding;
   const CustomListTileWithoutSubtitle({
     this.leadingIcon, this.trailingIcon, required this.title, this.iconSize, this.trailingIconColor,
-    required this.topBorderRadius, required this.bottomBorderRadius, this.onTap, super.key
+    required this.topBorderRadius, required this.bottomBorderRadius, this.onTap, this.padding, super.key
   });
 
   @override
@@ -26,7 +27,7 @@ class CustomListTileWithoutSubtitle extends StatelessWidget{
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.vertical(top: Radius.circular(topBorderRadius), bottom: Radius.circular(bottomBorderRadius))
         ),
-        contentPadding: const EdgeInsets.fromLTRB(35, 0, 30, 0),
+        contentPadding: padding,//const EdgeInsets.fromLTRB(35, 0, 30, 0),
         enabled: true, enableFeedback: true,
         onTap: onTap, splashColor: customWhite70Color,
       ),
