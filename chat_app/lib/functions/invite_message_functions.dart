@@ -1,5 +1,8 @@
 import 'dart:typed_data';
+import 'package:another_flushbar/flushbar.dart';
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:chat_app/constants/colors.dart';
+import 'package:chat_app/constants/sizes_of_widgets.dart';
 import 'package:chat_app/constants/text_links.dart';
 import 'package:chat_app/custom_widgets/text_widget.dart';
 import 'package:clipboard/clipboard.dart';
@@ -41,12 +44,12 @@ Future displayIcons(BuildContext context, List<ApplicationWithIcon> applications
             child: Align(
               alignment: Alignment.topRight,
               child: GestureDetector(
-                onTap: () => Navigator.of(context).pop(),
+                onTap: () => Navigator.pop(context),
                 child: const CustomTextWidget(color: Colors.white60, size: 17, fontWeight: FontWeight.w500, text: 'x')
               ),
             ),
           ),
-          const SizedBox(height:10),
+          const Gap(10),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -56,24 +59,27 @@ Future displayIcons(BuildContext context, List<ApplicationWithIcon> applications
                   inviteText,
                   overflow: TextOverflow.ellipsis, maxLines: 2, minFontSize: 15,
                   style: TextStyle(
-                    fontWeight: FontWeight.w400, color: Colors.white, 
+                    fontWeight: fontWeightOne, color: customWhiteColor
                   ),
                 ),
-              ), const Gap(10),
+              ), 
+              const Gap(10),
               GestureDetector(
-                onTap:() {
+                onTap:() async{
                   FlutterClipboard.copy(inviteText);
-                  Navigator.of(context).pop();
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(
-                      behavior: SnackBarBehavior.floating,
-                      margin: EdgeInsets.all(50),
-                      //width: MediaQuery.of(context).size.width*0.5,
-                      content: Text('Copied!'),
-                      duration: Duration(seconds: 5),
-                      //elevation: 500
-                    )
-                  ).closed;
+                  Navigator.pop(context);
+                  Flushbar(
+                    messageText: const Text(
+                      'Copied!', style: TextStyle(color: customWhiteColor),
+                      textAlign: TextAlign.center,
+                    ),
+                    margin: const EdgeInsets.fromLTRB(135, 100, 135, 100),
+                    duration: const Duration(seconds: 1),
+                    animationDuration: const Duration(seconds:1),
+                    flushbarPosition: FlushbarPosition.BOTTOM,
+                    backgroundColor: customForegroundColor,
+                    borderRadius: BorderRadius.circular(10),              
+                  ).show(context);
                 },
                 child: Container(
                   height: 25, width: 55, 

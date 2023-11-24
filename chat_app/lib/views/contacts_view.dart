@@ -1,3 +1,4 @@
+import 'package:chat_app/constants/colors.dart';
 import 'package:chat_app/custom_widgets/circle_avatar_widget.dart';
 import 'package:chat_app/custom_widgets/text_widget.dart';
 import 'package:chat_app/functions/contacts_function.dart';
@@ -23,9 +24,9 @@ class _ContactViewState extends State<ContactsView> {
         systemNavigationBarColor: Color.fromARGB(255, 0, 22, 26),
       ),
       child: Scaffold(
-        backgroundColor: Colors.black,
+        backgroundColor: customBlackColor,
         appBar: AppBar(
-          backgroundColor: Colors.blueGrey.shade900, foregroundColor: Colors.white60,
+          backgroundColor: customForegroundColor, foregroundColor: customWhite60Color,
           title: Builder(
             builder: (context) {
               return Row(
@@ -66,25 +67,25 @@ class _ContactViewState extends State<ContactsView> {
               color: const Color.fromARGB(255, 28, 45, 42),
               itemBuilder:(context) => [
                 PopupMenuItem(
-                  value: 'item1', 
+                  value: 'Invite a friend', 
                   onTap: () async {
-                    await listApps().then((result) async{await displayIcons(context, result);});
+                    await listApps().then((result) {displayIcons(context, result);});
                   },
                   child: const CustomTextWidget(color: Colors.white, size: 16, fontWeight: FontWeight.w400, text: 'Invite a friend')
                 ),
                 PopupMenuItem(
-                  value: 'item2',
+                  value: 'Contacts',
                   onTap: () async{
                     await launchContactsApp();
                   },
                   child: const CustomTextWidget(color: Colors.white, size: 16, fontWeight: FontWeight.w400, text: 'Contacts')
                 ),
                 const PopupMenuItem(
-                  value: 'item3', 
+                  value: 'Refresh', 
                   child: CustomTextWidget(color: Colors.white, size: 16, fontWeight: FontWeight.w400, text: 'Refresh')
                 ),
                 const PopupMenuItem(
-                  value: 'item4', 
+                  value: 'Help', 
                   child: CustomTextWidget(color: Colors.white, size: 16, fontWeight: FontWeight.w400, text: 'Help')
                 ),              
               ],

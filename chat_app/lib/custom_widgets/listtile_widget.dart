@@ -70,7 +70,6 @@ class CustomListTileWithSubtitle extends StatelessWidget{
 
 
 
-
 class CustomListTileWithSwitch extends StatefulWidget{
   final String title; final String subtitle; 
   final double topBorderRadius, bottomBorderRadius, sizeOfSubtitle;
