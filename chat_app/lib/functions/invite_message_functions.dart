@@ -30,19 +30,17 @@ import 'package:gap/gap.dart';
     else{
       if(item.category == ApplicationCategory.social || item.category == ApplicationCategory.productivity){
         if (item is ApplicationWithIcon){
-          //print("${item.category}, ${item.packageName}, ${item.appName}");
           retrievedApps.add(item);
         }
       }
     }
   }
-  print(retrievedApps.length);
   return retrievedApps;
 }
 
 
 
-Future displayIcons(BuildContext context, List<ApplicationWithIcon> applications) {
+Future displayIcons(BuildContext context, List<ApplicationWithIcon> applications, bool getInviteMessageApps) {
   final screenWidth = MediaQuery.of(context).size.width;
   final screenHeight = MediaQuery.of(context).size.height;
 
@@ -52,22 +50,80 @@ Future displayIcons(BuildContext context, List<ApplicationWithIcon> applications
     builder: (context) => AnnotatedRegion<SystemUiOverlayStyle>(
       value: const SystemUiOverlayStyle(systemNavigationBarColor: Color.fromARGB(255, 52, 51, 51),),
       child: CustomContainer(
-        height: screenHeight*0.45, width: screenWidth,
+        height: getInviteMessageApps? screenHeight*0.35 : screenHeight*0.48, width: screenWidth,
         color: const Color.fromARGB(255, 52, 51, 51),
         customContainerBorder: const BorderRadius.vertical(top:Radius.circular(20)),
-        children: [
+        children: getInviteMessageApps? [
           Padding(
-            padding: const EdgeInsets.fromLTRB(0,15,20,0),
+            padding: const EdgeInsets.fromLTRB(0, 15, 20, 20),
             child: Align(
-              alignment: Alignment.topRight,
+              alignment: Alignment.centerRight,
               child: GestureDetector(
                 onTap: () => Navigator.pop(context),
-                child: const FaIcon(FontAwesomeIcons.xmark, size: 18),
+                child: const FaIcon(FontAwesomeIcons.xmark, color: customWhiteColor, size: 18),
               ),
             ),
           ),
-          const Gap(10),
-          AppList(apps: applications)
+          const InviteMessageRow(),
+          const Gap(40),
+          InviteMessageAppList(apps: applications),
+          const Gap(30),
+        ] : [
+          Row(
+            children: [
+              Expanded(
+                child: Container(
+                  padding: const EdgeInsets.fromLTRB(20, 20, 0, 20),
+                  child: const Align(
+                    alignment: Alignment.centerLeft,
+                    child: CustomTextWidget(size: 20, color: customWhiteColor, fontWeight: fontWeightOne, text: 'Share')
+                  )
+                )
+              ),
+              Expanded(
+                child: Container(
+                  padding: const EdgeInsets.fromLTRB(0, 20, 20, 20),
+                  child: Align(
+                    alignment: Alignment.topRight,
+                    child: GestureDetector(
+                      onTap: () => Navigator.pop(context),
+                      child: const FaIcon(FontAwesomeIcons.xmark, color: customWhite54Color, size: 18),
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+          SharingAppList(apps: applications),
+          const Gap(40),
+          Row(
+            children: [
+              Expanded(
+                child: Container(
+                  padding: const EdgeInsets.fromLTRB(60, 0, 0, 0),
+                  child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: GestureDetector(
+                      onTap: (){},
+                      child: const CustomTextWidget(size: 15, color: customWhite54Color, fontWeight: fontWeightOne, text: 'JUST ONCE')
+                    )
+                  )
+                )
+              ),
+              Expanded(
+                child: Container(
+                  padding: const EdgeInsets.fromLTRB(0, 0, 60, 0),
+                  child: Align(
+                    alignment: Alignment.topRight,
+                    child: GestureDetector(
+                      onTap: () {},
+                       child: const CustomTextWidget(size: 15, color: customWhite54Color, fontWeight: fontWeightOne, text: 'ALWAYS')
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
         ]
       ),
     )
@@ -76,15 +132,15 @@ Future displayIcons(BuildContext context, List<ApplicationWithIcon> applications
 
 
 
-class AppList extends StatelessWidget{
+class SharingAppList extends StatelessWidget{
   final List<ApplicationWithIcon> apps;
-  const AppList({required this.apps, super.key});
+  const SharingAppList({required this.apps, super.key});
+
   @override
   Widget build(BuildContext context){
     final screenWidth = MediaQuery.of(context).size.width;
-    final screenHeight = MediaQuery.of(context).size.height;
     return SizedBox(
-      height: 250, width: screenWidth,
+      height: 170, width: screenWidth,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: (apps.length/8).ceil(),
@@ -93,7 +149,7 @@ class AppList extends StatelessWidget{
           final endIndex = (listIndex + 1) * 8;
           final gridApps = apps.sublist(startIndex, endIndex);
           return SizedBox(
-            height: 200, width: MediaQuery.of(context).size.width,
+            height: 170, width: screenWidth,
             child: GridView.builder(
               shrinkWrap: true, 
               physics: const NeverScrollableScrollPhysics(),
@@ -109,7 +165,8 @@ class AppList extends StatelessWidget{
                     Image.memory(bytes, height: 50, width: 50),
                     const Gap(5),
                     CustomTextWidget(
-                      color: Colors.white, size: 11, fontWeight: FontWeight.w400, text: app.appName, overflow: TextOverflow.ellipsis
+                      color: customWhiteColor, size: 11, fontWeight: fontWeightOne, 
+                      text: app.appName, overflow: TextOverflow.ellipsis
                     )
                   ]
                 );
@@ -124,75 +181,78 @@ class AppList extends StatelessWidget{
 
 
 
+class InviteMessageAppList extends StatelessWidget{
+  final List<ApplicationWithIcon> apps;
+  const InviteMessageAppList({required this.apps, super.key});
 
-            // Padding(
-            //   padding: const EdgeInsets.fromLTRB(0,15,20,0),
-            //   child: Align(
-            //     alignment: Alignment.topRight,
-            //     child: GestureDetector(
-            //       onTap: () => Navigator.pop(context),
-            //       child: const FaIcon(FontAwesomeIcons.xmark, size: 18),
-            //     ),
-            //   ),
-            // ),
-            // const Gap(10),
-            // Row(
-            //   mainAxisAlignment: MainAxisAlignment.center,
-            //   children: [
-            //     const SizedBox(
-            //       width: 250, height: 40,
-            //       child: AutoSizeText(
-            //         inviteText,
-            //         overflow: TextOverflow.ellipsis, maxLines: 2, minFontSize: 15,
-            //         style: TextStyle(
-            //           fontWeight: fontWeightOne, color: customWhiteColor
-            //         ),
-            //       ),
-            //     ), 
-            //     const Gap(10),
-            //     GestureDetector(
-            //       onTap:() async{
-            //         FlutterClipboard.copy(inviteText); Navigator.pop(context);
-            //         Flushbar(
-            //           messageText: const SizedBox(
-            //             height: 17, width: 45,
-            //             child: Text(
-            //               'Copied!', style: TextStyle(color: customWhiteColor),
-            //               textAlign: TextAlign.center,
-            //             ),
-            //           ),
-            //           margin: const EdgeInsets.only(left: 135, right: 135, bottom: 100),
-            //           duration: const Duration(seconds:2), flushbarPosition: FlushbarPosition.BOTTOM,
-            //           backgroundColor: customForegroundColor, borderRadius: BorderRadius.circular(10),
-            //         ).show(context);
-            //       },
-            //       child: Container(
-            //         height: 25, width: 55, 
-            //         decoration: const BoxDecoration(
-            //           borderRadius: BorderRadius.all(Radius.circular(25)),
-            //           color: customWhiteColor
-            //         ),
-            //         child: const Center(
-            //           child: CustomTextWidget(
-            //             color: Colors.blue, size: 12, fontWeight: FontWeight.w600, text: 'COPY'
-            //           ),
-            //         ),
-            //       )
-            //     )
-            //   ]
-            // ),
-            // const Gap(50),
-            // Row(
-            //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            //   children: applications.map((app) {
-            //     final Uint8List byteData = app.icon;
-            //     return Column(
-            //       children: [
-            //         Image.memory(byteData, height: 50, width: 50),
-            //         const Gap(5),
-            //         CustomTextWidget(color: Colors.white, size: 11, fontWeight: FontWeight.w400, text: app.appName)
-            //       ]
-            //     );
-            //   }).toList()
-            // ),
-            // const Gap(40)
+  @override
+  Widget build(BuildContext context){
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: apps.map((app) {
+        final Uint8List byteData = app.icon;
+        return Column(
+          children: [
+            Image.memory(byteData, height: 50, width: 50),
+            const Gap(5),
+            CustomTextWidget(color: Colors.white, size: 11, fontWeight: FontWeight.w400, text: app.appName)
+          ]
+        );
+      }).toList()
+    );
+  }
+}
+
+
+class InviteMessageRow extends StatelessWidget{
+  const InviteMessageRow({super.key});
+
+  @override
+  Widget build(BuildContext context){
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        const SizedBox(
+          width: 250, height: 40,
+          child: AutoSizeText(
+            inviteText,
+            overflow: TextOverflow.ellipsis, maxLines: 2, minFontSize: 15,
+            style: TextStyle(
+              fontWeight: fontWeightOne, color: customWhiteColor
+            ),
+          ),
+        ), 
+        const Gap(10),
+        GestureDetector(
+          onTap:() async{
+            FlutterClipboard.copy(inviteText); Navigator.pop(context);
+            Flushbar(
+              messageText: const SizedBox(
+                height: 17, width: 45,
+                child: Text(
+                  'Copied!', style: TextStyle(color: customWhiteColor),
+                  textAlign: TextAlign.center,
+                ),
+              ),
+              margin: const EdgeInsets.only(left: 135, right: 135, bottom: 100),
+              duration: const Duration(seconds:2), flushbarPosition: FlushbarPosition.BOTTOM,
+              backgroundColor: customForegroundColor, borderRadius: BorderRadius.circular(10),
+            ).show(context);
+          },
+          child: Container(
+            height: 25, width: 55, 
+            decoration: const BoxDecoration(
+              borderRadius: BorderRadius.all(Radius.circular(25)),
+              color: customWhiteColor
+            ),
+            child: const Center(
+              child: CustomTextWidget(
+                color: Colors.blue, size: 12, fontWeight: FontWeight.w600, text: 'COPY'
+              ),
+            ),
+          )
+        ),
+      ]
+    );
+  }
+}
