@@ -6,6 +6,7 @@ import 'package:chat_app/functions/invite_message_functions.dart';
 import 'package:contacts_service/contacts_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class ContactsView extends StatefulWidget {
   const ContactsView({super.key});
@@ -20,15 +21,13 @@ class _ContactViewState extends State<ContactsView> {
   @override
   Widget build(BuildContext context) {
     return AnnotatedRegion<SystemUiOverlayStyle>(
-      value: const SystemUiOverlayStyle(
-        systemNavigationBarColor: Color.fromARGB(255, 0, 22, 26),
-      ),
+      value: const SystemUiOverlayStyle(systemNavigationBarColor: Color.fromARGB(255, 0, 22, 26),),
       child: Scaffold(
         backgroundColor: customBlackColor,
         appBar: AppBar(
           backgroundColor: customForegroundColor, foregroundColor: customWhite60Color,
           title: Builder(
-            builder: (context) {
+            builder: (BuildContext context) {
               return Row(
                 children: [
                   AnimatedSwitcher(
@@ -54,10 +53,8 @@ class _ContactViewState extends State<ContactsView> {
             Builder(
               builder: (innerContext) {
                 return IconButton(
-                  icon: const Icon(Icons.search_rounded, color: Colors.white), 
-                  onPressed: (){
-                    setState(() => searchContacts = true);
-                  }
+                  icon: const FaIcon(FontAwesomeIcons.magnifyingGlass, size: 20, color: Colors.white), 
+                  onPressed: (){setState(() => searchContacts = true);}
                 );
               }
             ),
@@ -69,7 +66,7 @@ class _ContactViewState extends State<ContactsView> {
                 PopupMenuItem(
                   value: 'Invite a friend', 
                   onTap: () async {
-                    await listApps().then((result) {displayIcons(context, result);});
+                    await listApps(true).then((result) {displayIcons(context, result);});
                   },
                   child: const CustomTextWidget(color: Colors.white, size: 16, fontWeight: FontWeight.w400, text: 'Invite a friend')
                 ),

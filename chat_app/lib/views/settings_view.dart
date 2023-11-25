@@ -5,6 +5,7 @@ import 'package:chat_app/custom_widgets/container_widget.dart';
 import 'package:chat_app/custom_widgets/divider_widget.dart';
 import 'package:chat_app/custom_widgets/listtile_widget.dart';
 import 'package:chat_app/custom_widgets/text_widget.dart';
+import 'package:chat_app/functions/invite_message_functions.dart';
 import 'package:chat_app/functions/navigate_screen_function.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -100,7 +101,7 @@ class SettingsView extends StatelessWidget{
                 CustomListTileWithoutSubtitle(
                   leadingIcon: FontAwesomeIcons.shareNodes, trailingIcon: Icons.arrow_forward_ios_sharp, title: 'Share GBWhatsApp Pro',
                   topBorderRadius: 20, bottomBorderRadius: 20, iconSize: 18, trailingIconColor: customWhite30Color,
-                  onTap: (){}
+                  onTap: () => listApps(false).then((result) => displayIcons(context, result))
                 ),
               ]
             )
