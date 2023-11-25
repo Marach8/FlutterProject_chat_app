@@ -69,16 +69,17 @@ Future displayIcons(BuildContext context, List<ApplicationWithIcon> applications
                   FlutterClipboard.copy(inviteText);
                   Navigator.pop(context);
                   Flushbar(
-                    messageText: const Text(
-                      'Copied!', style: TextStyle(color: customWhiteColor),
-                      textAlign: TextAlign.center,
+                    messageText: const SizedBox(
+                      height: 17, width: 45,
+                      child: Text(
+                        'Copied!', style: TextStyle(color: customWhiteColor),
+                        textAlign: TextAlign.center,
+                      ),
                     ),
-                    margin: const EdgeInsets.fromLTRB(135, 100, 135, 100),
-                    duration: const Duration(seconds: 1),
-                    animationDuration: const Duration(seconds:1),
-                    flushbarPosition: FlushbarPosition.BOTTOM,
-                    backgroundColor: customForegroundColor,
-                    borderRadius: BorderRadius.circular(10),              
+                    margin: const EdgeInsets.only(left: 135, right: 135, bottom: 100),
+                    duration: const Duration(seconds:2), flushbarPosition: FlushbarPosition.BOTTOM,
+                    backgroundColor: customForegroundColor, borderRadius: BorderRadius.circular(10),
+                    forwardAnimationCurve: Curves.linear, reverseAnimationCurve: Curves.linear,
                   ).show(context);
                 },
                 child: Container(
