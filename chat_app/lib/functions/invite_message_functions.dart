@@ -43,30 +43,32 @@ import 'package:gap/gap.dart';
 
 
 Future displayIcons(BuildContext context, List<ApplicationWithIcon> applications) {
+  final screenWidth = MediaQuery.of(context).size.width;
+  final screenHeight = MediaQuery.of(context).size.height;
+
   return showModalBottomSheet(
     context: context, 
     isScrollControlled: true,
     builder: (context) => AnnotatedRegion<SystemUiOverlayStyle>(
       value: const SystemUiOverlayStyle(systemNavigationBarColor: Color.fromARGB(255, 52, 51, 51),),
-      child: SingleChildScrollView(
-        child: CustomContainer(
-          color: const Color.fromARGB(255, 52, 51, 51),
-          customContainerBorder: const BorderRadius.vertical(top:Radius.circular(20)),
-          children: [
-            Padding(
-              padding: const EdgeInsets.fromLTRB(0,15,20,0),
-              child: Align(
-                alignment: Alignment.topRight,
-                child: GestureDetector(
-                  onTap: () => Navigator.pop(context),
-                  child: const FaIcon(FontAwesomeIcons.xmark, size: 18),
-                ),
+      child: CustomContainer(
+        height: screenHeight*0.45, width: screenWidth,
+        color: const Color.fromARGB(255, 52, 51, 51),
+        customContainerBorder: const BorderRadius.vertical(top:Radius.circular(20)),
+        children: [
+          Padding(
+            padding: const EdgeInsets.fromLTRB(0,15,20,0),
+            child: Align(
+              alignment: Alignment.topRight,
+              child: GestureDetector(
+                onTap: () => Navigator.pop(context),
+                child: const FaIcon(FontAwesomeIcons.xmark, size: 18),
               ),
             ),
-            const Gap(10),
-            AppList(apps: applications)
-          ]
-        ),
+          ),
+          const Gap(10),
+          AppList(apps: applications)
+        ]
       ),
     )
   );
@@ -76,29 +78,47 @@ Future displayIcons(BuildContext context, List<ApplicationWithIcon> applications
 
 class AppList extends StatelessWidget{
   final List<ApplicationWithIcon> apps;
-  const AppList({required this. apps, super.key});
+  const AppList({required this.apps, super.key});
   @override
   Widget build(BuildContext context){
-    return Container(
-      height: 500, width: MediaQuery.of(context).size.width*0.8,
-      child: GridView.builder(
-        //scrollDirection: Axis.horizontal,
-        gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(maxCrossAxisExtent: 4),
-        itemCount: apps.length,
-        itemBuilder: (context, gridIndex){
-          final ApplicationWithIcon app = apps[gridIndex];
-          final Uint8List bytes = app.icon;
-          return Column(
-            children: [
-              Image.memory(bytes, height: 50, width: 50),
-              const Gap(5),
-              CustomTextWidget(color: Colors.white, size: 11, fontWeight: FontWeight.w400, text: app.appName)
-            ]
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+    return SizedBox(
+      height: 250, width: screenWidth,
+      child: ListView.builder(
+        scrollDirection: Axis.horizontal,
+        itemCount: (apps.length/8).ceil(),
+        itemBuilder: (context, listIndex){
+          final startIndex = listIndex * 8;
+          final endIndex = (listIndex + 1) * 8;
+          final gridApps = apps.sublist(startIndex, endIndex);
+          return SizedBox(
+            height: 200, width: MediaQuery.of(context).size.width,
+            child: GridView.builder(
+              shrinkWrap: true, 
+              physics: const NeverScrollableScrollPhysics(),
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 4, crossAxisSpacing: 5
+              ),
+              itemCount: gridApps.length,
+              itemBuilder: (context, gridIndex){
+                final app = gridApps[gridIndex];
+                final Uint8List bytes = app.icon;
+                return Column(
+                  children: [
+                    Image.memory(bytes, height: 50, width: 50),
+                    const Gap(5),
+                    CustomTextWidget(
+                      color: Colors.white, size: 11, fontWeight: FontWeight.w400, text: app.appName, overflow: TextOverflow.ellipsis
+                    )
+                  ]
+                );
+              },
+            ),
           );
         }
-      
-    ),
-          );
+      ),
+    );
   }
 }
 
