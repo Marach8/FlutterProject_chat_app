@@ -18,7 +18,6 @@ class CustomTextWidget extends StatelessWidget{
         'Varta',
         fontSize: size, fontWeight: fontWeight, color: color, textStyle: TextStyle(overflow: overflow)
       ),
-      //overflow: overflow
     );
   }
 }

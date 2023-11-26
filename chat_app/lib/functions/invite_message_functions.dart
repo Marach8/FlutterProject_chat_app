@@ -4,6 +4,7 @@ import 'package:chat_app/constants/colors.dart';
 import 'package:chat_app/constants/sizes_of_widgets.dart';
 import 'package:chat_app/constants/text_links.dart';
 import 'package:chat_app/custom_widgets/container_widget.dart';
+import 'package:chat_app/custom_widgets/flushbar_widget.dart';
 import 'package:chat_app/custom_widgets/text_widget.dart';
 import 'package:clipboard/clipboard.dart';
 import 'package:device_apps/device_apps.dart';
@@ -76,7 +77,7 @@ Future displayIcons(BuildContext context, List<ApplicationWithIcon> applications
                   padding: const EdgeInsets.fromLTRB(20, 20, 0, 20),
                   child: const Align(
                     alignment: Alignment.centerLeft,
-                    child: CustomTextWidget(size: 20, color: customWhiteColor, fontWeight: fontWeightOne, text: 'Share')
+                    child: CustomTextWidget(size: 18, color: customWhiteColor, fontWeight: fontWeightOne, text: 'Share')
                   )
                 )
               ),
@@ -224,20 +225,9 @@ class InviteMessageRow extends StatelessWidget{
         ), 
         const Gap(10),
         GestureDetector(
-          onTap:() async{
+          onTap:(){
             FlutterClipboard.copy(inviteText); Navigator.pop(context);
-            Flushbar(
-              messageText: const SizedBox(
-                height: 17, width: 45,
-                child: Text(
-                  'Copied!', style: TextStyle(color: customWhiteColor),
-                  textAlign: TextAlign.center,
-                ),
-              ),
-              margin: const EdgeInsets.only(left: 135, right: 135, bottom: 100),
-              duration: const Duration(seconds:2), flushbarPosition: FlushbarPosition.BOTTOM,
-              backgroundColor: customForegroundColor, borderRadius: BorderRadius.circular(10),
-            ).show(context);
+            showFlushbar(context, 'Copied!',);
           },
           child: Container(
             height: 25, width: 55, 
