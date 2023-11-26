@@ -1,4 +1,3 @@
-import 'package:another_flushbar/flushbar.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:chat_app/constants/colors.dart';
 import 'package:chat_app/constants/sizes_of_widgets.dart';
@@ -14,8 +13,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:gap/gap.dart';
 
 
- Future<List<ApplicationWithIcon>> listApps(bool getInviteMessageApps) async{
-  List<ApplicationWithIcon>  retrievedApps = [];
+ Future<List<dynamic>> listApps(bool getInviteMessageApps) async{
+  List<dynamic>  retrievedApps = [];
   List<Application> app = await DeviceApps.getInstalledApplications(
     includeSystemApps: true, includeAppIcons: true, onlyAppsWithLaunchIntent: true,
   );
@@ -29,7 +28,7 @@ import 'package:gap/gap.dart';
       }
     } 
     else{
-      if(item.category == ApplicationCategory.social || item.category == ApplicationCategory.productivity){
+      if(item.category == ApplicationCategory.social){
         if (item is ApplicationWithIcon){
           retrievedApps.add(item);
         }
@@ -41,7 +40,7 @@ import 'package:gap/gap.dart';
 
 
 
-Future displayIcons(BuildContext context, List<ApplicationWithIcon> applications, bool getInviteMessageApps) {
+Future displayIcons(BuildContext context, List<dynamic> applications, bool getInviteMessageApps) {
   final screenWidth = MediaQuery.of(context).size.width;
   final screenHeight = MediaQuery.of(context).size.height;
 
@@ -134,7 +133,7 @@ Future displayIcons(BuildContext context, List<ApplicationWithIcon> applications
 
 
 class SharingAppList extends StatelessWidget{
-  final List<ApplicationWithIcon> apps;
+  final List<dynamic> apps;
   const SharingAppList({required this.apps, super.key});
 
   @override
@@ -148,6 +147,10 @@ class SharingAppList extends StatelessWidget{
         itemBuilder: (context, listIndex){
           final startIndex = listIndex * 8;
           final endIndex = (listIndex + 1) * 8;
+          if((apps.length % 8) != 0){
+            final remainder = endIndex - apps.length;
+            for (int i = 0; i < remainder; i ++){apps.add(const SizedBox.shrink());}
+          }
           final gridApps = apps.sublist(startIndex, endIndex);
           return SizedBox(
             height: 170, width: screenWidth,
@@ -160,17 +163,20 @@ class SharingAppList extends StatelessWidget{
               itemCount: gridApps.length,
               itemBuilder: (context, gridIndex){
                 final app = gridApps[gridIndex];
-                final Uint8List bytes = app.icon;
-                return Column(
-                  children: [
-                    Image.memory(bytes, height: 50, width: 50),
-                    const Gap(5),
-                    CustomTextWidget(
-                      color: customWhiteColor, size: 11, fontWeight: fontWeightOne, 
-                      text: app.appName, overflow: TextOverflow.ellipsis
-                    )
-                  ]
-                );
+                if(app is ApplicationWithIcon){
+                  final Uint8List bytes = app.icon;
+                  return Column(
+                    children: [
+                      Image.memory(bytes, height: 50, width: 50),
+                      const Gap(5),
+                      CustomTextWidget(
+                        color: customWhiteColor, size: 11, fontWeight: fontWeightOne, 
+                        text: app.appName, overflow: TextOverflow.ellipsis
+                      )
+                    ]
+                  );
+                } 
+                else{return const SizedBox.shrink();}                
               },
             ),
           );
@@ -183,7 +189,7 @@ class SharingAppList extends StatelessWidget{
 
 
 class InviteMessageAppList extends StatelessWidget{
-  final List<ApplicationWithIcon> apps;
+  final List<dynamic> apps;
   const InviteMessageAppList({required this.apps, super.key});
 
   @override
@@ -218,9 +224,7 @@ class InviteMessageRow extends StatelessWidget{
           child: AutoSizeText(
             inviteText,
             overflow: TextOverflow.ellipsis, maxLines: 2, minFontSize: 15,
-            style: TextStyle(
-              fontWeight: fontWeightOne, color: customWhiteColor
-            ),
+            style: TextStyle(fontWeight: fontWeightOne, color: customWhiteColor),
           ),
         ), 
         const Gap(10),
