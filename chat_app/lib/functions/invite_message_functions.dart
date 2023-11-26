@@ -28,7 +28,7 @@ import 'package:gap/gap.dart';
       }
     } 
     else{
-      if(item.category == ApplicationCategory.social){
+      if(item.category == ApplicationCategory.social || item.category == ApplicationCategory.productivity){
         if (item is ApplicationWithIcon){
           retrievedApps.add(item);
         }
@@ -40,144 +40,209 @@ import 'package:gap/gap.dart';
 
 
 
-Future displayIcons(BuildContext context, List<dynamic> applications, bool getInviteMessageApps) {
-  final screenWidth = MediaQuery.of(context).size.width;
-  final screenHeight = MediaQuery.of(context).size.height;
+class ShowBottomSheet{
+  final BuildContext context; final List<dynamic> applications;  final bool getInviteMessageApps;
+  ShowBottomSheet({required this.context, required this.applications, required this.getInviteMessageApps});
 
-  return showModalBottomSheet(
-    context: context, 
-    isScrollControlled: true,
-    builder: (context) => AnnotatedRegion<SystemUiOverlayStyle>(
-      value: const SystemUiOverlayStyle(systemNavigationBarColor: Color.fromARGB(255, 52, 51, 51),),
-      child: CustomContainer(
-        height: getInviteMessageApps? screenHeight*0.35 : screenHeight*0.48, width: screenWidth,
-        color: const Color.fromARGB(255, 52, 51, 51),
-        customContainerBorder: const BorderRadius.vertical(top:Radius.circular(20)),
-        children: getInviteMessageApps? [
-          Padding(
-            padding: const EdgeInsets.fromLTRB(0, 15, 20, 20),
-            child: Align(
-              alignment: Alignment.centerRight,
-              child: GestureDetector(
-                onTap: () => Navigator.pop(context),
-                child: const FaIcon(FontAwesomeIcons.xmark, color: customWhiteColor, size: 18),
+  Future displayIcons() {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+
+    return showModalBottomSheet(
+      context: context, 
+      isScrollControlled: true,
+      builder: (context) => AnnotatedRegion<SystemUiOverlayStyle>(
+        value: const SystemUiOverlayStyle(systemNavigationBarColor: Color.fromARGB(255, 52, 51, 51),),
+        child: CustomContainer(
+          height: getInviteMessageApps? screenHeight*0.35 : screenHeight*0.48, width: screenWidth,
+          color: const Color.fromARGB(255, 52, 51, 51),
+          customContainerBorder: const BorderRadius.vertical(top:Radius.circular(20)),
+          children: getInviteMessageApps? [
+            Padding(
+              padding: const EdgeInsets.fromLTRB(0, 15, 20, 20),
+              child: Align(
+                alignment: Alignment.centerRight,
+                child: GestureDetector(
+                  onTap: () => Navigator.pop(context),
+                  child: const FaIcon(FontAwesomeIcons.xmark, color: customWhiteColor, size: 18),
+                ),
               ),
             ),
-          ),
-          const InviteMessageRow(),
-          const Gap(40),
-          InviteMessageAppList(apps: applications),
-          const Gap(30),
-        ] : [
-          Row(
-            children: [
-              Expanded(
-                child: Container(
-                  padding: const EdgeInsets.fromLTRB(20, 20, 0, 20),
-                  child: const Align(
-                    alignment: Alignment.centerLeft,
-                    child: CustomTextWidget(size: 18, color: customWhiteColor, fontWeight: fontWeightOne, text: 'Share')
-                  )
-                )
-              ),
-              Expanded(
-                child: Container(
-                  padding: const EdgeInsets.fromLTRB(0, 20, 20, 20),
-                  child: Align(
-                    alignment: Alignment.topRight,
-                    child: GestureDetector(
-                      onTap: () => Navigator.pop(context),
-                      child: const FaIcon(FontAwesomeIcons.xmark, color: customWhite54Color, size: 18),
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          ),
-          SharingAppList(apps: applications),
-          const Gap(40),
-          Row(
-            children: [
-              Expanded(
-                child: Container(
-                  padding: const EdgeInsets.fromLTRB(60, 0, 0, 0),
-                  child: Align(
-                    alignment: Alignment.centerLeft,
-                    child: GestureDetector(
-                      onTap: (){},
-                      child: const CustomTextWidget(size: 15, color: customWhite54Color, fontWeight: fontWeightOne, text: 'JUST ONCE')
+            const InviteMessageRow(),
+            const Gap(40),
+            InviteMessageAppList(apps: applications),
+            const Gap(30),
+          ] : [
+            Row(
+              children: [
+                Expanded(
+                  child: Container(
+                    padding: const EdgeInsets.fromLTRB(20, 20, 0, 20),
+                    child: const Align(
+                      alignment: Alignment.centerLeft,
+                      child: CustomTextWidget(size: 18, color: customWhiteColor, fontWeight: fontWeightOne, text: 'Share')
                     )
                   )
-                )
-              ),
-              Expanded(
-                child: Container(
-                  padding: const EdgeInsets.fromLTRB(0, 0, 60, 0),
-                  child: Align(
-                    alignment: Alignment.topRight,
-                    child: GestureDetector(
-                      onTap: () {},
-                       child: const CustomTextWidget(size: 15, color: customWhite54Color, fontWeight: fontWeightOne, text: 'ALWAYS')
+                ),
+                Expanded(
+                  child: Container(
+                    padding: const EdgeInsets.fromLTRB(0, 20, 20, 20),
+                    child: Align(
+                      alignment: Alignment.topRight,
+                      child: GestureDetector(
+                        onTap: () => Navigator.pop(context),
+                        child: const FaIcon(FontAwesomeIcons.xmark, color: customWhite54Color, size: 18),
+                      ),
                     ),
                   ),
                 ),
-              ),
-            ],
-          ),
-        ]
-      ),
-    )
-  );
+              ],
+            ),
+            SharingAppList(apps: applications),
+            const Gap(40),
+            Row(
+              children: [
+                Expanded(
+                  child: Container(
+                    padding: const EdgeInsets.fromLTRB(60, 0, 0, 0),
+                    child: Align(
+                      alignment: Alignment.centerLeft,
+                      child: GestureDetector(
+                        onTap: (){},
+                        child: const CustomTextWidget(size: 15, color: customWhite54Color, fontWeight: fontWeightOne, text: 'JUST ONCE')
+                      )
+                    )
+                  )
+                ),
+                Expanded(
+                  child: Container(
+                    padding: const EdgeInsets.fromLTRB(0, 0, 60, 0),
+                    child: Align(
+                      alignment: Alignment.topRight,
+                      child: GestureDetector(
+                        onTap: () {},
+                        child: const CustomTextWidget(size: 15, color: customWhite54Color, fontWeight: fontWeightOne, text: 'ALWAYS')
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ]
+        ),
+      )
+    );
+  }
 }
 
 
 
-class SharingAppList extends StatelessWidget{
+
+class SharingAppList extends StatefulWidget{
   final List<dynamic> apps;
-  const SharingAppList({required this.apps, super.key});
+  const SharingAppList({required this.apps,  super.key});
+
+  @override
+  State<SharingAppList> createState() => _SharingAppListState();
+}
+
+class _SharingAppListState extends State<SharingAppList> {
+  late PageController pageController;
+  double? pageIndex = 0;
+
+  @override
+  void initState(){
+    super.initState(); 
+    pageController = PageController();
+    pageController.addListener(() {pageIndex = pageController.page;});
+  }
+
+  @override
+  void dispose() {pageController.removeListener(() {}); pageController.dispose(); super.dispose();}
 
   @override
   Widget build(BuildContext context){
     final screenWidth = MediaQuery.of(context).size.width;
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        SizedBox(
+          height: 170, width: screenWidth,
+          child: PageView.builder(
+            controller: pageController,
+            scrollDirection: Axis.horizontal,
+            itemCount: (widget.apps.length/8).ceil(),
+            itemBuilder: (context, listIndex){
+              final startIndex = listIndex * 8;
+              final endIndex = (listIndex + 1) * 8;
+              if((widget.apps.length % 8) != 0){
+                final remainder = endIndex - widget.apps.length;
+                for (int i = 0; i < remainder; i ++){widget.apps.add(const SizedBox.shrink());}
+              }
+              final gridApps = widget.apps.sublist(startIndex, endIndex);
+              return SizedBox(
+                height: 170, width: screenWidth,
+                child: GridView.builder(
+                  shrinkWrap: true, 
+                  physics: const NeverScrollableScrollPhysics(),
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 4, crossAxisSpacing: 5
+                  ),
+                  itemCount: gridApps.length,
+                  itemBuilder: (context, gridIndex){
+                    final app = gridApps[gridIndex];
+                    if(app is ApplicationWithIcon){
+                      final Uint8List bytes = app.icon;
+                      return Column(
+                        children: [
+                          Image.memory(bytes, height: 50, width: 50),
+                          const Gap(5),
+                          CustomTextWidget(
+                            color: customWhiteColor, size: 11, fontWeight: fontWeightOne, 
+                            text: app.appName, overflow: TextOverflow.ellipsis
+                          )
+                        ]
+                      );
+                    } 
+                    else{return const SizedBox.shrink();}                
+                  },
+                ),
+              );
+            }
+          ),
+        ),
+        const Gap(30),
+        PageIndicator(itemCount: (widget.apps.length/8).ceil(), index: pageIndex)
+      ],
+    );
+  }
+}
+
+
+
+
+class PageIndicator extends StatefulWidget {
+  final int itemCount; final double? index;
+  const PageIndicator({required this.itemCount, required this.index, super.key});
+
+  @override
+  State<PageIndicator> createState() => _PageIndicatorState();
+}
+
+class _PageIndicatorState extends State<PageIndicator> {
+  
+  @override
+  Widget build(BuildContext context) {
     return SizedBox(
-      height: 170, width: screenWidth,
+      height: 10, width: 100,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
-        itemCount: (apps.length/8).ceil(),
+        itemCount: widget.itemCount,
         itemBuilder: (context, listIndex){
-          final startIndex = listIndex * 8;
-          final endIndex = (listIndex + 1) * 8;
-          if((apps.length % 8) != 0){
-            final remainder = endIndex - apps.length;
-            for (int i = 0; i < remainder; i ++){apps.add(const SizedBox.shrink());}
-          }
-          final gridApps = apps.sublist(startIndex, endIndex);
-          return SizedBox(
-            height: 170, width: screenWidth,
-            child: GridView.builder(
-              shrinkWrap: true, 
-              physics: const NeverScrollableScrollPhysics(),
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 4, crossAxisSpacing: 5
-              ),
-              itemCount: gridApps.length,
-              itemBuilder: (context, gridIndex){
-                final app = gridApps[gridIndex];
-                if(app is ApplicationWithIcon){
-                  final Uint8List bytes = app.icon;
-                  return Column(
-                    children: [
-                      Image.memory(bytes, height: 50, width: 50),
-                      const Gap(5),
-                      CustomTextWidget(
-                        color: customWhiteColor, size: 11, fontWeight: fontWeightOne, 
-                        text: app.appName, overflow: TextOverflow.ellipsis
-                      )
-                    ]
-                  );
-                } 
-                else{return const SizedBox.shrink();}                
-              },
+          return Container(color: Colors.red,
+            child: Padding(
+              padding: const EdgeInsets.all(2),
+              child: CircleAvatar(radius: 5, backgroundColor: widget.index == listIndex? Colors.blue : Colors.white,)
             ),
           );
         }
@@ -209,6 +274,8 @@ class InviteMessageAppList extends StatelessWidget{
     );
   }
 }
+
+
 
 
 class InviteMessageRow extends StatelessWidget{

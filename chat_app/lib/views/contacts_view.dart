@@ -66,7 +66,8 @@ class _ContactViewState extends State<ContactsView> {
                 PopupMenuItem(
                   value: 'Invite a friend', 
                   onTap: () async {
-                    await listApps(true).then((result) {displayIcons(context, result, true);});
+                    await listApps(true).then((result) {
+                      ShowBottomSheet(context: context, applications: result, getInviteMessageApps: true).displayIcons();});
                   },
                   child: const CustomTextWidget(color: Colors.white, size: 16, fontWeight: FontWeight.w400, text: 'Invite a friend')
                 ),
