@@ -49,7 +49,7 @@ class ShowBottomSheet{
     final screenHeight = MediaQuery.of(context).size.height;
 
     return showModalBottomSheet(
-      context: context, 
+      context: context,
       isScrollControlled: true,
       builder: (context) => AnnotatedRegion<SystemUiOverlayStyle>(
         value: const SystemUiOverlayStyle(systemNavigationBarColor: Color.fromARGB(255, 52, 51, 51),),
@@ -194,7 +194,19 @@ class _SharingAppListState extends State<SharingAppList> {
                       final Uint8List bytes = app.icon;
                       return Column(
                         children: [
-                          Image.memory(bytes, height: 50, width: 50),
+                          Material(
+                            color: Colors.transparent,
+                            child: InkResponse(
+                              splashColor: customWhite60Color,
+                              onTap: (){},
+                              child: Padding(
+                                padding: const EdgeInsets.all(4.0),
+                                child: Image.memory(
+                                  bytes, height: 50, width: 50
+                                ),
+                              ),
+                            ),
+                          ),
                           const Gap(5),
                           CustomTextWidget(
                             color: customWhiteColor, size: 11, fontWeight: fontWeightOne, 
@@ -219,6 +231,10 @@ class _SharingAppListState extends State<SharingAppList> {
 
 
 
+class ColorManager{
+  final Color color;
+  ColorManager({required this.color});
+}
 
 class WatchPageView extends ValueNotifier<double>{
   WatchPageView._sharedInstance(): super(0);
@@ -239,39 +255,52 @@ class PageIndicator extends StatefulWidget {
 }
 
 class _PageIndicatorState extends State<PageIndicator> {
-    
-  @override
-  Widget build(BuildContext context) {
-    late double valueP;  
-    late List<Widget> indicators = List.generate(widget.itemCount, (index) {
-      return CircleAvatar(radius: 5, backgroundColor: valueP == index? Colors.blue : Colors.white,);
-    });
+  // late Color color = Colors.white54;
+  // late List<Widget> indicators = List.generate(widget.itemCount, (index) {
+  //   return CircleAvatar(radius: 5, backgroundColor: color);
+  // });
 
+  // void selectColor(Color newColor) {
+  //   color = newColor;
+  // }
+
+  @override
+  Widget build(BuildContext context) { 
     return ValueListenableBuilder(
       valueListenable: WatchPageView(),
       builder: (context, value, child){
-        valueP = value;
-        return SizedBox(
-          height: 10, width: 100,
-          child: ListView(
-            scrollDirection: Axis.horizontal,
-            children: indicators.map((indicator){
-              return Padding(
-                padding:const EdgeInsets.all(2),
-                child: indicator
-              );
-            }).toList(),
-          )
-        //   child: ListView.builder(
-        //     scrollDirection: Axis.horizontal,
-        //     itemCount: widget.itemCount,
-        //     itemBuilder: (context, listIndex){
-        //       return Padding(
-        //         padding: const EdgeInsets.all(2),
-        //         child: CircleAvatar(radius: 5, backgroundColor: value == listIndex? Colors.blue : Colors.white,)
-        //       );
-        //     }
-        //   ),
+        return IntrinsicWidth(
+          child: Container(
+            alignment: Alignment.center,
+            height: 15, width: 100,
+            // child: ListView(
+            //   scrollDirection: Axis.horizontal,
+            //   children: indicators.map((indicator){
+            //     if(indicators.indexOf(indicator) == value){selectColor(Colors.blue);}
+            //     else {color = Colors.white54;}
+            //     return Padding(
+            //       padding:const EdgeInsets.all(2),
+            //       child: indicator
+            //     );
+            //   }).toList(),
+            //)
+            child: Padding(
+              padding: const EdgeInsets.only(left: 10),
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: widget.itemCount,
+                itemBuilder: (context, listIndex){
+                  return Padding(
+                    padding: const EdgeInsets.all(3),
+                    child: CircleAvatar(
+                      radius: 3,                  
+                      backgroundColor: value == listIndex? Colors.blue : Colors.white30,
+                    )
+                  );
+                }
+              ),
+            ),
+          ),
         );
       }
     );
