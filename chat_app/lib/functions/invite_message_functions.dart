@@ -148,13 +148,12 @@ class SharingAppList extends StatefulWidget{
 
 class _SharingAppListState extends State<SharingAppList> {
   late PageController pageController;
-  double? pageIndex = 0;
 
   @override
   void initState(){
     super.initState(); 
     pageController = PageController();
-    pageController.addListener(() {pageIndex = pageController.page;});
+    pageController.addListener(() {WatchPageView().pageNumber(pageController.page ?? 0);});
   }
 
   @override
@@ -212,7 +211,7 @@ class _SharingAppListState extends State<SharingAppList> {
           ),
         ),
         const Gap(30),
-        PageIndicator(itemCount: (widget.apps.length/8).ceil(), index: pageIndex)
+        PageIndicator(itemCount: (widget.apps.length/8).ceil(),)
       ],
     );
   }
@@ -221,32 +220,60 @@ class _SharingAppListState extends State<SharingAppList> {
 
 
 
+class WatchPageView extends ValueNotifier<double>{
+  WatchPageView._sharedInstance(): super(0);
+  static final WatchPageView _shared = WatchPageView._sharedInstance();
+  factory WatchPageView() => _shared;
+  void pageNumber(double number) => value = number;
+}
+
+
+
+
 class PageIndicator extends StatefulWidget {
-  final int itemCount; final double? index;
-  const PageIndicator({required this.itemCount, required this.index, super.key});
+  final int itemCount;
+  const PageIndicator({required this.itemCount, super.key});
 
   @override
   State<PageIndicator> createState() => _PageIndicatorState();
 }
 
 class _PageIndicatorState extends State<PageIndicator> {
-  
+    
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 10, width: 100,
-      child: ListView.builder(
-        scrollDirection: Axis.horizontal,
-        itemCount: widget.itemCount,
-        itemBuilder: (context, listIndex){
-          return Container(color: Colors.red,
-            child: Padding(
-              padding: const EdgeInsets.all(2),
-              child: CircleAvatar(radius: 5, backgroundColor: widget.index == listIndex? Colors.blue : Colors.white,)
-            ),
-          );
-        }
-      ),
+    late double valueP;  
+    late List<Widget> indicators = List.generate(widget.itemCount, (index) {
+      return CircleAvatar(radius: 5, backgroundColor: valueP == index? Colors.blue : Colors.white,);
+    });
+
+    return ValueListenableBuilder(
+      valueListenable: WatchPageView(),
+      builder: (context, value, child){
+        valueP = value;
+        return SizedBox(
+          height: 10, width: 100,
+          child: ListView(
+            scrollDirection: Axis.horizontal,
+            children: indicators.map((indicator){
+              return Padding(
+                padding:const EdgeInsets.all(2),
+                child: indicator
+              );
+            }).toList(),
+          )
+        //   child: ListView.builder(
+        //     scrollDirection: Axis.horizontal,
+        //     itemCount: widget.itemCount,
+        //     itemBuilder: (context, listIndex){
+        //       return Padding(
+        //         padding: const EdgeInsets.all(2),
+        //         child: CircleAvatar(radius: 5, backgroundColor: value == listIndex? Colors.blue : Colors.white,)
+        //       );
+        //     }
+        //   ),
+        );
+      }
     );
   }
 }
