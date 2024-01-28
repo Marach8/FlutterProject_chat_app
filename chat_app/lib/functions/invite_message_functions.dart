@@ -176,7 +176,7 @@ class _SharingAppListState extends State<SharingAppList> {
               final endIndex = (listIndex + 1) * 8;
               if((widget.apps.length % 8) != 0){
                 final remainder = endIndex - widget.apps.length;
-                for (int i = 0; i < remainder; i ++){widget.apps.add(const SizedBox.shrink());}
+                for (int i = 0; i < remainder; i++){widget.apps.add(const SizedBox.shrink());}
               }
               final gridApps = widget.apps.sublist(startIndex, endIndex);
               return SizedBox(
@@ -197,8 +197,8 @@ class _SharingAppListState extends State<SharingAppList> {
                           Material(
                             color: Colors.transparent,
                             child: InkResponse(
-                              splashColor: customWhite60Color,
-                              onTap: (){},
+                              splashColor: customWhite60Color, onTap: (){app.openApp();},
+                              //customBorder: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),                              
                               child: Padding(
                                 padding: const EdgeInsets.all(4.0),
                                 child: Image.memory(
@@ -321,7 +321,18 @@ class InviteMessageAppList extends StatelessWidget{
         final Uint8List byteData = app.icon;
         return Column(
           children: [
-            Image.memory(byteData, height: 50, width: 50),
+            Material(
+              color: Colors.transparent,
+              child: InkResponse(
+                splashColor: customWhite60Color, onTap: (){app.openApp();},
+                child: Padding(
+                  padding: const EdgeInsets.all(4.0),
+                  child: Image.memory(
+                    byteData, height: 50, width: 50
+                  ),
+                ),
+              ),
+            ),
             const Gap(5),
             CustomTextWidget(color: Colors.white, size: 11, fontWeight: FontWeight.w400, text: app.appName)
           ]
