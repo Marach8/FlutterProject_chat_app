@@ -1,5 +1,6 @@
 import 'package:chat_app/constants/colors.dart';
 import 'package:chat_app/custom_widgets/floating_button_widget.dart';
+import 'package:chat_app/custom_widgets/navigation_destinations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -69,33 +70,7 @@ class _Homepage extends State<ChatAppHomepage>{
           Colors.blueGrey.shade800,
         ),
         selectedIndex: index,
-        destinations: const [
-          NavigationDestination(
-            icon: FaIcon(FontAwesomeIcons.message), 
-            selectedIcon: FaIcon(FontAwesomeIcons.solidMessage),
-            label: 'Chats'
-          ),
-          NavigationDestination(
-            icon: FaIcon(FontAwesomeIcons.peopleGroup), 
-            selectedIcon: FaIcon(FontAwesomeIcons.person),
-            label: 'Groups'
-          ),
-          NavigationDestination(
-            icon: FaIcon(FontAwesomeIcons.upRightAndDownLeftFromCenter), 
-            selectedIcon: FaIcon(FontAwesomeIcons.backward),
-            label: 'Updates'
-          ),
-          NavigationDestination(
-            icon: FaIcon(FontAwesomeIcons.phone), 
-            selectedIcon: FaIcon(Icons.phone_android),
-            label: 'Calls'
-          ),
-          NavigationDestination(
-            icon: FaIcon(FontAwesomeIcons.peopleGroup), 
-            selectedIcon: FaIcon(FontAwesomeIcons.userGroup),
-            label: 'Communities'
-          ),
-        ],
+        destinations: navWidgets
       ),
       body: PageView(
         onPageChanged: (currentPage)
