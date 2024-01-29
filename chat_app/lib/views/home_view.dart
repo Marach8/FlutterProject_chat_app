@@ -59,13 +59,12 @@ class _Homepage extends State<ChatAppHomepage>{
       bottomNavigationBar: NavigationBar(
         backgroundColor: customForegroundColor,
         indicatorColor: Colors.blueGrey.shade800,
-        onDestinationSelected: (pageIndex) => setState(
-          () => pageController.animateToPage(
+        onDestinationSelected: (pageIndex)
+        => pageController.animateToPage(
             pageIndex, 
             duration: const Duration(milliseconds: 1), 
             curve: Curves.ease
-          )         
-        ),
+          ),
         overlayColor: MaterialStatePropertyAll(
           Colors.blueGrey.shade800,
         ),
@@ -73,7 +72,7 @@ class _Homepage extends State<ChatAppHomepage>{
         destinations: navWidgets
       ),
       body: PageView(
-        onPageChanged: (currentPage)
+        onPageChanged: (currentPage) 
           => setState(() => index = currentPage),
         controller: pageController,
         children: [

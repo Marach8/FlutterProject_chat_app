@@ -57,7 +57,7 @@ List<NavigationDestination> navWidgets = const [
   ),
   NavigationDestination(
     icon: FaIcon(
-      FontAwesomeIcons.usersLine,
+      Icons.read_more,
       color: customWhiteColor, 
       size: 20
     ), 
