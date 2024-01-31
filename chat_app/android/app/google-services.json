@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "197632354433",
+    "project_id": "marach-chat-app",
+    "storage_bucket": "marach-chat-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:197632354433:android:89fcca300c5e93ac708580",
+        "android_client_info": {
+          "package_name": "com.example.chat_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBzKJwDflNCmbfYS7vWtA34p2NVU3Ge05A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
