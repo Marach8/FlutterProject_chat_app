@@ -8,3 +8,4 @@ const universalSettingsRoute = 'universal_route';
 const homescreenSettingsRoute = 'homescreen_route';
 const chatscreenSettingsRoute = 'chatscreen_route';
 const widgetsSettingsRoute = 'widgets_route';
+const chatsInboxRoute = 'chats_inbox_route';

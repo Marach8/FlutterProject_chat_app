@@ -1,16 +1,18 @@
 import 'package:chat_app/constants/colors.dart';
 import 'package:chat_app/constants/font_sizes_and_weights.dart';
 import 'package:chat_app/constants/routes.dart';
+import 'package:chat_app/views/chats/chat_inbox.dart';
+import 'package:chat_app/views/chats/chat_view.dart';
 import 'package:chat_app/views/contacts_view.dart';
 import 'package:chat_app/views/home_view.dart';
-import 'package:chat_app/views/settings_about_view.dart';
-import 'package:chat_app/views/settings_chatscreen_view.dart';
+import 'package:chat_app/views/settings/settings_about_view.dart';
+import 'package:chat_app/views/settings/settings_chatscreen_view.dart';
+import 'package:chat_app/views/settings/settings_main_view.dart';
 import 'package:chat_app/views/settings_homescreen_view.dart';
 import 'package:chat_app/views/settings_privacysecurity_view.dart';
 import 'package:chat_app/views/settings_themes_view.dart';
 import 'package:chat_app/views/settings_universal_view.dart';
 import 'package:chat_app/views/settings_update_view.dart';
-import 'package:chat_app/views/settings_view.dart';
 import 'package:chat_app/views/settings_widget_view.dart';
 import 'package:flutter/material.dart';
 
@@ -47,6 +49,7 @@ class ChatApp extends StatelessWidget{
       homescreenSettingsRoute: (context) => const HomeScreenView(),
       chatscreenSettingsRoute: (context) => const ChatScreenView(),
       widgetsSettingsRoute: (context) => const WidgetsView(),
+      chatsInboxRoute: (context) => const ChatsInboxView(),
     }
   );
 }
