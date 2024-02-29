@@ -16,7 +16,9 @@ import 'package:gap/gap.dart';
  Future<List<dynamic>> listApps(bool getInviteMessageApps) async{
   List<dynamic>  retrievedApps = [];
   List<Application> app = await DeviceApps.getInstalledApplications(
-    includeSystemApps: true, includeAppIcons: true, onlyAppsWithLaunchIntent: true,
+    includeSystemApps: true, 
+    includeAppIcons: true, 
+    onlyAppsWithLaunchIntent: true,
   );
   for (Application item in app){
     if(getInviteMessageApps){
@@ -41,8 +43,15 @@ import 'package:gap/gap.dart';
 
 
 class ShowBottomSheet{
-  final BuildContext context; final List<dynamic> applications;  final bool getInviteMessageApps;
-  ShowBottomSheet({required this.context, required this.applications, required this.getInviteMessageApps});
+  final BuildContext context; 
+  final List<dynamic> applications;  
+  final bool getInviteMessageApps;
+
+  ShowBottomSheet({
+    required this.context, 
+    required this.applications, 
+    required this.getInviteMessageApps
+  });
 
   Future displayIcons() {
     final screenWidth = MediaQuery.of(context).size.width;
@@ -52,7 +61,9 @@ class ShowBottomSheet{
       context: context,
       isScrollControlled: true,
       builder: (context) => AnnotatedRegion<SystemUiOverlayStyle>(
-        value: const SystemUiOverlayStyle(systemNavigationBarColor: Color.fromARGB(255, 52, 51, 51),),
+        value: const SystemUiOverlayStyle(
+          systemNavigationBarColor: Color.fromARGB(255, 52, 51, 51)
+        ),
         child: CustomContainer(
           height: getInviteMessageApps? screenHeight*0.35 : screenHeight*0.48, width: screenWidth,
           color: const Color.fromARGB(255, 52, 51, 51),
