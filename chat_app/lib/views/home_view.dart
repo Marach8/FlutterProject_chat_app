@@ -1,11 +1,10 @@
 import 'package:chat_app/constants/colors.dart';
 import 'package:chat_app/custom_widgets/floating_button_widget.dart';
 import 'package:chat_app/custom_widgets/navigation_destinations.dart';
-import 'package:chat_app/views/chats/chat_inbox.dart';
 import 'package:chat_app/views/chats/chat_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
 
 class ChatAppHomepage extends StatefulWidget{
   const ChatAppHomepage({super.key});

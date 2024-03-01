@@ -19,12 +19,19 @@ class SettingsView extends StatelessWidget{
   @override
   Widget build(BuildContext context){
     return AnnotatedRegion<SystemUiOverlayStyle>(
-      value: const SystemUiOverlayStyle(systemNavigationBarColor: customBackgroundColor),
+      value: const SystemUiOverlayStyle(
+        systemNavigationBarColor: customBackgroundColor
+      ),
       child: Scaffold(
         backgroundColor: customBackgroundColor,
         appBar: AppBar(
-          title: const CustomTextWidget (size: 20, fontWeight: FontWeight.w400, text: 'Settings'),
-          backgroundColor: customBackgroundColor, foregroundColor: customWhiteColor
+          title: const CustomTextWidget(
+            size: 20, 
+            fontWeight: FontWeight.w400,
+            text: 'Settings'
+          ),
+          backgroundColor: customBackgroundColor,
+          foregroundColor: customWhiteColor
         ),
 
         body: ListView(
@@ -33,9 +40,16 @@ class SettingsView extends StatelessWidget{
             CustomContainer(
               children: [
                 CustomListTileWithoutSubtitle(
-                  leadingIcon: FontAwesomeIcons.lock, trailingIcon: Icons.arrow_forward_ios_sharp, title: 'Privacy And Security',
-                  topBorderRadius: 20, bottomBorderRadius: 20, iconSize: 18, trailingIconColor: customWhite30Color,
-                  onTap: () => pushNamedNavigation(context, privacySecuritySettingsRoute)
+                  leadingIcon: FontAwesomeIcons.lock,
+                  trailingIcon: Icons.arrow_forward_ios_sharp,
+                  title: 'Privacy And Security',
+                  topBorderRadius: 20, bottomBorderRadius: 20,
+                  iconSize: 18, 
+                  trailingIconColor: customWhite30Color,
+                  onTap: () => pushNamedNavigation(
+                    context, 
+                    privacySecuritySettingsRoute
+                  )
               ),
               ]
             ),
@@ -43,20 +57,35 @@ class SettingsView extends StatelessWidget{
             CustomContainer(
               children: [
                 CustomListTileWithoutSubtitle(
-                  leadingIcon: FontAwesomeIcons.faceLaughBeam, trailingIcon: Icons.arrow_forward_ios_sharp, title: 'GBStickers',
-                  topBorderRadius: 20, bottomBorderRadius: 0, iconSize: 18, trailingIconColor: customWhite30Color,
+                  leadingIcon: FontAwesomeIcons.faceLaughBeam,
+                  trailingIcon: Icons.arrow_forward_ios_sharp, 
+                  title: 'GBStickers',
+                  topBorderRadius: 20, 
+                  bottomBorderRadius: 0,
+                  iconSize: 18, 
+                  trailingIconColor: customWhite30Color,
                   onTap: () async => await urlLauncher(gBStickersUrl)
                 ), 
                 const CustomDivider(indent: 75),
                 CustomListTileWithoutSubtitle(
-                  leadingIcon: FontAwesomeIcons.rotate, trailingIcon: Icons.arrow_forward_ios_sharp, title: 'Updates',
-                  topBorderRadius: 0, bottomBorderRadius: 0, iconSize: 18, trailingIconColor: customWhite30Color,
+                  leadingIcon: FontAwesomeIcons.rotate,
+                  trailingIcon: Icons.arrow_forward_ios_sharp,
+                  title: 'Updates',
+                  topBorderRadius: 0,
+                  bottomBorderRadius: 0,
+                  iconSize: 18,
+                  trailingIconColor: customWhite30Color,
                   onTap: () => pushNamedNavigation(context, updatesSettingsRoute)
                 ),
                 const CustomDivider(indent: 75),
                 CustomListTileWithoutSubtitle(
-                  leadingIcon: FontAwesomeIcons.circleInfo, trailingIcon: Icons.arrow_forward_ios_sharp, title: 'About',
-                  topBorderRadius: 0, bottomBorderRadius: 20, iconSize: 18, trailingIconColor: customWhite30Color,
+                  leadingIcon: FontAwesomeIcons.circleInfo,
+                  trailingIcon: Icons.arrow_forward_ios_sharp, 
+                  title: 'About',
+                  topBorderRadius: 0,
+                  bottomBorderRadius: 20, 
+                  iconSize: 18, 
+                  trailingIconColor: customWhite30Color,
                   onTap: () => pushNamedNavigation(context, aboutSettingsRoute)
                 ),
               ]
@@ -65,32 +94,57 @@ class SettingsView extends StatelessWidget{
             CustomContainer(
               children: [
                 CustomListTileWithoutSubtitle(
-                  leadingIcon: FontAwesomeIcons.brush, trailingIcon: Icons.arrow_forward_ios_sharp, title: 'Themes',
-                  topBorderRadius: 20, bottomBorderRadius: 0, iconSize: 18, trailingIconColor: customWhite30Color,
+                  leadingIcon: FontAwesomeIcons.brush, 
+                  trailingIcon: Icons.arrow_forward_ios_sharp,
+                  title: 'Themes',
+                  topBorderRadius: 20,
+                  bottomBorderRadius: 0,
+                  iconSize: 18,
+                  trailingIconColor: customWhite30Color,
                   onTap: () => pushNamedNavigation(context, themesSettingsRoute),
                 ),
                 const CustomDivider(indent: 75),
                 CustomListTileWithoutSubtitle(
-                  leadingIcon: FontAwesomeIcons.sliders, trailingIcon: Icons.arrow_forward_ios_sharp, title: 'Universal',
-                  topBorderRadius: 0, bottomBorderRadius: 0, iconSize: 18, trailingIconColor: customWhite30Color,
+                  leadingIcon: FontAwesomeIcons.sliders,
+                  trailingIcon: Icons.arrow_forward_ios_sharp,
+                  title: 'Universal',
+                  topBorderRadius: 0,
+                  bottomBorderRadius: 0,
+                  iconSize: 18,
+                  trailingIconColor: customWhite30Color,
                   onTap: () => pushNamedNavigation(context, universalSettingsRoute),
                 ),
                 const CustomDivider(indent: 75),
                 CustomListTileWithoutSubtitle(
-                  leadingIcon: FontAwesomeIcons.houseChimney, trailingIcon: Icons.arrow_forward_ios_sharp, title: 'Home Screen',
-                  topBorderRadius: 0, bottomBorderRadius: 0, iconSize: 18, trailingIconColor: customWhite30Color,
+                  leadingIcon: FontAwesomeIcons.houseChimney,
+                  trailingIcon: Icons.arrow_forward_ios_sharp,
+                  title: 'Home Screen',
+                  topBorderRadius: 0,
+                  bottomBorderRadius: 0,
+                  iconSize: 18,
+                  trailingIconColor: customWhite30Color,
                   onTap: () => pushNamedNavigation(context, homescreenSettingsRoute)
                 ),
                 const CustomDivider(indent: 75),
                 CustomListTileWithoutSubtitle(
-                  leadingIcon: FontAwesomeIcons.solidMessage, trailingIcon: Icons.arrow_forward_ios_sharp, title: 'Chat Screen',
-                  topBorderRadius: 0, bottomBorderRadius: 0, iconSize: 18, trailingIconColor: customWhite30Color,
+                  leadingIcon: FontAwesomeIcons.solidMessage,
+                  trailingIcon: Icons.arrow_forward_ios_sharp,
+                  title: 'Chat Screen',
+                  topBorderRadius: 0,
+                  bottomBorderRadius: 0,
+                  iconSize: 18,
+                  trailingIconColor: customWhite30Color,
                   onTap: () => pushNamedNavigation(context, chatscreenSettingsRoute)
                 ),
                 const CustomDivider(indent: 75),
                 CustomListTileWithoutSubtitle(
-                  leadingIcon: FontAwesomeIcons.cube, trailingIcon: Icons.arrow_forward_ios_sharp, title: 'Widget',
-                  topBorderRadius: 0, bottomBorderRadius: 20, iconSize: 18, trailingIconColor: customWhite30Color,
+                  leadingIcon: FontAwesomeIcons.cube,
+                  trailingIcon: Icons.arrow_forward_ios_sharp,
+                  title: 'Widget',
+                  topBorderRadius: 0,
+                  bottomBorderRadius: 20,
+                  iconSize: 18,
+                  trailingIconColor: customWhite30Color,
                   onTap: () => pushNamedNavigation(context, widgetsSettingsRoute)
                 ),
               ]
@@ -99,10 +153,19 @@ class SettingsView extends StatelessWidget{
             CustomContainer(
               children: [
                 CustomListTileWithoutSubtitle(
-                  leadingIcon: FontAwesomeIcons.shareNodes, trailingIcon: Icons.arrow_forward_ios_sharp, title: 'Share GBWhatsApp Pro',
-                  topBorderRadius: 20, bottomBorderRadius: 20, iconSize: 18, trailingIconColor: customWhite30Color,
+                  leadingIcon: FontAwesomeIcons.shareNodes,
+                  trailingIcon: Icons.arrow_forward_ios_sharp,
+                  title: 'Share GBWhatsApp Pro',
+                  topBorderRadius: 20,
+                  bottomBorderRadius: 20,
+                  iconSize: 18,
+                  trailingIconColor: customWhite30Color,
                   onTap: () => listApps(false).then((result) {
-                    ShowBottomSheet(context: context, applications: result, getInviteMessageApps: false).displayIcons();
+                    ShowBottomSheet(
+                      context: context, 
+                      applications: result,
+                      getInviteMessageApps: false
+                    ).displayIcons();
                   })
                 ),
               ]
