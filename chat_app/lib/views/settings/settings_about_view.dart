@@ -68,8 +68,11 @@ class _AboutViewState extends State<AboutView> {
               ),
               const CustomDivider(indent: 60),
               CustomListTileWithoutSubtitle(
-                title: 'FAQs', leadingIcon: FontAwesomeIcons.circleQuestion,
-                topBorderRadius: 0, bottomBorderRadius: 20, onTap: (){}
+                title: 'FAQs', 
+                leadingIcon: FontAwesomeIcons.circleQuestion,
+                topBorderRadius: 0,
+                bottomBorderRadius: 20,
+                onTap: (){}
               ),
             ]
           ),
@@ -79,32 +82,47 @@ class _AboutViewState extends State<AboutView> {
           CustomContainer(
             children: [
               const Padding(
-                padding: EdgeInsets.only(left:30, top: 15, bottom: 5),
+                padding: EdgeInsets.fromLTRB(20, 15, 0, 5),
                 child: Align(
                   alignment: Alignment.centerLeft,
                   child: CustomTextWidget(
-                    size: 16, fontWeight: FontWeight.w700, text: 'FOLLOW ME TO STAY UPDATED', color: customWhiteColor
+                    size: 16, 
+                    fontWeight: FontWeight.w700,
+                    text: 'FOLLOW ME TO STAY UPDATED',
+                    color: customWhiteColor
                   )
                 ),
               ),
               CustomListTileWithoutSubtitle(
-                title: 'Twitter', leadingIcon: FontAwesomeIcons.squareTwitter,
-                topBorderRadius: 0, bottomBorderRadius: 0, onTap: (){}
+                title: 'Twitter', 
+                leadingIcon: FontAwesomeIcons.squareTwitter,
+                topBorderRadius: 0,
+                bottomBorderRadius: 0,
+                onTap: (){}
               ),
               const CustomDivider(indent: 60),
               CustomListTileWithoutSubtitle(
-                title: 'Telegram', leadingIcon: FontAwesomeIcons.telegram,
-                topBorderRadius: 0, bottomBorderRadius: 0, onTap: (){}
+                title: 'Telegram',
+                leadingIcon: FontAwesomeIcons.telegram,
+                topBorderRadius: 0,
+                bottomBorderRadius: 0,
+                onTap: (){}
               ),
               const CustomDivider(indent: 60),
               CustomListTileWithoutSubtitle(
-                title: 'Facebook', leadingIcon: FontAwesomeIcons.squareFacebook,
-                topBorderRadius: 0, bottomBorderRadius: 0, onTap: (){}
+                title: 'Facebook',
+                leadingIcon: FontAwesomeIcons.squareFacebook,
+                topBorderRadius: 0,
+                bottomBorderRadius: 0,
+                onTap: (){}
               ),
               const CustomDivider(indent: 60),
               CustomListTileWithoutSubtitle(
-                title: 'VKontakte', leadingIcon: FontAwesomeIcons.vk,
-                topBorderRadius: 0, bottomBorderRadius: 20, onTap: (){}
+                title: 'VKontakte',
+                leadingIcon: FontAwesomeIcons.vk,
+                topBorderRadius: 0,
+                bottomBorderRadius: 20,
+                onTap: (){}
               ),
             ],
           )
