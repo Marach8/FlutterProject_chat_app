@@ -18,12 +18,19 @@ class AboutView extends StatefulWidget {
 class _AboutViewState extends State<AboutView> {
   @override
   Widget build(BuildContext context) => AnnotatedRegion<SystemUiOverlayStyle>(
-    value: const SystemUiOverlayStyle(systemNavigationBarColor: customBackgroundColor),
+    value: const SystemUiOverlayStyle(
+      systemNavigationBarColor: customBackgroundColor
+    ),
     child: Scaffold(
       backgroundColor: customBackgroundColor,
       appBar: AppBar(
-        title: const CustomTextWidget(size: 20, fontWeight: FontWeight.w400, text: 'About'),
-        backgroundColor: customBackgroundColor, foregroundColor: customWhite70Color,
+        title: const CustomTextWidget(
+          size: 20,
+          fontWeight: FontWeight.w400,
+          text: 'About'
+        ),
+        backgroundColor: customBackgroundColor, 
+        foregroundColor: customWhite70Color,
       ),
 
       body: ListView(
@@ -32,20 +39,32 @@ class _AboutViewState extends State<AboutView> {
           CustomContainer(
             children: [
               const Padding(
-                padding: EdgeInsets.only(left:30, top: 15, bottom: 5),
+                padding: EdgeInsets.fromLTRB(30, 15, 0, 5),
                 child: Align(
                   alignment: Alignment.centerLeft,
-                  child: CustomTextWidget(size: 16, fontWeight: FontWeight.w700, text: 'ABOUT', color: customWhiteColor)
+                  child: CustomTextWidget(
+                    size: 16, 
+                    fontWeight: FontWeight.w700,
+                    text: 'ABOUT',
+                    color: customWhiteColor
+                  )
                 ),
               ),
               CustomListTileWithoutSubtitle(
-                title: 'GBWhatsApp Pro v17.55', leadingIcon: FontAwesomeIcons.whatsapp,
-                topBorderRadius: 0, bottomBorderRadius: 0, iconSize: 20, onTap: (){}
+                title: 'GBWhatsApp Pro v17.55', 
+                leadingIcon: FontAwesomeIcons.whatsapp,
+                topBorderRadius: 0,
+                bottomBorderRadius: 0,
+                iconSize: 20,
+                onTap: (){}
               ),
               const CustomDivider(indent: 60),
               CustomListTileWithoutSubtitle(
-                title: 'By AlexMods.com', leadingIcon: FontAwesomeIcons.personCircleQuestion,
-                topBorderRadius: 0, bottomBorderRadius: 0, onTap: (){}
+                title: 'By AlexMods.com', 
+                leadingIcon: FontAwesomeIcons.personCircleQuestion,
+                topBorderRadius: 0, 
+                bottomBorderRadius: 0, 
+                onTap: (){}
               ),
               const CustomDivider(indent: 60),
               CustomListTileWithoutSubtitle(
