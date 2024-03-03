@@ -14,12 +14,19 @@ class ChatScreenView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => AnnotatedRegion<SystemUiOverlayStyle>(
-    value: const SystemUiOverlayStyle(systemNavigationBarColor: customBackgroundColor),
+    value: const SystemUiOverlayStyle(
+      systemNavigationBarColor: customBackgroundColor
+    ),
     child: Scaffold(
       backgroundColor: customBackgroundColor,
       appBar: AppBar(
-        title: const CustomTextWidget(size: 20, fontWeight: FontWeight.w400, text: 'Chat Screen'),
-        backgroundColor: customBackgroundColor, foregroundColor: customWhite70Color,
+        title: const CustomTextWidget(
+          size: 20,
+          fontWeight: FontWeight.w400,
+          text: 'Chat Screen'
+        ),
+        backgroundColor: customBackgroundColor,
+        foregroundColor: customWhite70Color,
       ),
 
       body: ListView(
@@ -28,14 +35,21 @@ class ChatScreenView extends StatelessWidget {
           CustomContainer(
             children: [
               CustomListTileWithoutSubtitle(
-                title: 'Action Bar', leadingIcon: FontAwesomeIcons.heading, trailingIcon: Icons.arrow_forward_ios_sharp,
-                topBorderRadius: 20, bottomBorderRadius: 0, trailingIconColor: customBlackColor,
+                title: 'Action Bar',
+                leadingIcon: FontAwesomeIcons.heading,
+                trailingIcon: Icons.arrow_forward_ios_sharp,
+                topBorderRadius: 20,
+                bottomBorderRadius: 0,
+                trailingIconColor: customBlackColor,
                 onTap: (){}
               ),
               const CustomDivider(indent: 20),
               CustomListTileWithoutSubtitle(
-                title: 'Bubble And Ticks', leadingIcon: FontAwesomeIcons.solidSquareCheck,
-                topBorderRadius: 0, bottomBorderRadius: 0, trailingIcon: Icons.arrow_forward_ios_sharp,
+                title: 'Bubble And Ticks',
+                leadingIcon: FontAwesomeIcons.solidSquareCheck,
+                topBorderRadius: 0,
+                bottomBorderRadius: 0,
+                trailingIcon: Icons.arrow_forward_ios_sharp,
                 trailingIconColor: customBlackColor,
                 onTap: (){}
               ),
