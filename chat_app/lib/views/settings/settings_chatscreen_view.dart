@@ -55,15 +55,21 @@ class ChatScreenView extends StatelessWidget {
               ),
               const CustomDivider(indent: 20),
               CustomListTileWithoutSubtitle(
-                title: 'Conversation Entry Style', leadingIcon: FontAwesomeIcons.solidComments,
-                topBorderRadius: 0, bottomBorderRadius: 0, trailingIcon: Icons.arrow_forward_ios_sharp,
+                title: 'Conversation Entry Style',
+                leadingIcon: FontAwesomeIcons.solidComments,
+                topBorderRadius: 0,
+                bottomBorderRadius: 0,
+                trailingIcon: Icons.arrow_forward_ios_sharp,
                 trailingIconColor: customBlackColor,
                 onTap: (){}
               ),
               const CustomDivider(indent: 20),
               CustomListTileWithoutSubtitle(
-                title: 'More Options', leadingIcon: FontAwesomeIcons.gear,
-                topBorderRadius: 0, bottomBorderRadius: 20, trailingIcon: Icons.arrow_forward_ios_sharp,
+                title: 'More Options',
+                leadingIcon: FontAwesomeIcons.gear,
+                topBorderRadius: 0,
+                bottomBorderRadius: 20,
+                trailingIcon: Icons.arrow_forward_ios_sharp,
                 trailingIconColor: customBlackColor,
                 onTap: (){}
               ),
@@ -79,45 +85,73 @@ class ChatScreenView extends StatelessWidget {
                 padding: EdgeInsets.only(left:35),
                 child: Align(
                   alignment: Alignment.centerLeft,
-                  child: CustomTextWidget(size: 15, fontWeight: FontWeight.w800, text: 'MODS', color: customWhite30Color)
+                  child: CustomTextWidget(
+                    size: 15,
+                    fontWeight: FontWeight.w800,
+                    text: 'MODS',
+                    color: customWhite30Color
+                  )
                 ),
               ),
               Gap(10),
               CustomListTileWithSwitch( 
-                title: 'Group Admin Indicator', subtitle: '',
-                topBorderRadius: 0, bottomBorderRadius: 0, sizeOfSubtitle: sizeOfSubtitleOne,
+                title: 'Group Admin Indicator',
+                subtitle: '',
+                topBorderRadius: 0,
+                bottomBorderRadius: 0, 
+                sizeOfSubtitle: sizeOfSubtitleOne,
               ),
               CustomListTileWithSwitch( 
-                title: 'Confirm before sending a Sticker', subtitle: 'Confirm before sending a sticker',
-                topBorderRadius: 0, bottomBorderRadius: 0, sizeOfSubtitle: sizeOfSubtitleOne,
+                title: 'Confirm before sending a Sticker',
+                subtitle: 'Confirm before sending a sticker',
+                topBorderRadius: 0,
+                bottomBorderRadius: 0,
+                sizeOfSubtitle: sizeOfSubtitleOne,
               ),
               Gap(10),
               CustomListTileWithSwitch( 
-                title: 'New Attachment Picker UI', subtitle: '',
-                topBorderRadius: 0, bottomBorderRadius: 0, sizeOfSubtitle: sizeOfSubtitleOne,
+                title: 'New Attachment Picker UI',
+                subtitle: '',
+                topBorderRadius: 0,
+                bottomBorderRadius: 0,
+                sizeOfSubtitle: sizeOfSubtitleOne,
               ),
               Gap(5),
               CustomListTileWithSwitch( 
-                title: 'Hide date and name', subtitle: 'Hide the date and name when copying 2 messages or more',
-                topBorderRadius: 0, bottomBorderRadius: 0, sizeOfSubtitle: sizeOfSubtitleOne,
+                title: 'Hide date and name',
+                subtitle: 'Hide the date and name when copying 2 messages or more',
+                topBorderRadius: 0,
+                bottomBorderRadius: 0,
+                sizeOfSubtitle: sizeOfSubtitleOne,
               ),
               Gap(5),
               Padding(
                 padding: EdgeInsets.only(left: 35, top: 10),
                 child: Align(
                   alignment: Alignment.centerLeft,
-                  child: CustomTextWidget(size: 14, fontWeight: fontWeightTwo, color: customGreenColor, text: 'Voice Notes/Audio Mods')
+                  child: CustomTextWidget(
+                    size: 14,
+                    fontWeight: fontWeightTwo,
+                    color: customGreenColor,
+                    text: 'Voice Notes/Audio Mods'
+                  )
                 ),
               ),
               Gap(5),
               CustomListTileWithSwitch( 
-                title: 'Enable Proximity Sensor', subtitle: 'Enabled by default, disable to turn it off.',
-                topBorderRadius: 0, bottomBorderRadius: 0, sizeOfSubtitle: sizeOfSubtitleOne,
+                title: 'Enable Proximity Sensor',
+                subtitle: 'Enabled by default, disable to turn it off.',
+                topBorderRadius: 0,
+                bottomBorderRadius: 0,
+                sizeOfSubtitle: sizeOfSubtitleOne,
               ),
               Gap(5),
               CustomListTileWithSwitch( 
-                title: 'Disable Output Switching', subtitle: 'Prevernts speaker/earpiece switching while playing',
-                topBorderRadius: 0, bottomBorderRadius: 20, sizeOfSubtitle: sizeOfSubtitleOne,
+                title: 'Disable Output Switching',
+                subtitle: 'Prevernts speaker/earpiece switching while playing',
+                topBorderRadius: 0,
+                bottomBorderRadius: 20,
+                sizeOfSubtitle: sizeOfSubtitleOne,
               ),
             ]
           ),
