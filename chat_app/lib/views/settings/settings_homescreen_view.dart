@@ -14,12 +14,19 @@ class HomeScreenView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => AnnotatedRegion<SystemUiOverlayStyle>(
-    value: const SystemUiOverlayStyle(systemNavigationBarColor: customBackgroundColor),
+    value: const SystemUiOverlayStyle(
+      systemNavigationBarColor: customBackgroundColor
+    ),
     child: Scaffold(
       backgroundColor: customBackgroundColor,
       appBar: AppBar(
-        title: const CustomTextWidget(size: 20, fontWeight: FontWeight.w400, text: 'Home Screen'),
-        backgroundColor: customBackgroundColor, foregroundColor: customWhite70Color,
+        title: const CustomTextWidget(
+          size: 20, 
+          fontWeight: FontWeight.w400,
+           text: 'Home Screen'
+          ),
+        backgroundColor: customBackgroundColor,
+        foregroundColor: customWhite70Color,
       ),
 
       body: ListView(
@@ -28,28 +35,41 @@ class HomeScreenView extends StatelessWidget {
           CustomContainer(
             children: [
               CustomListTileWithoutSubtitle(
-                title: 'Header', leadingIcon: FontAwesomeIcons.heading, trailingIcon: Icons.arrow_forward_ios_sharp,
-                topBorderRadius: 20, bottomBorderRadius: 0, trailingIconColor: customBlackColor,
-                onTap: (){}
-              ),
-              const CustomDivider(indent: 20),
-              CustomListTileWithoutSubtitle(
-                title: 'Rows', leadingIcon: FontAwesomeIcons.bars,
-                topBorderRadius: 0, bottomBorderRadius: 0, trailingIcon: Icons.arrow_forward_ios_sharp,
+                title: 'Header',
+                leadingIcon: FontAwesomeIcons.heading,
+                trailingIcon: Icons.arrow_forward_ios_sharp,
+                topBorderRadius: 20,
+                bottomBorderRadius: 0,
                 trailingIconColor: customBlackColor,
                 onTap: (){}
               ),
               const CustomDivider(indent: 20),
               CustomListTileWithoutSubtitle(
-                title: 'Floating Action Button', leadingIcon: FontAwesomeIcons.circlePlus,
-                topBorderRadius: 0, bottomBorderRadius: 0, trailingIcon: Icons.arrow_forward_ios_sharp,
+                title: 'Rows',
+                leadingIcon: FontAwesomeIcons.bars,
+                topBorderRadius: 0,
+                bottomBorderRadius: 0,
+                trailingIcon: Icons.arrow_forward_ios_sharp,
                 trailingIconColor: customBlackColor,
                 onTap: (){}
               ),
               const CustomDivider(indent: 20),
               CustomListTileWithoutSubtitle(
-                title: 'Status', leadingIcon: FontAwesomeIcons.solidCircleUser,
-                topBorderRadius: 0, bottomBorderRadius: 20, trailingIcon: Icons.arrow_forward_ios_sharp,
+                title: 'Floating Action Button', 
+                leadingIcon: FontAwesomeIcons.circlePlus,
+                topBorderRadius: 0, 
+                bottomBorderRadius: 0, 
+                trailingIcon: Icons.arrow_forward_ios_sharp,
+                trailingIconColor: customBlackColor,
+                onTap: (){}
+              ),
+              const CustomDivider(indent: 20),
+              CustomListTileWithoutSubtitle(
+                title: 'Status',
+                leadingIcon: FontAwesomeIcons.solidCircleUser,
+                topBorderRadius: 0,
+                bottomBorderRadius: 20,
+                trailingIcon: Icons.arrow_forward_ios_sharp,
                 trailingIconColor: customBlackColor,
                 onTap: (){}
               ),
@@ -65,13 +85,21 @@ class HomeScreenView extends StatelessWidget {
                 padding: EdgeInsets.only(left:35),
                 child: Align(
                   alignment: Alignment.centerLeft,
-                  child: CustomTextWidget(size: 15, fontWeight: FontWeight.w800, text: 'MODS', color: customWhite30Color)
+                  child: CustomTextWidget(
+                    size: 15,
+                    fontWeight: FontWeight.w800,
+                    text: 'MODS',
+                    color: customWhite30Color
+                  )
                 ),
               ),
               Gap(10),
               CustomListTileWithSwitch( 
-                title: 'Confirm before sending a Status', subtitle: '',
-                topBorderRadius: 0, bottomBorderRadius: 0, sizeOfSubtitle: sizeOfSubtitleOne,
+                title: 'Confirm before sending a Status',
+                subtitle: '',
+                topBorderRadius: 0,
+                bottomBorderRadius: 0,
+                sizeOfSubtitle: sizeOfSubtitleOne,
               ),
               CustomListTileWithSwitch( 
                 title: 'Viewed Story Toast', subtitle: 'Know immediately when anyone views your status by Toast message.',
