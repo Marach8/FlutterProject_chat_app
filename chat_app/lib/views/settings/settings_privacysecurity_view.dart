@@ -21,8 +21,11 @@ class PASView extends State<PrivacyAndSecurityView>{
     child: Scaffold(
       backgroundColor: customBackgroundColor,
       appBar: AppBar(
-        title: const CustomTextWidget(size: 20, fontWeight: FontWeight.w400, text: 'Privacy And Security'),
-        backgroundColor: customBackgroundColor, foregroundColor: customWhite70Color,
+        title: const CustomTextWidget(size: 20,
+        fontWeight: FontWeight.w400,
+        text: 'Privacy And Security'),
+        backgroundColor: customBackgroundColor,
+        foregroundColor: customWhite70Color,
       ),
 
       body: ListView(
@@ -35,7 +38,12 @@ class PASView extends State<PrivacyAndSecurityView>{
                 padding: EdgeInsets.only(left:30),
                 child: Align(
                   alignment: Alignment.centerLeft,
-                  child: CustomTextWidget(size: 15, fontWeight: FontWeight.w600, text: 'PRIVACY', color: customWhiteColor)
+                  child: CustomTextWidget(
+                    size: 15,
+                    fontWeight: FontWeight.w600,
+                    text: 'PRIVACY',
+                    color: customWhiteColor
+                  )
                 ),
               ),
               Gap(20),
@@ -43,40 +51,62 @@ class PASView extends State<PrivacyAndSecurityView>{
                 padding: EdgeInsets.only(left: 40),
                 child: Align(
                   alignment: Alignment.centerLeft,
-                  child: CustomTextWidget(size: 13, fontWeight: FontWeight.w600, color: customGreenColor, text: 'Hide Online Status')
+                  child: CustomTextWidget(
+                    size: 13,
+                    fontWeight: FontWeight.w600,
+                    color: customGreenColor,
+                    text: 'Hide Online Status'
+                  )
                 ),
               ),
               Gap(5),
               CustomListTileWithSwitch( 
-                title: 'Freeze Last Seen', subtitle: 'Please restart WhatsApp for changes to take effect.',
-                topBorderRadius: 0, bottomBorderRadius: 0, sizeOfSubtitle: 13,
+                title: 'Freeze Last Seen',
+                subtitle: 'Please restart WhatsApp for changes to take effect.',
+                topBorderRadius: 0,
+                bottomBorderRadius: 0,
+                sizeOfSubtitle: 13,
               ),
               Gap(25),
               Padding(
                 padding: EdgeInsets.only(left: 40),
                 child: Align(
                   alignment: Alignment.centerLeft,
-                  child: CustomTextWidget(size: 13, fontWeight: FontWeight.w600, color: customGreenColor, text: 'Status')
+                  child: CustomTextWidget(
+                    size: 13,
+                    fontWeight: FontWeight.w600,
+                    color: customGreenColor,
+                    text: 'Status'
+                  )
                 ),
               ),
               Gap(5),
               CustomListTileWithSubtitle( 
-                title: 'Contacts', subtitle: 'Change privacy settings.',
-                topBorderRadius: 0, bottomBorderRadius: 0, sizeOfSubtitle: 13,
+                title: 'Contacts',
+                subtitle: 'Change privacy settings.',
+                topBorderRadius: 0,
+                bottomBorderRadius: 0,
+                sizeOfSubtitle: 13,
               ),
               Gap(5),
               CustomDivider(indent: 40),
               Gap(5),
               CustomListTileWithSubtitle( 
-                title: 'Groups', subtitle: 'Change privacy settings.',
-                topBorderRadius: 0, bottomBorderRadius: 0, sizeOfSubtitle: 13,
+                title: 'Groups',
+                subtitle: 'Change privacy settings.',
+                topBorderRadius: 0,
+                bottomBorderRadius: 0,
+                sizeOfSubtitle: 13,
               ),
               Gap(5),
               CustomDivider(indent: 40),
               Gap(5),
               CustomListTileWithSubtitle( 
-                title: 'Broadcasts', subtitle: 'Change privacy settings.',
-                topBorderRadius: 0, bottomBorderRadius: 0, sizeOfSubtitle: 13,
+                title: 'Broadcasts',
+                subtitle: 'Change privacy settings.',
+                topBorderRadius: 0,
+                bottomBorderRadius: 0,
+                sizeOfSubtitle: 13,
               ),
               Gap(5),
               CustomDivider(indent: 40),
