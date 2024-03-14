@@ -84,23 +84,32 @@ class _AboutViewState extends State<WidgetsView> {
           CustomContainer(
             children: [
               CustomListTileWithoutSubtitle(
-                title: 'Background', trailingIcon: FontAwesomeIcons.radio,
-                topBorderRadius: 20, bottomBorderRadius: 0, trailingIconColor: customBlackColor,
+                title: 'Background',
+                trailingIcon: FontAwesomeIcons.radio,
+                topBorderRadius: 20,
+                bottomBorderRadius: 0,
+                trailingIconColor: customBlackColor,
                 padding: const EdgeInsets.fromLTRB(0, 0,30, 0),
                 onTap: (){}
               ),
               const CustomDivider(indent: 20),
               CustomListTileWithoutSubtitle(
                 title: 'Contact Name and Color',
-                topBorderRadius: 0, bottomBorderRadius: 0, trailingIcon: FontAwesomeIcons.circleDot,
-                trailingIconColor: customBlackColor, padding: const EdgeInsets.fromLTRB(0, 0, 30, 0),
+                topBorderRadius: 0,
+                bottomBorderRadius: 0, 
+                trailingIcon: FontAwesomeIcons.circleDot,
+                trailingIconColor: customBlackColor,
+                padding: const EdgeInsets.fromLTRB(0, 0, 30, 0),
                 onTap: (){}
               ),
               const CustomDivider(indent: 20),
               CustomListTileWithoutSubtitle(
                 title: 'Contact Status Text Color',
-                topBorderRadius: 0, bottomBorderRadius: 20, trailingIcon: FontAwesomeIcons.circleDot,
-                trailingIconColor: customBlackColor, padding: const EdgeInsets.fromLTRB(0, 0, 30, 0),
+                topBorderRadius: 0,
+                bottomBorderRadius: 20,
+                trailingIcon: FontAwesomeIcons.circleDot,
+                trailingIconColor: customBlackColor,
+                padding: const EdgeInsets.fromLTRB(0, 0, 30, 0),
                 onTap: (){}
               ),
             ]
