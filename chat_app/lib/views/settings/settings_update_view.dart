@@ -17,12 +17,20 @@ class UpdatesView extends StatefulWidget{
 class _UpdatesState extends State<UpdatesView> {
   @override
   Widget build(BuildContext context) => AnnotatedRegion<SystemUiOverlayStyle>(
-    value: const SystemUiOverlayStyle(systemNavigationBarColor: customBackgroundColor),
+    value: const SystemUiOverlayStyle(
+      systemNavigationBarColor: customBackgroundColor
+    ),
     child: Scaffold(
       backgroundColor: customBackgroundColor,
       appBar: AppBar(
-        title: const CustomTextWidget(color: customWhiteColor, size:20, fontWeight: FontWeight.w400, text: 'Updates'),
-        backgroundColor: customBackgroundColor, foregroundColor: customWhiteColor
+        title: const CustomTextWidget(
+          color: customWhiteColor,
+          size:20,
+          fontWeight: FontWeight.w400,
+          text: 'Updates'
+        ),
+        backgroundColor: customBackgroundColor, 
+        foregroundColor: customWhiteColor
       ),
 
       body: ListView(
@@ -31,24 +39,34 @@ class _UpdatesState extends State<UpdatesView> {
           CustomContainer(
             children: [
               CustomListTileWithoutSubtitle(
-                leadingIcon: Icons.refresh_rounded, title: 'Check For Updates',
-                topBorderRadius: 20, bottomBorderRadius: 0, 
+                leadingIcon: Icons.refresh_rounded,
+                title: 'Check For Updates',
+                topBorderRadius: 20,
+                bottomBorderRadius: 0, 
               ),
               CustomDivider(indent: 30),
               CustomListTileWithoutSubtitle(
-                leadingIcon: Icons.file_copy, title: 'WhatsApp Changelog',
+                leadingIcon: Icons.file_copy,
+                title: 'WhatsApp Changelog',
                 topBorderRadius: 0, bottomBorderRadius: 20,
               ),
             ]
           ),
           Gap(12),
           CustomListTileWithoutSubtitle(
-            leadingIcon: Icons.arrow_circle_down, title: 'Update From Web',
-            topBorderRadius: 20, bottomBorderRadius: 20,
+            leadingIcon: Icons.arrow_circle_down,
+            title: 'Update From Web',
+            topBorderRadius: 20,
+            bottomBorderRadius: 20,
           ),
           Gap(15),
           Center(
-            child: CustomTextWidget(color: customWhiteColor, size: 16, fontWeight: FontWeight.w400, text: 'GBWhatsApp Pro v17.55')
+            child: CustomTextWidget(
+              color: customWhiteColor,
+              size: 16,
+              fontWeight: FontWeight.w400,
+              text: 'GBWhatsApp Pro v17.55'
+            )
           )
         ]
       )
