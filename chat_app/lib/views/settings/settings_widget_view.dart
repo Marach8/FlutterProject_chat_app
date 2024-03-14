@@ -18,26 +18,42 @@ class WidgetsView extends StatefulWidget {
 class _AboutViewState extends State<WidgetsView> {
   @override
   Widget build(BuildContext context) => AnnotatedRegion<SystemUiOverlayStyle>(
-    value: const SystemUiOverlayStyle(systemNavigationBarColor: customBackgroundColor),
+    value: const SystemUiOverlayStyle(
+      systemNavigationBarColor: customBackgroundColor
+    ),
     child: Scaffold(
       backgroundColor: customBackgroundColor,
       appBar: AppBar(
-        title: const CustomTextWidget(size: 20, fontWeight: FontWeight.w400, text: 'Widget'),
-        backgroundColor: customBackgroundColor, foregroundColor: customWhite70Color,
+        title: const CustomTextWidget(
+          size: 20,
+          fontWeight: FontWeight.w400,
+          text: 'Widget'
+        ),
+        backgroundColor: customBackgroundColor, 
+        foregroundColor: customWhite70Color,
       ),
 
       body: ListView(
         children: [
           const Gap(5),
           ListTile(
-            title: const Text('GBWhatsApp Pro', style: TextStyle(color: customWhiteColor)),
-            subtitle: const Text('My Status', style: TextStyle(color: customWhiteColor)),
+            title: const Text(
+              'GBWhatsApp Pro',
+              style: TextStyle(color: customWhiteColor)
+            ),
+            subtitle: const Text(
+              'My Status', 
+              style: TextStyle(color: customWhiteColor)
+            ),
             leading: Container(
               padding: const EdgeInsets.fromLTRB(4, 5, 4, 0),
               decoration: BoxDecoration(
                 color: Colors.blueGrey.shade600,
               ),
-              child: const FaIcon(Icons.person_rounded, size: 50, color: customWhiteColor)
+              child: const FaIcon(
+                Icons.person_rounded,
+                size: 50, color: customWhiteColor
+              )
             ),
             trailing: Column(
               children: [
@@ -47,9 +63,18 @@ class _AboutViewState extends State<WidgetsView> {
                     color: Colors.blue,
                     borderRadius: BorderRadius.all(Radius.circular(5))
                   ),
-                  child: const FaIcon(FontAwesomeIcons.gear, color: customWhiteColor)
+                  child: const FaIcon(
+                    FontAwesomeIcons.gear,
+                    color: customWhiteColor
+                  )
                 ),
-                const Text('GBPRO', style: TextStyle(color: customWhiteColor, fontSize: 8), )
+                const Text(
+                  'GBPRO', 
+                  style: TextStyle(
+                    color: customWhiteColor,
+                    fontSize: 8
+                  ),
+                )
               ]
             )
           ),
