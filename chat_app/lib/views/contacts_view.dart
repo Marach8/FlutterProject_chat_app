@@ -21,11 +21,14 @@ class _ContactViewState extends State<ContactsView> {
   @override
   Widget build(BuildContext context) {
     return AnnotatedRegion<SystemUiOverlayStyle>(
-      value: const SystemUiOverlayStyle(systemNavigationBarColor: Color.fromARGB(255, 0, 22, 26),),
+      value: const SystemUiOverlayStyle(
+        systemNavigationBarColor: Color.fromARGB(255, 0, 22, 26)
+      ),
       child: Scaffold(
         backgroundColor: customBlackColor,
         appBar: AppBar(
-          backgroundColor: customForegroundColor, foregroundColor: customWhite60Color,
+          backgroundColor: customForegroundColor,
+          foregroundColor: customWhite60Color,
           title: Builder(
             builder: (BuildContext context) {
               return Row(
@@ -35,8 +38,18 @@ class _ContactViewState extends State<ContactsView> {
                     child: !searchContacts? Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        CustomTextWidget(color: Colors.blueGrey.shade400, size: 20, fontWeight: FontWeight.w400, text: 'Select contact',),
-                        const CustomTextWidget(color: Colors.white, size: 14, fontWeight: FontWeight.w400, text: '954 contacts',)
+                        CustomTextWidget(
+                          color: Colors.blueGrey.shade400,
+                          size: 20,
+                          fontWeight: FontWeight.w400,
+                          text: 'Select contact',
+                        ),
+                        const CustomTextWidget(
+                          color: Colors.white,
+                          size: 14,
+                          fontWeight: FontWeight.w400,
+                          text: '954 contacts'
+                        )
                       ]
                     ): const TextField(
                       cursorColor: Color.fromARGB(255, 38, 165, 132),
@@ -53,21 +66,35 @@ class _ContactViewState extends State<ContactsView> {
             Builder(
               builder: (innerContext) {
                 return IconButton(
-                  icon: const FaIcon(FontAwesomeIcons.magnifyingGlass, size: 20, color: Colors.white), 
+                  icon: const FaIcon(
+                    FontAwesomeIcons.magnifyingGlass,
+                    size: 20,
+                    color: Colors.white
+                  ), 
                   onPressed: (){setState(() => searchContacts = true);}
                 );
               }
             ),
             PopupMenuButton(
               offset: const Offset(0, 50),
-              icon: const Icon(Icons.more_vert, color: Colors.white60),
+              icon: const Icon(
+                Icons.more_vert,
+                color: Colors.white60
+              ),
               color: const Color.fromARGB(255, 28, 45, 42),
               itemBuilder:(context) => [
                 PopupMenuItem(
                   value: 'Invite a friend', 
                   onTap: () async {
-                    await listApps(true).then((result) {
-                      ShowBottomSheet(context: context, applications: result, getInviteMessageApps: true).displayIcons();});
+                    await listApps(true).then(
+                      (result) {
+                        ShowBottomSheet(
+                          context: context,
+                          applications: result,
+                          getInviteMessageApps: true
+                        ).displayIcons();
+                      }
+                    );
                   },
                   child: const CustomTextWidget(color: Colors.white, size: 16, fontWeight: FontWeight.w400, text: 'Invite a friend')
                 ),
