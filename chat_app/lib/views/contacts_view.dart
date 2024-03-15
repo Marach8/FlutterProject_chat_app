@@ -96,22 +96,42 @@ class _ContactViewState extends State<ContactsView> {
                       }
                     );
                   },
-                  child: const CustomTextWidget(color: Colors.white, size: 16, fontWeight: FontWeight.w400, text: 'Invite a friend')
+                  child: const CustomTextWidget(
+                    color: Colors.white,
+                    size: 16,
+                    fontWeight: FontWeight.w400,
+                    text: 'Invite a friend'
+                  )
                 ),
                 PopupMenuItem(
                   value: 'Contacts',
                   onTap: () async{
                     await launchContactsApp();
                   },
-                  child: const CustomTextWidget(color: Colors.white, size: 16, fontWeight: FontWeight.w400, text: 'Contacts')
+                  child: const CustomTextWidget(
+                    color: Colors.white,
+                    size: 16,
+                    fontWeight: FontWeight.w400,
+                    text: 'Contacts'
+                  )
                 ),
                 const PopupMenuItem(
                   value: 'Refresh', 
-                  child: CustomTextWidget(color: Colors.white, size: 16, fontWeight: FontWeight.w400, text: 'Refresh')
+                  child: CustomTextWidget(
+                    color: Colors.white,
+                    size: 16,
+                    fontWeight: FontWeight.w400,
+                    text: 'Refresh'
+                  )
                 ),
                 const PopupMenuItem(
                   value: 'Help', 
-                  child: CustomTextWidget(color: Colors.white, size: 16, fontWeight: FontWeight.w400, text: 'Help')
+                  child: CustomTextWidget(
+                    color: Colors.white,
+                    size: 16,
+                    fontWeight: FontWeight.w400,
+                    text: 'Help'
+                  )
                 ),              
               ],
             )
@@ -123,7 +143,11 @@ class _ContactViewState extends State<ContactsView> {
           future: getContacts(),
           builder: (context, snapshot){
             if(snapshot.connectionState == ConnectionState.waiting){
-              return const Center(child: CircularProgressIndicator(color: Color.fromARGB(255, 38, 165, 132)));
+              return const Center(
+                child: CircularProgressIndicator(
+                  color: Color.fromARGB(255, 38, 165, 132)
+                )
+              );
             } 
             else {
               final List<Contact> listOfContacts = snapshot.data ?? [] ; 
@@ -135,10 +159,17 @@ class _ContactViewState extends State<ContactsView> {
                       return ListTile(
                         tileColor: const Color.fromARGB(255, 0, 22, 26),
                         contentPadding: const EdgeInsets.fromLTRB(10, 10, 0, 5),
-                        leading: const CustomCircleAvatar(radius: 20, color:Color.fromARGB(255, 38, 165, 132),
+                        leading: const CustomCircleAvatar(
+                          radius: 20,
+                          color:Color.fromARGB(255, 38, 165, 132),
                           child: Icon(Icons.people, color: Colors.white)
                         ),
-                        title: CustomTextWidget(color: Colors.blueGrey.shade400, size: 18, fontWeight: FontWeight.w400, text: 'New group')
+                        title: CustomTextWidget(
+                          color: Colors.blueGrey.shade400,
+                          size: 18,
+                          fontWeight: FontWeight.w400,
+                          text: 'New group'
+                        )
                       );
                     }
                     else if (index == 1){
